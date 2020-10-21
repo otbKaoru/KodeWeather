@@ -45,6 +45,7 @@ final class SearchViewController: UIViewController {
         let backgroundView = UIView()
         backgroundView.backgroundColor = StyleGuide.Colors.darkGrey
         tableView.backgroundView = backgroundView
+        tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.reuseIdentifier)
     }
 
     private func setupLayouts() {
@@ -69,10 +70,12 @@ extension SearchViewController: SearchViewInput {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
+        cell.configure(with: "Калининград")
+        return cell
     }
 }
