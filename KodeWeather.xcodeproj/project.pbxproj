@@ -14,6 +14,11 @@
 		78CB5DB1253FB34A00808522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CB5DB0253FB34A00808522 /* Assets.xcassets */; };
 		78CB5DB4253FB34A00808522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78CB5DB2253FB34A00808522 /* LaunchScreen.storyboard */; };
 		78CB5DD1253FBA1100808522 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DD0253FBA1100808522 /* NetworkService.swift */; };
+		78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DD7253FBC0800808522 /* SearchConfigurator.swift */; };
+		78CB5DDC253FBC1900808522 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DDB253FBC1900808522 /* SearchPresenter.swift */; };
+		78CB5DDF253FBC3200808522 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DDE253FBC3200808522 /* SearchViewController.swift */; };
+		78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE1253FBC4B00808522 /* SearchViewInput.swift */; };
+		78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		78CB5DB3253FB34A00808522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78CB5DB5253FB34A00808522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78CB5DD0253FBA1100808522 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		78CB5DD7253FBC0800808522 /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
+		78CB5DDB253FBC1900808522 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		78CB5DDE253FBC3200808522 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		78CB5DE1253FBC4B00808522 /* SearchViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewInput.swift; sourceTree = "<group>"; };
+		78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewOutput.swift; sourceTree = "<group>"; };
 		B79B231E68DDAD79E9BC128C /* Pods-KodeWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.debug.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		C58676A333472D3EA7623450 /* libPods-KodeWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KodeWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +97,7 @@
 		78CB5DBE253FB4FB00808522 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				78CB5DD3253FBB3200808522 /* Search */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -136,6 +147,42 @@
 				78CB5DB5253FB34A00808522 /* Info.plist */,
 			);
 			path = Plists;
+			sourceTree = "<group>";
+		};
+		78CB5DD3253FBB3200808522 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DD6253FBB7F00808522 /* Configurator */,
+				78CB5DD5253FBB6B00808522 /* Presenter */,
+				78CB5DD4253FBB6000808522 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		78CB5DD4253FBB6000808522 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DDE253FBC3200808522 /* SearchViewController.swift */,
+				78CB5DE1253FBC4B00808522 /* SearchViewInput.swift */,
+				78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78CB5DD5253FBB6B00808522 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DDB253FBC1900808522 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78CB5DD6253FBB7F00808522 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DD7253FBC0800808522 /* SearchConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		83F065EF7D8CF295066A8557 /* Pods */ = {
@@ -242,7 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */,
+				78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */,
+				78CB5DDF253FBC3200808522 /* SearchViewController.swift in Sources */,
 				78CB5DAC253FB34900808522 /* ViewController.swift in Sources */,
+				78CB5DDC253FBC1900808522 /* SearchPresenter.swift in Sources */,
+				78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */,
 				78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */,
 				78CB5DD1253FBA1100808522 /* NetworkService.swift in Sources */,
 				78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */,
