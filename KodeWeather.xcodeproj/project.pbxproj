@@ -29,6 +29,7 @@
 		78CB5E202540BE1800808522 /* WeatherViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E1F2540BE1800808522 /* WeatherViewOutput.swift */; };
 		78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E222540BE2300808522 /* WeatherPresenter.swift */; };
 		78CB5E262540BE2C00808522 /* WeatherConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E252540BE2C00808522 /* WeatherConfigurator.swift */; };
+		78CB5E292540BFFB00808522 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E282540BFFB00808522 /* WeatherService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		78CB5E1F2540BE1800808522 /* WeatherViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewOutput.swift; sourceTree = "<group>"; };
 		78CB5E222540BE2300808522 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		78CB5E252540BE2C00808522 /* WeatherConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConfigurator.swift; sourceTree = "<group>"; };
+		78CB5E282540BFFB00808522 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		B79B231E68DDAD79E9BC128C /* Pods-KodeWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.debug.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		C58676A333472D3EA7623450 /* libPods-KodeWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KodeWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				78CB5DD0253FBA1100808522 /* NetworkService.swift */,
+				78CB5E282540BFFB00808522 /* WeatherService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78CB5E292540BFFB00808522 /* WeatherService.swift in Sources */,
 				78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */,
 				78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */,
 				78CB5E172540BDF100808522 /* WeatherViewController.swift in Sources */,
