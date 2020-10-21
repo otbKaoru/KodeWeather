@@ -20,14 +20,20 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = StyleGuide.Colors.darkGrey
         setupSearchController()
         setupTableView()
         setupLayouts()
     }
 
     private func setupSearchController() {
-        searchController.searchBar.barStyle = .black
-        searchController.searchBar.backgroundColor = .black
+        searchController.searchBar.barTintColor = StyleGuide.Colors.darkGrey
+        searchController.searchBar.placeholder = Localization.Search.searchBarPlaceholder
+        searchController.searchBar.tintColor = StyleGuide.Colors.white
+        if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = StyleGuide.Colors.defaultTextColor
+        }
+        searchController.searchBar.setValue(Localization.Search.searchBarCancelButtonText, forKey:"cancelButtonText")
     }
 
     private func setupTableView() {
@@ -35,7 +41,7 @@ final class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableHeaderView = searchController.searchBar
-        tableView.backgroundColor = UIColor(hex: "#1E1E1E")
+        tableView.backgroundColor = StyleGuide.Colors.darkGrey
     }
 
     private func setupLayouts() {

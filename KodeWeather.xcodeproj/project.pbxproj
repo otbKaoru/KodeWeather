@@ -21,6 +21,7 @@
 		78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */; };
 		78CB5DE8253FC6EA00808522 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE7253FC6EA00808522 /* UIColor+Hex.swift */; };
 		78CB5DEC253FC79400808522 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DEB253FC79400808522 /* StyleGuide.swift */; };
+		78CB5DF0253FD0FF00808522 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DEF253FD0FF00808522 /* Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewOutput.swift; sourceTree = "<group>"; };
 		78CB5DE7253FC6EA00808522 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		78CB5DEB253FC79400808522 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		78CB5DEF253FD0FF00808522 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		B79B231E68DDAD79E9BC128C /* Pods-KodeWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.debug.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		C58676A333472D3EA7623450 /* libPods-KodeWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KodeWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				78CB5DEB253FC79400808522 /* StyleGuide.swift */,
+				78CB5DEF253FD0FF00808522 /* Localization.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			files = (
 				78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */,
 				78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */,
+				78CB5DF0253FD0FF00808522 /* Localization.swift in Sources */,
 				78CB5DDF253FBC3200808522 /* SearchViewController.swift in Sources */,
 				78CB5DAC253FB34900808522 /* ViewController.swift in Sources */,
 				78CB5DDC253FBC1900808522 /* SearchPresenter.swift in Sources */,
