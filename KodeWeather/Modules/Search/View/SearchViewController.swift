@@ -40,8 +40,11 @@ final class SearchViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         tableView.tableHeaderView = searchController.searchBar
-        tableView.backgroundColor = StyleGuide.Colors.darkGrey
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = StyleGuide.Colors.darkGrey
+        tableView.backgroundView = backgroundView
     }
 
     private func setupLayouts() {
@@ -72,6 +75,4 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-
-
 }
