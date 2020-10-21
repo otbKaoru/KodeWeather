@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MapKit
 
 final class SearchViewController: UIViewController {
 
