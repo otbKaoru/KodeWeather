@@ -8,5 +8,5 @@
 protocol WeatherServiceProtocol {
 }
 
-class  WeatherService: WeatherServiceProtocol {
+final class  WeatherService: WeatherServiceProtocol {
 }
