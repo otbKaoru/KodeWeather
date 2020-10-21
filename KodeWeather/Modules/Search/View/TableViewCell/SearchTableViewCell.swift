@@ -5,10 +5,6 @@
 //  Created by Igor Podolskiy on 21.10.2020.
 //
 
-
-
-
-
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {

@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let configurator = SearchConfigurator()
         let viewController = configurator.configure()
+        UITextField.appearance().keyboardAppearance = .dark
         window?.rootViewController = viewController // associate VC as root VC
         window?.makeKeyAndVisible() // Shows the window and makes it the key window.
         window?.windowScene = windowScene

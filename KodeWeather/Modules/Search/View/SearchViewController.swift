@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 final class SearchViewController: UIViewController {
 
@@ -27,6 +28,7 @@ final class SearchViewController: UIViewController {
     }
 
     private func setupSearchController() {
+        
         searchController.searchBar.barTintColor = StyleGuide.Colors.darkGrey
         searchController.searchBar.placeholder = Localization.Search.searchBarPlaceholder
         searchController.searchBar.tintColor = StyleGuide.Colors.white

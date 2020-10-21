@@ -24,6 +24,11 @@
 		78CB5DF0253FD0FF00808522 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DEF253FD0FF00808522 /* Localization.swift */; };
 		78CB5DF4253FDEE500808522 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DF3253FDEE500808522 /* SearchTableViewCell.swift */; };
 		78CB5DF9253FE11600808522 /* UITableViewCell + reuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DF8253FE11600808522 /* UITableViewCell + reuseIdentifier.swift */; };
+		78CB5E172540BDF100808522 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E162540BDF100808522 /* WeatherViewController.swift */; };
+		78CB5E1C2540BE0900808522 /* WeatherViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E1B2540BE0900808522 /* WeatherViewInput.swift */; };
+		78CB5E202540BE1800808522 /* WeatherViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E1F2540BE1800808522 /* WeatherViewOutput.swift */; };
+		78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E222540BE2300808522 /* WeatherPresenter.swift */; };
+		78CB5E262540BE2C00808522 /* WeatherConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5E252540BE2C00808522 /* WeatherConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		78CB5DEF253FD0FF00808522 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		78CB5DF3253FDEE500808522 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		78CB5DF8253FE11600808522 /* UITableViewCell + reuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + reuseIdentifier.swift"; sourceTree = "<group>"; };
+		78CB5E162540BDF100808522 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		78CB5E1B2540BE0900808522 /* WeatherViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewInput.swift; sourceTree = "<group>"; };
+		78CB5E1F2540BE1800808522 /* WeatherViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewOutput.swift; sourceTree = "<group>"; };
+		78CB5E222540BE2300808522 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
+		78CB5E252540BE2C00808522 /* WeatherConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConfigurator.swift; sourceTree = "<group>"; };
 		B79B231E68DDAD79E9BC128C /* Pods-KodeWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.debug.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		C58676A333472D3EA7623450 /* libPods-KodeWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KodeWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +118,7 @@
 		78CB5DBE253FB4FB00808522 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				78CB5E112540BDAE00808522 /* Weather */,
 				78CB5DD3253FBB3200808522 /* Search */,
 			);
 			path = Modules;
@@ -216,6 +227,42 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		78CB5E112540BDAE00808522 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5E152540BDDA00808522 /* Configurator */,
+				78CB5E142540BDD400808522 /* Presenter */,
+				78CB5E132540BDCD00808522 /* View */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		78CB5E132540BDCD00808522 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5E162540BDF100808522 /* WeatherViewController.swift */,
+				78CB5E1B2540BE0900808522 /* WeatherViewInput.swift */,
+				78CB5E1F2540BE1800808522 /* WeatherViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78CB5E142540BDD400808522 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5E222540BE2300808522 /* WeatherPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78CB5E152540BDDA00808522 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5E252540BE2C00808522 /* WeatherConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		83F065EF7D8CF295066A8557 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,17 +368,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */,
+				78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */,
+				78CB5E172540BDF100808522 /* WeatherViewController.swift in Sources */,
 				78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */,
 				78CB5DF0253FD0FF00808522 /* Localization.swift in Sources */,
 				78CB5DDF253FBC3200808522 /* SearchViewController.swift in Sources */,
 				78CB5DAC253FB34900808522 /* ViewController.swift in Sources */,
 				78CB5DDC253FBC1900808522 /* SearchPresenter.swift in Sources */,
+				78CB5E262540BE2C00808522 /* WeatherConfigurator.swift in Sources */,
 				78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */,
 				78CB5DF9253FE11600808522 /* UITableViewCell + reuseIdentifier.swift in Sources */,
 				78CB5DEC253FC79400808522 /* StyleGuide.swift in Sources */,
 				78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */,
 				78CB5DD1253FBA1100808522 /* NetworkService.swift in Sources */,
+				78CB5E1C2540BE0900808522 /* WeatherViewInput.swift in Sources */,
 				78CB5DF4253FDEE500808522 /* SearchTableViewCell.swift in Sources */,
+				78CB5E202540BE1800808522 /* WeatherViewOutput.swift in Sources */,
 				78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */,
 				78CB5DE8253FC6EA00808522 /* UIColor+Hex.swift in Sources */,
 			);
