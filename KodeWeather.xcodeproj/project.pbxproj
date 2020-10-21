@@ -19,6 +19,7 @@
 		78CB5DDF253FBC3200808522 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DDE253FBC3200808522 /* SearchViewController.swift */; };
 		78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE1253FBC4B00808522 /* SearchViewInput.swift */; };
 		78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */; };
+		78CB5DE8253FC6EA00808522 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DE7253FC6EA00808522 /* UIColor+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		78CB5DDE253FBC3200808522 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		78CB5DE1253FBC4B00808522 /* SearchViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewInput.swift; sourceTree = "<group>"; };
 		78CB5DE4253FBC5700808522 /* SearchViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewOutput.swift; sourceTree = "<group>"; };
+		78CB5DE7253FC6EA00808522 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B79B231E68DDAD79E9BC128C /* Pods-KodeWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.debug.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		C58676A333472D3EA7623450 /* libPods-KodeWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KodeWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 		78CB5DC0253FB51200808522 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				78CB5DE7253FC6EA00808522 /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */,
 				78CB5DD1253FBA1100808522 /* NetworkService.swift in Sources */,
 				78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */,
+				78CB5DE8253FC6EA00808522 /* UIColor+Hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
