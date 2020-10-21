@@ -35,7 +35,7 @@ final class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableHeaderView = searchController.searchBar
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = UIColor(hex: "#1E1E1E")
     }
 
     private func setupLayouts() {
