@@ -54,14 +54,70 @@
 		78CB5DA6253FB34900808522 /* KodeWeather */ = {
 			isa = PBXGroup;
 			children = (
+				78CB5DC3253FB52A00808522 /* Resources */,
+				78CB5DC1253FB51500808522 /* Services */,
+				78CB5DC0253FB51200808522 /* Extensions */,
+				78CB5DBF253FB50100808522 /* Models */,
+				78CB5DBE253FB4FB00808522 /* Modules */,
 				78CB5DA7253FB34900808522 /* AppDelegate.swift */,
 				78CB5DA9253FB34900808522 /* SceneDelegate.swift */,
 				78CB5DAB253FB34900808522 /* ViewController.swift */,
-				78CB5DB0253FB34A00808522 /* Assets.xcassets */,
 				78CB5DB2253FB34A00808522 /* LaunchScreen.storyboard */,
-				78CB5DB5253FB34A00808522 /* Info.plist */,
 			);
 			path = KodeWeather;
+			sourceTree = "<group>";
+		};
+		78CB5DBE253FB4FB00808522 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		78CB5DBF253FB50100808522 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		78CB5DC0253FB51200808522 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		78CB5DC1253FB51500808522 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		78CB5DC3253FB52A00808522 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DC4253FB53400808522 /* Images */,
+				78CB5DC5253FB53C00808522 /* Plists */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		78CB5DC4253FB53400808522 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DB0253FB34A00808522 /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		78CB5DC5253FB53C00808522 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				78CB5DB5253FB34A00808522 /* Info.plist */,
+			);
+			path = Plists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -259,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -276,7 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DZ9WU6R332;
-				INFOPLIST_FILE = KodeWeather/Info.plist;
+				INFOPLIST_FILE = KodeWeather/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DZ9WU6R332;
-				INFOPLIST_FILE = KodeWeather/Info.plist;
+				INFOPLIST_FILE = KodeWeather/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
