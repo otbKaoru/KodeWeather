@@ -64,7 +64,7 @@ class WeatherForecastView: UIView {
     func configure(for date: Date, forecast: ForecastType) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "dd MMM yyyy"
         dateLabel.text = forecast.localization + " \(dateFormatter.string(from: date))"
         }
 }

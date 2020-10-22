@@ -123,6 +123,15 @@ extension  WeatherViewController: WeatherViewInput {
         locationNameLabel.text = name
     }
 
+    func setForecastViewDate(date: Date, forecast: ForecastType) {
+        if forecast == .today {
+            todayWeatherView.configure(for: date, forecast: forecast)
+        }
+        if forecast == .tomorrow {
+            tomorrowWeatherView.configure(for: date, forecast: forecast)
+        }
+    }
+
 }
 
 // MARK: - UICollectionViewDelegate & DataSource

@@ -24,9 +24,10 @@ final class WeatherPresenter {
         }
         let days = weatherService.getDataDays(data: data)
         if days.indices.count >= 2 {
-            todayWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[0])
-            tomorrowWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[1])
-
+            view?.setForecastViewDate(date: days[0], forecast: .today)
+            view?.setForecastViewDate(date: days[1], forecast: .tomorrow)
+            todayWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[0].day())
+            tomorrowWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[1].day())
         }
         view?.reloadCollectionViewData()
     }
