@@ -81,6 +81,12 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
         timeLabel.text = time
         weatherLabel.text = weather
     }
+
+    func configure(with viewModel: WeatherCellViewModel)  {
+        weatherImageView.image = UIImage(named: viewModel.imageName)
+        timeLabel.text = viewModel.hour
+        weatherLabel.text = viewModel.description
+    }
     
 }
 

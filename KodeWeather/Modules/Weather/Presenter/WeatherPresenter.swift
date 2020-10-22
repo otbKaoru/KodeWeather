@@ -27,8 +27,7 @@ final class WeatherPresenter {
             todayWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[0])
             tomorrowWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[1])
         }
-        print(todayWeatherViewModels)
-        print(tomorrowWeatherViewModels)
+        view?.reloadCollectionViewData()
     }
 
     private func viewModelsFromDataForDay(data: WeatherResponse?, day: Int) -> [WeatherCellViewModel] {
@@ -43,8 +42,8 @@ final class WeatherPresenter {
             if dataDay == day {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
-                let hourString = formatter.string(from: date) // "12 AM"
-                viewmodels.append(WeatherCellViewModel(imageName: "", description: hourly.weather.description, hour: hourString))
+                let hourString = formatter.string(from: date) 
+                viewmodels.append(WeatherCellViewModel(imageName: "sunBehindCloud", description: hourly.weather.description, hour: hourString))
             }
 
         }
@@ -63,5 +62,15 @@ extension WeatherPresenter: WeatherViewOutput {
                 print(error)
             }
         }
+    }
+
+    func todayCellViewModel(for indexPath: IndexPath) -> WeatherCellViewModel? {
+        guard todayWeatherViewModels.count > indexPath.row else { return nil}
+        return todayWeatherViewModels[indexPath.row]
+    }
+
+    func tomorrowCellViewModel(for indexPath: IndexPath) -> WeatherCellViewModel? {
+        guard tomorrowWeatherViewModels.count > indexPath.row else { return nil}
+        return tomorrowWeatherViewModels[indexPath.row]
     }
 }

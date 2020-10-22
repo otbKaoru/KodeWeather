@@ -6,5 +6,5 @@
 //
 
 protocol WeatherViewInput: class {
-
+    func reloadCollectionViewData()
 }

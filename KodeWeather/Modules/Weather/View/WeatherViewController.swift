@@ -113,19 +113,42 @@ final class WeatherViewController: UIViewController {
 // MARK: - WeatherViewInput
 
 extension  WeatherViewController: WeatherViewInput {
-
+    func reloadCollectionViewData() {
+        DispatchQueue.main.async {
+            self.todayWeatherView.collectionView.reloadData()
+            self.tomorrowWeatherView.collectionView.reloadData()
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegate & DataSource
 
 extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == todayWeatherView.collectionView {
+            return 1
+        }
+        if collectionView == tomorrowWeatherView.collectionView {
+            return 1
+        }
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier, for: indexPath) as! WeatherCollectionViewCell
-        cell.configure(image: UIImage(named: "sunBehindCloud"), time: "13:00", weather: "Облачно")
+
+        if collectionView == todayWeatherView.collectionView {
+            if let viewModel = output?.todayCellViewModel(for: indexPath) {
+                cell.configure(with: viewModel)
+                return cell
+            }
+        }
+        if collectionView == tomorrowWeatherView.collectionView {
+            if let viewModel = output?.tomorrowCellViewModel(for: indexPath) {
+                cell.configure(with: viewModel)
+                return cell
+            }
+        }
         return cell
     }
 }
