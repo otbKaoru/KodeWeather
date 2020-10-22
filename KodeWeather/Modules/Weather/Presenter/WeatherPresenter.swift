@@ -43,8 +43,11 @@ final class WeatherPresenter {
             if dataDay == day {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
-                let hourString = formatter.string(from: date) 
-                viewmodels.append(WeatherCellViewModel(imageName: "sunBehindCloud", description: hourly.weather.description, hour: hourString))
+                let hourString = formatter.string(from: date)
+                let descripiton = hourly.weather.indices.count > 0
+                    ? hourly.weather[0].description
+                    : ""
+                viewmodels.append(WeatherCellViewModel(imageName: "sunBehindCloud", description: descripiton, hour: hourString))
             }
 
         }
