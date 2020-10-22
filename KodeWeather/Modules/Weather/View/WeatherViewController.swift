@@ -26,19 +26,8 @@ final class WeatherViewController: UIViewController {
         return label
     }()
 
-    private let todayWeatherCollectionView: UICollectionView = {
-        let viewLayout = UICollectionViewFlowLayout()
-        viewLayout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
-        return collectionView
-    }()
-
-    private let tomorrowWeatherCollectionView: UICollectionView = {
-        let viewLayout = UICollectionViewFlowLayout()
-        viewLayout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
-        return collectionView
-    }()
+    private let todayWeatherView = WeatherView()
+    private let tomorrowWeatherView = WeatherView()
 
     // MARK: - UIViewController
 
@@ -46,8 +35,8 @@ final class WeatherViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = StyleGuide.Colors.darkGray
         setupViews()
-        setupWeatherCollectionView(collectionView: todayWeatherCollectionView)
-        setupWeatherCollectionView(collectionView: tomorrowWeatherCollectionView)
+        setupWeatherView(weatherView: todayWeatherView)
+        setupWeatherView(weatherView: tomorrowWeatherView)
         setupMapView()
         setupLayouts()
     }
@@ -56,13 +45,11 @@ final class WeatherViewController: UIViewController {
         view.addSubview(locationNameLabel)
     }
 
-    private func setupWeatherCollectionView(collectionView: UICollectionView) {
-        view.addSubview(collectionView)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = StyleGuide.Colors.darkGray
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier)
+    private func setupWeatherView(weatherView: WeatherView) {
+        view.addSubview(weatherView)
+        weatherView.collectionView.dataSource = self
+        weatherView.collectionView.delegate = self
+        weatherView.collectionView.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier)
     }
 
     private func setupMapView() {
@@ -72,8 +59,8 @@ final class WeatherViewController: UIViewController {
     private func setupLayouts() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         locationNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        todayWeatherCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        tomorrowWeatherCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        todayWeatherView.translatesAutoresizingMaskIntoConstraints = false
+        tomorrowWeatherView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -89,17 +76,17 @@ final class WeatherViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            todayWeatherCollectionView.topAnchor.constraint(equalTo: locationNameLabel.bottomAnchor),
-            todayWeatherCollectionView.heightAnchor.constraint(equalToConstant: 140),
-            todayWeatherCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            todayWeatherCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            todayWeatherView.topAnchor.constraint(equalTo: locationNameLabel.bottomAnchor),
+            todayWeatherView.heightAnchor.constraint(equalToConstant: 140),
+            todayWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            todayWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            tomorrowWeatherCollectionView.topAnchor.constraint(equalTo: todayWeatherCollectionView.bottomAnchor),
-            tomorrowWeatherCollectionView.heightAnchor.constraint(equalToConstant: 140),
-            tomorrowWeatherCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tomorrowWeatherCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            tomorrowWeatherView.topAnchor.constraint(equalTo: todayWeatherView.bottomAnchor),
+            tomorrowWeatherView.heightAnchor.constraint(equalToConstant: 140),
+            tomorrowWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tomorrowWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
 }
