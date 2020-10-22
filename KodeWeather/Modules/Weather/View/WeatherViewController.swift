@@ -126,10 +126,10 @@ extension  WeatherViewController: WeatherViewInput {
 extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == todayWeatherView.collectionView {
-            return 1
+            return output?.numberOfRows(forecast: .today) ?? 0
         }
         if collectionView == tomorrowWeatherView.collectionView {
-            return 1
+            return output?.numberOfRows(forecast: .tomorrow) ?? 0
         }
         return 0
     }
@@ -138,13 +138,13 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier, for: indexPath) as! WeatherCollectionViewCell
 
         if collectionView == todayWeatherView.collectionView {
-            if let viewModel = output?.todayCellViewModel(for: indexPath) {
+            if let viewModel = output?.cellViewModel(for: indexPath, forecast: .today) {
                 cell.configure(with: viewModel)
                 return cell
             }
         }
         if collectionView == tomorrowWeatherView.collectionView {
-            if let viewModel = output?.tomorrowCellViewModel(for: indexPath) {
+            if let viewModel = output?.cellViewModel(for: indexPath, forecast: .tomorrow) {
                 cell.configure(with: viewModel)
                 return cell
             }

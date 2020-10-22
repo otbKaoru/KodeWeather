@@ -26,6 +26,7 @@ final class WeatherPresenter {
         if days.indices.count >= 2 {
             todayWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[0])
             tomorrowWeatherViewModels = viewModelsFromDataForDay(data: data, day: days[1])
+
         }
         view?.reloadCollectionViewData()
     }
@@ -64,13 +65,22 @@ extension WeatherPresenter: WeatherViewOutput {
         }
     }
 
-    func todayCellViewModel(for indexPath: IndexPath) -> WeatherCellViewModel? {
-        guard todayWeatherViewModels.count > indexPath.row else { return nil}
-        return todayWeatherViewModels[indexPath.row]
+    func cellViewModel(for indexPath: IndexPath, forecast: ForecastType) -> WeatherCellViewModel? {
+        switch forecast {
+        case .today:
+            return todayWeatherViewModels[indexPath.row]
+        case .tomorrow:
+            return tomorrowWeatherViewModels[indexPath.row]
+        }
+
     }
 
-    func tomorrowCellViewModel(for indexPath: IndexPath) -> WeatherCellViewModel? {
-        guard tomorrowWeatherViewModels.count > indexPath.row else { return nil}
-        return tomorrowWeatherViewModels[indexPath.row]
+    func numberOfRows(forecast: ForecastType) -> Int {
+        switch forecast {
+        case .today:
+            return todayWeatherViewModels.count
+        case .tomorrow:
+            return tomorrowWeatherViewModels.count
+        }
     }
 }

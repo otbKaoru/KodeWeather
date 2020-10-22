@@ -9,6 +9,6 @@ import Foundation
 
 protocol WeatherViewOutput {
     func viewLoaded()
-    func todayCellViewModel(for indexPath: IndexPath) -> WeatherCellViewModel?
-    func tomorrowCellViewModel(for indexPath: IndexPath) -> WeatherCellViewModel?
+    func cellViewModel(for indexPath: IndexPath, forecast: ForecastType) -> WeatherCellViewModel?
+    func numberOfRows(forecast: ForecastType) -> Int
 }
