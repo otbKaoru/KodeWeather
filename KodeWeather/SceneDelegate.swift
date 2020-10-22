@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        let configurator = SearchConfigurator()
+        let configurator = WeatherConfigurator()
         let viewController = configurator.configure()
         UITextField.appearance().keyboardAppearance = .dark
         window?.rootViewController = viewController // associate VC as root VC

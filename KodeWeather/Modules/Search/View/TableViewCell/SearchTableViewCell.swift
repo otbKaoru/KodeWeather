@@ -9,11 +9,6 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-    private enum CellOptions {
-        static let textLabelFonSize: CGFloat = 32
-        static let textLabelFontWeight: CGFloat = 800
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,5 +26,13 @@ class SearchTableViewCell: UITableViewCell {
 
     func configure(with text: String) {
         textLabel?.text = text
+    }
+}
+
+//MARK: - Constants
+extension SearchTableViewCell {
+    private enum CellOptions {
+        static let textLabelFonSize: CGFloat = 32
+        static let textLabelFontWeight: CGFloat = 800
     }
 }
