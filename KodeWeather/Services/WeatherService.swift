@@ -10,7 +10,7 @@ protocol WeatherServiceProtocol {
     func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void)
 }
 
-final class  WeatherService: WeatherServiceProtocol {
+final class  WeatherService {
     private let networkService: NetworkServiceProtocol = NetworkService()
 
     private func fetchData<T: Decodable>(API: String, parametres: [String: Any] = [:], completion: @escaping (Result<T?, NetworkError>) -> Void) {
@@ -25,7 +25,9 @@ final class  WeatherService: WeatherServiceProtocol {
             }
         }
     }
+}
 
+extension WeatherService: WeatherServiceProtocol {
     func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void) {
         let parametres: [String: Any]
         parametres = ["lat":location.lat,
