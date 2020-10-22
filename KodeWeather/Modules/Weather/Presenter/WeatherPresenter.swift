@@ -69,21 +69,22 @@ extension WeatherPresenter: WeatherViewOutput {
     }
 
     func cellViewModel(for indexPath: IndexPath, forecast: ForecastType) -> WeatherCellViewModel? {
-        switch forecast {
-        case .today:
+        if forecast == .today {
             return todayWeatherViewModels[indexPath.row]
-        case .tomorrow:
+        }
+        if forecast == .tomorrow {
             return tomorrowWeatherViewModels[indexPath.row]
         }
-
+        return nil
     }
 
     func numberOfRows(forecast: ForecastType) -> Int {
-        switch forecast {
-        case .today:
+        if forecast == .today {
             return todayWeatherViewModels.count
-        case .tomorrow:
+        }
+        if forecast == .tomorrow {
             return tomorrowWeatherViewModels.count
         }
+        return 0
     }
 }

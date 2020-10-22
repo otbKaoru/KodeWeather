@@ -22,7 +22,6 @@ class WeatherForecastView: UIView {
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: ViewOptions.dateLabelFontSize)
         label.textColor = StyleGuide.Colors.middleGrayTextColor
-        label.text = "Сегодня, 26 янв 2020"
         return label
     }()
 
@@ -61,6 +60,13 @@ class WeatherForecastView: UIView {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+
+    func configure(for date: Date, forecast: ForecastType) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateLabel.text = forecast.localization + " \(dateFormatter.string(from: date))"
+        }
 }
 
 //MARK: - Constants

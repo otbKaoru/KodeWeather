@@ -12,5 +12,7 @@ enum Localization {
     }
     enum Weather {
         static let sightButtonTitle = "Достопримечетальности"
+        static let todayForecast = "Сегодня"
+        static let tomorrowForecast = "Завтра"
     }
 }
