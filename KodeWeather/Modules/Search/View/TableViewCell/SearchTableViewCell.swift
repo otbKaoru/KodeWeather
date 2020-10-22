@@ -19,7 +19,7 @@ class SearchTableViewCell: UITableViewCell {
     }
 
     private func setup() {
-        contentView.backgroundColor = StyleGuide.Colors.darkGrey
+        contentView.backgroundColor = StyleGuide.Colors.darkGray
         textLabel?.textColor = StyleGuide.Colors.defaultTextColor
         textLabel?.font = UIFont.systemFont(ofSize: CellOptions.textLabelFonSize, weight: .init(rawValue: CellOptions.textLabelFontWeight))
     }

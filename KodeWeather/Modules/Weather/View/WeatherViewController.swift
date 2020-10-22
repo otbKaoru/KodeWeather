@@ -15,7 +15,14 @@ final class WeatherViewController: UIViewController {
 
     private let todayWeatherCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
-        viewLayout.scrollDirection = .vertical
+        viewLayout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+        return collectionView
+    }()
+
+    private let tomorrowWeatherCollectionView: UICollectionView = {
+        let viewLayout = UICollectionViewFlowLayout()
+        viewLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         return collectionView
     }()
@@ -24,27 +31,37 @@ final class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = StyleGuide.Colors.darkGrey
-        setupCollectionViews()
+        view.backgroundColor = StyleGuide.Colors.darkGray
+        setupWeatherCollectionView(collectionView: todayWeatherCollectionView)
+        setupWeatherCollectionView(collectionView: tomorrowWeatherCollectionView)
         setupLayouts()
     }
 
-    private func setupCollectionViews() {
-        view.addSubview(todayWeatherCollectionView)
-        view.backgroundColor = StyleGuide.Colors.darkGrey
-        todayWeatherCollectionView.dataSource = self
-        todayWeatherCollectionView.delegate = self
-        todayWeatherCollectionView.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier)
+    private func setupWeatherCollectionView(collectionView: UICollectionView) {
+        view.addSubview(collectionView)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = StyleGuide.Colors.darkGray
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier)
     }
 
     private func setupLayouts() {
         todayWeatherCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        tomorrowWeatherCollectionView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             todayWeatherCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             todayWeatherCollectionView.heightAnchor.constraint(equalToConstant: 140),
             todayWeatherCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             todayWeatherCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            tomorrowWeatherCollectionView.topAnchor.constraint(equalTo: todayWeatherCollectionView.bottomAnchor),
+            tomorrowWeatherCollectionView.heightAnchor.constraint(equalToConstant: 140),
+            tomorrowWeatherCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tomorrowWeatherCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
 }
@@ -64,6 +81,7 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier, for: indexPath) as! WeatherCollectionViewCell
+        cell.configure(image: UIImage(named: "sunBehindCloud"), time: "13:00", weather: "Облачно")
         return cell
     }
 }

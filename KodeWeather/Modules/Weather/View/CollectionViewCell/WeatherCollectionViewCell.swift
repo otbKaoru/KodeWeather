@@ -7,11 +7,11 @@
 
 import UIKit
 
-class WeatherCollectionViewCell: UICollectionViewCell {
+final class WeatherCollectionViewCell: UICollectionViewCell {
 
     private let weatherImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
@@ -35,8 +35,6 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.layer.borderWidth = 10
-        contentView.layer.borderColor = UIColor.white.cgColor
         setupViews()
         setupLayouts()
     }
@@ -46,6 +44,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupViews() {
+        contentView.backgroundColor = StyleGuide.Colors.middleGray
+        contentView.layer.cornerRadius = CellOptions.contentViewLayerCornerRadius
         contentView.addSubview(weatherImageView)
         contentView.addSubview(timeLabel)
         contentView.addSubview(weatherLabel)
@@ -58,8 +58,9 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
         NSLayoutConstraint.activate([
             weatherImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            weatherImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            weatherImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            weatherImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutOptions.weatherImageTopPadding),
+            weatherImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            weatherImageView.heightAnchor.constraint(equalToConstant: LayoutOptions.weatherImageHeight)
         ])
 
         NSLayoutConstraint.activate([
@@ -74,6 +75,12 @@ class WeatherCollectionViewCell: UICollectionViewCell {
             weatherLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
+
+    func configure(image: UIImage?, time: String, weather: String) {
+        weatherImageView.image = image
+        timeLabel.text = time
+        weatherLabel.text = weather
+    }
     
 }
 
@@ -85,5 +92,11 @@ extension WeatherCollectionViewCell {
         static let timeLabelFontWeight: CGFloat = 400
         static let weatherLabelFontSize: CGFloat = 13
         static let weatherLabelFontWeight: CGFloat = 500
+        static let contentViewLayerCornerRadius: CGFloat = 8
+    }
+
+    private enum LayoutOptions {
+        static let weatherImageTopPadding: CGFloat = 16
+        static let weatherImageHeight: CGFloat = 40
     }
 }
