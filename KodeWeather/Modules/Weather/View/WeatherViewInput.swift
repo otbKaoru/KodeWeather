@@ -7,4 +7,5 @@
 
 protocol WeatherViewInput: class {
     func reloadCollectionViewData()
+    func setLocationName(name: String)
 }

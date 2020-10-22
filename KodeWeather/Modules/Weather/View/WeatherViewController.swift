@@ -22,7 +22,6 @@ final class WeatherViewController: UIViewController {
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: SubviewsOptions.locationLabelFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
-        label.text = "Калининград"
         return label
     }()
 
@@ -119,6 +118,11 @@ extension  WeatherViewController: WeatherViewInput {
             self.tomorrowWeatherView.collectionView.reloadData()
         }
     }
+
+    func setLocationName(name: String) {
+        locationNameLabel.text = name
+    }
+
 }
 
 // MARK: - UICollectionViewDelegate & DataSource

@@ -38,9 +38,7 @@ final class WeatherPresenter {
         }
         for hourly in data.hourlyForecast {
             let date = Date(timeIntervalSince1970: hourly.dateTime)
-            let calendar = Calendar.current
-            let dataDay = calendar.component(.day, from: date)
-            if dataDay == day {
+            if date.day() == day {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
                 let hourString = formatter.string(from: date)
@@ -58,6 +56,7 @@ final class WeatherPresenter {
 // MARK: - SearchViewOutput
 extension WeatherPresenter: WeatherViewOutput {
     func viewLoaded() {
+        view?.setLocationName(name: location.name)
         weatherService.fetchWeatherData(location: location ) { [weak self] (result) in
             switch result {
             case .success(let data):

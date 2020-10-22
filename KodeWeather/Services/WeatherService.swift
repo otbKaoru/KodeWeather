@@ -44,10 +44,8 @@ extension WeatherService: WeatherServiceProtocol {
         var daysArray: [Int] = []
         for hourly in data.hourlyForecast {
             let date = Date(timeIntervalSince1970: hourly.dateTime)
-            let calendar = Calendar.current
-            let day = calendar.component(.day, from: date)
-            if !daysArray.contains(day) {
-                daysArray.append(day)
+            if !daysArray.contains(date.day()) {
+                daysArray.append(date.day())
             }
         }
         return daysArray
