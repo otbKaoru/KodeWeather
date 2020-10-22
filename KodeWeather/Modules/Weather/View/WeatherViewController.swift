@@ -26,8 +26,8 @@ final class WeatherViewController: UIViewController {
         return label
     }()
 
-    private let todayWeatherView = WeatherView()
-    private let tomorrowWeatherView = WeatherView()
+    private let todayWeatherView = WeatherForecastView()
+    private let tomorrowWeatherView = WeatherForecastView()
 
     // MARK: - UIViewController
 
@@ -45,7 +45,7 @@ final class WeatherViewController: UIViewController {
         view.addSubview(locationNameLabel)
     }
 
-    private func setupWeatherView(weatherView: WeatherView) {
+    private func setupWeatherView(weatherView: WeatherForecastView) {
         view.addSubview(weatherView)
         weatherView.collectionView.dataSource = self
         weatherView.collectionView.delegate = self
