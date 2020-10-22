@@ -64,6 +64,7 @@ final class WeatherViewController: UIViewController {
 
     private func setupMapView() {
         view.addSubview(mapView)
+        mapView.isUserInteractionEnabled = false
         mapView.delegate = self
     }
 
@@ -139,6 +140,7 @@ extension  WeatherViewController: WeatherViewInput {
         mapView.setRegion(coordinateRegion, animated: false)
         let annotation = MKPointAnnotation()
         annotation.coordinate = cooridnate
+        annotation.title = location.name
         mapView.addAnnotation(annotation)
     }
 

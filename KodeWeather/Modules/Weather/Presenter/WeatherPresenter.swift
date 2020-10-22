@@ -46,7 +46,7 @@ final class WeatherPresenter {
                 let descripiton = hourly.weather.indices.count > 0
                     ? hourly.weather[0].description
                     : ""
-                viewmodels.append(WeatherCellViewModel(imageName: "sunBehindCloud", description: descripiton, hour: hourString))
+                viewmodels.append(WeatherCellViewModel(imageName: "moon", description: descripiton, hour: hourString))
             }
 
         }
