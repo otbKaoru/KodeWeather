@@ -13,7 +13,7 @@ final class WeatherPresenter {
 
     weak var view: WeatherViewInput?
     private let weatherService: WeatherServiceProtocol = WeatherService()
-    private let location = Location(name: "San-Fransisco", lat: 33.441792, lon: -94.037689)
+    private let location = Location(name: "Калиниград", lat: 54.70649, lon: 20.51095)
 
     private var todayWeatherViewModels: [WeatherCellViewModel] = []
     private var tomorrowWeatherViewModels: [WeatherCellViewModel] = []
@@ -58,6 +58,7 @@ final class WeatherPresenter {
 extension WeatherPresenter: WeatherViewOutput {
     func viewLoaded() {
         view?.setLocationName(name: location.name)
+        view?.configureMap(location: location)
         weatherService.fetchWeatherData(location: location ) { [weak self] (result) in
             switch result {
             case .success(let data):

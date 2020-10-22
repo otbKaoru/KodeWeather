@@ -64,6 +64,7 @@ final class WeatherViewController: UIViewController {
 
     private func setupMapView() {
         view.addSubview(mapView)
+        mapView.delegate = self
     }
 
     private func setupLayouts() {
@@ -132,6 +133,15 @@ extension  WeatherViewController: WeatherViewInput {
         }
     }
 
+    func configureMap(location: Location) {
+        let cooridnate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)
+        let coordinateRegion = MKCoordinateRegion(center: cooridnate, span: MKCoordinateSpan(latitudeDelta: SubviewsOptions.mapDelta, longitudeDelta: SubviewsOptions.mapDelta))
+        mapView.setRegion(coordinateRegion, animated: false)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = cooridnate
+        mapView.addAnnotation(annotation)
+    }
+
 }
 
 // MARK: - UICollectionViewDelegate & DataSource
@@ -172,12 +182,28 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - MKMapViewDelegate
+
+extension WeatherViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationReuseIdentifier = "anotationView"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationReuseIdentifier)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseIdentifier)
+        }
+        annotationView?.image = UIImage(named: "mapPin")
+        annotationView?.centerOffset =  CGPoint(x: 0, y: -(annotationView?.frame.height ?? 0)/2)
+        return annotationView
+    }
+}
+
 // MARK: - Constants
 
 extension WeatherViewController {
     private enum SubviewsOptions {
         static let locationLabelFontSize: CGFloat = 32
         static let sightButtinCornetRadius: CGFloat = 12
+        static let mapDelta: Double = 5
     }
 
     private enum LayoutOptions {
