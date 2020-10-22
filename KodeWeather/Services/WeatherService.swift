@@ -7,7 +7,7 @@
 import Foundation
 
 protocol WeatherServiceProtocol {
-    func fetchWeatherData(country: String, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void)
+    func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void)
 }
 
 final class  WeatherService: WeatherServiceProtocol {
@@ -26,10 +26,14 @@ final class  WeatherService: WeatherServiceProtocol {
         }
     }
 
-    func fetchWeatherData(country: String, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void) {
+    func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void) {
         let parametres: [String: Any]
-        parametres = ["lat":33.441792,"lon":-94.037689,"exclude":"current,minutely,daily,alerts",
-                      "lang":"ru","units":"metric","appid":"2db3c57ff9b75e40ba734e02ba73aa25"]
+        parametres = ["lat":location.lat,
+                      "lon":location.lon,
+                      "exclude":RequestOptions.exclude,
+                      "lang":RequestOptions.lang,
+                      "units":RequestOptions.units,
+                      "appid":RequestOptions.appid]
         fetchData(API:  ApiURL.openWeather, parametres: parametres, completion: completion)
     }
 }
@@ -38,5 +42,12 @@ final class  WeatherService: WeatherServiceProtocol {
 extension WeatherService {
     private enum ApiURL {
         static let openWeather = "https://api.openweathermap.org/data/2.5/onecall?"
+    }
+
+    private enum RequestOptions {
+        static let lang = "ru"
+        static let units = "metric"
+        static let exclude = "current,minutely,daily,alerts"
+        static let appid = "2db3c57ff9b75e40ba734e02ba73aa25"
     }
 }

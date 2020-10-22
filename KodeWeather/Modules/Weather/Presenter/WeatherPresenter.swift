@@ -16,10 +16,13 @@ final class WeatherPresenter {
 // MARK: - SearchViewOutput
 extension WeatherPresenter: WeatherViewOutput {
     func viewLoaded() {
-        weatherService.fetchWeatherData(country: "") { (result) in
+        weatherService.fetchWeatherData(location: Location(name: "San-Fransisco", lat: 33.441792, lon: -94.037689)) { (result) in
             switch result {
             case .success(let data):
-                print(data)
+                if let data = data {
+                    print(data)
+                }
+
             case .failure(let error):
                 print(error)
             }
