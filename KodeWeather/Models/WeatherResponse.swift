@@ -14,7 +14,7 @@ struct WeatherResponse: Decodable {
 }
 
 struct Hourly: Decodable  {
-    let dateTime: Int
+    let dateTime: Double
     let weather: [Weather]
 
     enum CodingKeys: String, CodingKey {

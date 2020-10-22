@@ -8,9 +8,10 @@ import Foundation
 
 protocol WeatherServiceProtocol {
     func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void)
+    func getDataDays(data: WeatherResponse) -> [Int]
 }
 
-final class  WeatherService {
+final class WeatherService {
     private let networkService: NetworkServiceProtocol = NetworkService()
 
     private func fetchData<T: Decodable>(API: String, parametres: [String: Any] = [:], completion: @escaping (Result<T?, NetworkError>) -> Void) {
@@ -37,6 +38,19 @@ extension WeatherService: WeatherServiceProtocol {
                       "units":RequestOptions.units,
                       "appid":RequestOptions.appid]
         fetchData(API:  ApiURL.openWeather, parametres: parametres, completion: completion)
+    }
+
+    func getDataDays(data: WeatherResponse) -> [Int] {
+        var daysArray: [Int] = []
+        for hourly in data.hourlyForecast {
+            let date = Date(timeIntervalSince1970: hourly.dateTime)
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            if !daysArray.contains(day) {
+                daysArray.append(day)
+            }
+        }
+        return daysArray
     }
 }
 
