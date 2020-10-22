@@ -13,5 +13,6 @@ enum StyleGuide {
         static let middleGray = UIColor(red: 1, green: 1, blue: 1, alpha: 0.16)
         static let white = UIColor(hex: "#FFFFFF")
         static let defaultTextColor = UIColor(hex: "#FFFFFF")
+        static let middleGrayTextColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.48)
     }
 }
