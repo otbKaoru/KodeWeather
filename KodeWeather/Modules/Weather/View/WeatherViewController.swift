@@ -26,6 +26,14 @@ final class WeatherViewController: UIViewController {
         return label
     }()
 
+    private let sightButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = StyleGuide.Colors.blue
+        button.setTitle(Localization.Weather.sightButtonTitle, for: .normal)
+        button.layer.cornerRadius = SubviewsOptions.sightButtinCornetRadius
+        return button
+    }()
+
     private let todayWeatherView = WeatherForecastView()
     private let tomorrowWeatherView = WeatherForecastView()
 
@@ -35,18 +43,20 @@ final class WeatherViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = StyleGuide.Colors.darkGray
         setupViews()
-        setupWeatherView(weatherView: todayWeatherView)
-        setupWeatherView(weatherView: tomorrowWeatherView)
         setupMapView()
         setupLayouts()
     }
 
     private func setupViews() {
+        setupWeatherView(weatherView: todayWeatherView)
+        setupWeatherView(weatherView: tomorrowWeatherView)
         view.addSubview(locationNameLabel)
+        view.addSubview(sightButton)
     }
 
     private func setupWeatherView(weatherView: WeatherForecastView) {
         view.addSubview(weatherView)
+        view.layer.addSublayer(weatherView.layer)
         weatherView.collectionView.dataSource = self
         weatherView.collectionView.delegate = self
         weatherView.collectionView.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier)
@@ -61,6 +71,7 @@ final class WeatherViewController: UIViewController {
         locationNameLabel.translatesAutoresizingMaskIntoConstraints = false
         todayWeatherView.translatesAutoresizingMaskIntoConstraints = false
         tomorrowWeatherView.translatesAutoresizingMaskIntoConstraints = false
+        sightButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -77,16 +88,23 @@ final class WeatherViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             todayWeatherView.topAnchor.constraint(equalTo: locationNameLabel.bottomAnchor),
-            todayWeatherView.heightAnchor.constraint(equalToConstant: 140),
+            todayWeatherView.heightAnchor.constraint(equalToConstant: 160),
             todayWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
             todayWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            tomorrowWeatherView.topAnchor.constraint(equalTo: todayWeatherView.bottomAnchor),
-            tomorrowWeatherView.heightAnchor.constraint(equalToConstant: 140),
+            tomorrowWeatherView.topAnchor.constraint(equalTo: todayWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
+            tomorrowWeatherView.heightAnchor.constraint(equalToConstant: 160),
             tomorrowWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tomorrowWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            sightButton.topAnchor.constraint(equalTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
+            sightButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
+            sightButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
+            sightButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -LayoutOptions.sightButtonHorizontalPadding)
         ])
     }
 }
@@ -113,7 +131,6 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         return CGSize(width: 80, height: 120)
     }
 }
@@ -123,5 +140,12 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
 extension WeatherViewController {
     private enum SubviewsOptions {
         static let locationLabelFontSize: CGFloat = 32
+        static let sightButtinCornetRadius: CGFloat = 12
+    }
+
+    private enum LayoutOptions {
+        static let weatherViewMargin: CGFloat = 16
+        static let sightButtonHorizontalPadding: CGFloat = 18
+        static let sightButtonHeight: CGFloat = 56
     }
 }

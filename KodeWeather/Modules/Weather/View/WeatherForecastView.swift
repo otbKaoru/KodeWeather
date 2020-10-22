@@ -55,7 +55,7 @@ class WeatherForecastView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: LayoutOptions.collectionViewTopPadding),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -66,8 +66,13 @@ class WeatherForecastView: UIView {
 //MARK: - Constants
 
 extension WeatherForecastView {
-    enum ViewOptions {
+    private enum ViewOptions {
         static let dateLabelFontSize: CGFloat = 16
     }
+
+    private enum LayoutOptions {
+        static let collectionViewTopPadding: CGFloat = 16
+    }
+
 }
 
