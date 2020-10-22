@@ -41,6 +41,7 @@ final class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
         setupViews()
         setupMapView()

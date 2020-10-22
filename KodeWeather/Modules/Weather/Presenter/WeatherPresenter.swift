@@ -14,5 +14,6 @@ final class WeatherPresenter {
 
 // MARK: - SearchViewOutput
 extension WeatherPresenter: WeatherViewOutput {
-
+    func viewLoaded() {
+    }
 }

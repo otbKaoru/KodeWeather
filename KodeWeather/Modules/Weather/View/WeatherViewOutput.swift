@@ -6,4 +6,5 @@
 //
 
 protocol WeatherViewOutput {
+    func viewLoaded()
 }
