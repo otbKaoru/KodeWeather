@@ -6,7 +6,7 @@
 //
 
 struct WeatherResponse: Decodable {
-    let hourlyForecast: Hourly
+    let hourlyForecast: [Hourly]
 
     enum CodingKeys: String, CodingKey {
        case hourlyForecast = "hourly" 
@@ -15,7 +15,7 @@ struct WeatherResponse: Decodable {
 
 struct Hourly: Decodable  {
     let dateTime: Int
-    let weather: Weather
+    let weather: [Weather]
 
     enum CodingKeys: String, CodingKey {
        case dateTime = "dt"
