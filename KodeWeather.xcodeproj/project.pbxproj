@@ -22,6 +22,11 @@
 		78B1CAA7254261B3007B3985 /* AttractionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CAA6254261B3007B3985 /* AttractionsPresenter.swift */; };
 		78B1CAAB254261C5007B3985 /* AttractionsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CAAA254261C5007B3985 /* AttractionsConfigurator.swift */; };
 		78B1CAB5254266DC007B3985 /* AttractionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CAB4254266DC007B3985 /* AttractionsCollectionViewCell.swift */; };
+		78B1CABC25433393007B3985 /* AttractionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CABB25433393007B3985 /* AttractionDetailViewController.swift */; };
+		78B1CAC02543339D007B3985 /* AttractionDetailViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CABF2543339D007B3985 /* AttractionDetailViewInput.swift */; };
+		78B1CAC3254333A8007B3985 /* AttractionDetailViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CAC2254333A8007B3985 /* AttractionDetailViewOutput.swift */; };
+		78B1CAC6254333B2007B3985 /* AttractionDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CAC5254333B2007B3985 /* AttractionDetailPresenter.swift */; };
+		78B1CAC9254333BD007B3985 /* AttractionDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CAC8254333BD007B3985 /* AttractionDetailConfigurator.swift */; };
 		78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DA7253FB34900808522 /* AppDelegate.swift */; };
 		78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DA9253FB34900808522 /* SceneDelegate.swift */; };
 		78CB5DAC253FB34900808522 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DAB253FB34900808522 /* ViewController.swift */; };
@@ -62,6 +67,11 @@
 		78B1CAA6254261B3007B3985 /* AttractionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionsPresenter.swift; sourceTree = "<group>"; };
 		78B1CAAA254261C5007B3985 /* AttractionsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionsConfigurator.swift; sourceTree = "<group>"; };
 		78B1CAB4254266DC007B3985 /* AttractionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		78B1CABB25433393007B3985 /* AttractionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailViewController.swift; sourceTree = "<group>"; };
+		78B1CABF2543339D007B3985 /* AttractionDetailViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailViewInput.swift; sourceTree = "<group>"; };
+		78B1CAC2254333A8007B3985 /* AttractionDetailViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailViewOutput.swift; sourceTree = "<group>"; };
+		78B1CAC5254333B2007B3985 /* AttractionDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailPresenter.swift; sourceTree = "<group>"; };
+		78B1CAC8254333BD007B3985 /* AttractionDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailConfigurator.swift; sourceTree = "<group>"; };
 		78CB5DA4253FB34900808522 /* KodeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CB5DA7253FB34900808522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78CB5DA9253FB34900808522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +181,42 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		78B1CAB7254332E7007B3985 /* AttractionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				78B1CABA25433300007B3985 /* Configurator */,
+				78B1CAB9254332FA007B3985 /* Presenter */,
+				78B1CAB8254332F5007B3985 /* View */,
+			);
+			path = AttractionDetail;
+			sourceTree = "<group>";
+		};
+		78B1CAB8254332F5007B3985 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78B1CABB25433393007B3985 /* AttractionDetailViewController.swift */,
+				78B1CABF2543339D007B3985 /* AttractionDetailViewInput.swift */,
+				78B1CAC2254333A8007B3985 /* AttractionDetailViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78B1CAB9254332FA007B3985 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78B1CAC5254333B2007B3985 /* AttractionDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78B1CABA25433300007B3985 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				78B1CAC8254333BD007B3985 /* AttractionDetailConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		78CB5D9B253FB34900808522 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +255,7 @@
 		78CB5DBE253FB4FB00808522 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				78B1CAB7254332E7007B3985 /* AttractionDetail */,
 				78B1CA9725425F2F007B3985 /* Attractions */,
 				78CB5E112540BDAE00808522 /* Weather */,
 				78CB5DD3253FBB3200808522 /* Search */,
@@ -469,11 +516,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				78B1CAAB254261C5007B3985 /* AttractionsConfigurator.swift in Sources */,
+				78B1CAC02543339D007B3985 /* AttractionDetailViewInput.swift in Sources */,
 				782CFC1E25413BB600A87DAC /* WeatherForecastView.swift in Sources */,
+				78B1CABC25433393007B3985 /* AttractionDetailViewController.swift in Sources */,
 				78CB5E292540BFFB00808522 /* WeatherService.swift in Sources */,
 				78B1CA9025424D43007B3985 /* WeatherType.swift in Sources */,
 				78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */,
 				78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */,
+				78B1CAC9254333BD007B3985 /* AttractionDetailConfigurator.swift in Sources */,
+				78B1CAC6254333B2007B3985 /* AttractionDetailPresenter.swift in Sources */,
 				78B1CA842542202B007B3985 /* ForecastType.swift in Sources */,
 				78CB5E172540BDF100808522 /* WeatherViewController.swift in Sources */,
 				78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */,
@@ -489,6 +540,7 @@
 				78CB5E262540BE2C00808522 /* WeatherConfigurator.swift in Sources */,
 				78B1CAB5254266DC007B3985 /* AttractionsCollectionViewCell.swift in Sources */,
 				78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */,
+				78B1CAC3254333A8007B3985 /* AttractionDetailViewOutput.swift in Sources */,
 				78CB5DF9253FE11600808522 /* UITableViewCell + reuseIdentifier.swift in Sources */,
 				78CB5DEC253FC79400808522 /* StyleGuide.swift in Sources */,
 				78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */,

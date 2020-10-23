@@ -80,7 +80,7 @@ extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension AttractionsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width-ViewOptions.contentInset*2, height: 220)
+        return CGSize(width: view.frame.width-ViewOptions.contentInset*2, height: view.frame.height/4)
     }
 }
 
