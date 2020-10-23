@@ -58,12 +58,11 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
     private func setupGradient() {
         let layer = CAGradientLayer()
         layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
-        layer.locations = [0, 1]
-        layer.startPoint = CGPoint(x: 0.25, y: 0.5)
-        layer.endPoint = CGPoint(x: 0.75, y: 0.5)
-        layer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        layer.bounds = contentView.bounds.insetBy(dx: -0.5*contentView.bounds.size.width, dy: -0.5*contentView.bounds.size.height)
-        layer.position = contentView.center
+        layer.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
+        layer.cornerRadius = CellOptions.contentViewLayerCornerRadius
+        layer.startPoint = CGPoint(x: 0.5, y: 0.25)
+        layer.endPoint = CGPoint(x: 0.5, y: 0.75)
+
         attractionImageView.layer.addSublayer(layer)
     }
 
