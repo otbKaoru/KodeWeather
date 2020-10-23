@@ -66,7 +66,7 @@ extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttractionsCollectionViewCell.reuseIdentifier, for: indexPath) as! AttractionsCollectionViewCell
-        cell.configure(image: UIImage(named: "sobor"), title: "TEST", description: "test")
+        cell.configure(image: UIImage(named: "Build"), title: "TEST", description: "test")
         return cell
     }
 }

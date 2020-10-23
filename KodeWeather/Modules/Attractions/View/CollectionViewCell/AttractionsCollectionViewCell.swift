@@ -60,8 +60,8 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
         layer.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         layer.cornerRadius = CellOptions.contentViewLayerCornerRadius
-        layer.startPoint = CGPoint(x: 0.5, y: 0.25)
-        layer.endPoint = CGPoint(x: 0.5, y: 0.75)
+        layer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        layer.endPoint = CGPoint(x: 0.5, y: 0.6)
 
         attractionImageView.layer.addSublayer(layer)
     }
