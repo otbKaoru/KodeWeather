@@ -13,6 +13,8 @@ final class AttractionDetailViewController: UIViewController {
 
     var output: AttractionDetailViewOutput?
 
+    private let scrollView = UIScrollView()
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -24,10 +26,21 @@ final class AttractionDetailViewController: UIViewController {
     }
 
     private func setupViews() {
+        view.addSubview(scrollView)
     }
 
 
     private func setupLayouts() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
     }
 }
 
