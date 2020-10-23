@@ -37,10 +37,9 @@ final class AttractionDetailViewController: UIViewController {
     private let attractionDescription: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-//        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         return label
     }()
 
@@ -138,8 +137,7 @@ final class AttractionDetailViewController: UIViewController {
 
         attractionImageView.image = UIImage(named: "Build")
         attractionTitle.text = "Музей естественных наук"
-        attractionDescription.text = "Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu."
-        mapTitle.text = "На карте"
+        attractionDescription.text = "Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu.Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem euTempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem euTempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu"
     }
 }
 
@@ -171,3 +169,5 @@ extension AttractionDetailViewController {
         static let mapTitleFontsize: CGFloat = 24
     }
 }
+
+

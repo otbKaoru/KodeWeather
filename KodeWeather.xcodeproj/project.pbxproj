@@ -10,6 +10,7 @@
 		3A958D2DC6E54813815772AF /* libPods-KodeWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C58676A333472D3EA7623450 /* libPods-KodeWeather.a */; };
 		782CFC06254111A200A87DAC /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */; };
 		782CFC1E25413BB600A87DAC /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */; };
+		78B0F6CC2543912A00CD7C72 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F6CB2543912A00CD7C72 /* Attraction.swift */; };
 		78B1CA782541F377007B3985 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA772541F377007B3985 /* WeatherResponse.swift */; };
 		78B1CA7C2541FA57007B3985 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA7B2541FA57007B3985 /* Location.swift */; };
 		78B1CA8025420FDF007B3985 /* WeatherCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA7F25420FDF007B3985 /* WeatherCellViewModel.swift */; };
@@ -55,6 +56,7 @@
 		009E3FA69BF149AAC1580CB3 /* Pods-KodeWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.release.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.release.xcconfig"; sourceTree = "<group>"; };
 		782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
+		78B0F6CB2543912A00CD7C72 /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
 		78B1CA772541F377007B3985 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		78B1CA7B2541FA57007B3985 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		78B1CA7F25420FDF007B3985 /* WeatherCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCellViewModel.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				78B1CA772541F377007B3985 /* WeatherResponse.swift */,
 				78B1CA7B2541FA57007B3985 /* Location.swift */,
+				78B0F6CB2543912A00CD7C72 /* Attraction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				78B1CAC6254333B2007B3985 /* AttractionDetailPresenter.swift in Sources */,
 				78B1CA842542202B007B3985 /* ForecastType.swift in Sources */,
 				78CB5E172540BDF100808522 /* WeatherViewController.swift in Sources */,
+				78B0F6CC2543912A00CD7C72 /* Attraction.swift in Sources */,
 				78CB5DE2253FBC4B00808522 /* SearchViewInput.swift in Sources */,
 				78CB5DF0253FD0FF00808522 /* Localization.swift in Sources */,
 				78B1CA782541F377007B3985 /* WeatherResponse.swift in Sources */,
