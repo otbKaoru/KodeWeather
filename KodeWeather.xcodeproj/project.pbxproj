@@ -152,7 +152,6 @@
 		78CB5DBE253FB4FB00808522 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				78B1CA7E25420EEF007B3985 /* ViewModel */,
 				78CB5E112540BDAE00808522 /* Weather */,
 				78CB5DD3253FBB3200808522 /* Search */,
 			);
@@ -271,6 +270,7 @@
 		78CB5E112540BDAE00808522 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				78B1CA7E25420EEF007B3985 /* ViewModel */,
 				78CB5E152540BDDA00808522 /* Configurator */,
 				78CB5E142540BDD400808522 /* Presenter */,
 				78CB5E132540BDCD00808522 /* View */,
