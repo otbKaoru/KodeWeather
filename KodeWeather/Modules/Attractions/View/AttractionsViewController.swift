@@ -34,9 +34,14 @@ final class AttractionsViewController: UIViewController {
 
     private func setupViews() {
         view.addSubview(attractionsCollectionView)
+        attractionsCollectionView.backgroundColor = StyleGuide.Colors.darkGray
         attractionsCollectionView.delegate = self
         attractionsCollectionView.dataSource = self
         attractionsCollectionView.register(AttractionsCollectionViewCell.self, forCellWithReuseIdentifier: AttractionsCollectionViewCell.reuseIdentifier)
+        attractionsCollectionView.contentInset = UIEdgeInsets(top: ViewOptions.contentInset,
+                                                              left: ViewOptions.contentInset,
+                                                              bottom: ViewOptions.contentInset,
+                                                              right: ViewOptions.contentInset)
     }
 
 
@@ -75,6 +80,14 @@ extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension AttractionsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 260)
+        return CGSize(width: view.frame.width-ViewOptions.contentInset*2, height: 220)
+    }
+}
+
+//MARK: - Constatnts
+
+extension AttractionsViewController {
+    private enum ViewOptions {
+        static let contentInset: CGFloat = 16
     }
 }
