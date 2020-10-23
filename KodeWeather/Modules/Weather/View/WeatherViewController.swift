@@ -14,7 +14,7 @@ final class WeatherViewController: UIViewController {
 
     var output: WeatherViewOutput?
 
-    let mapView = MKMapView()
+    private let mapView = MKMapView()
 
     private let locationNameLabel: UILabel = {
         let label = UILabel()
