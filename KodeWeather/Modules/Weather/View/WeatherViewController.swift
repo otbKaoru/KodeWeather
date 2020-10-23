@@ -25,10 +25,10 @@ final class WeatherViewController: UIViewController {
         return label
     }()
 
-    private let sightButton: UIButton = {
+    private let attractionsButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = StyleGuide.Colors.blue
-        button.setTitle(Localization.Weather.sightButtonTitle, for: .normal)
+        button.setTitle(Localization.Weather.attractionsButtonTitle, for: .normal)
         button.layer.cornerRadius = SubviewsOptions.sightButtinCornetRadius
         return button
     }()
@@ -51,7 +51,7 @@ final class WeatherViewController: UIViewController {
         setupWeatherView(weatherView: todayWeatherView)
         setupWeatherView(weatherView: tomorrowWeatherView)
         view.addSubview(locationNameLabel)
-        view.addSubview(sightButton)
+        view.addSubview(attractionsButton)
     }
 
     private func setupWeatherView(weatherView: WeatherForecastView) {
@@ -73,7 +73,7 @@ final class WeatherViewController: UIViewController {
         locationNameLabel.translatesAutoresizingMaskIntoConstraints = false
         todayWeatherView.translatesAutoresizingMaskIntoConstraints = false
         tomorrowWeatherView.translatesAutoresizingMaskIntoConstraints = false
-        sightButton.translatesAutoresizingMaskIntoConstraints = false
+        attractionsButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -103,10 +103,10 @@ final class WeatherViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            sightButton.topAnchor.constraint(equalTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
-            sightButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
-            sightButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
-            sightButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -LayoutOptions.sightButtonHorizontalPadding)
+            attractionsButton.topAnchor.constraint(equalTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
+            attractionsButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
+            attractionsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
+            attractionsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -LayoutOptions.sightButtonHorizontalPadding)
         ])
     }
 }
