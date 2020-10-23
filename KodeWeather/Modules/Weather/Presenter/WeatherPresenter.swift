@@ -44,9 +44,12 @@ final class WeatherPresenter {
                 formatter.dateFormat = "HH:mm"
                 let hourString = formatter.string(from: date)
                 let descripiton = hourly.weather.indices.count > 0
-                    ? hourly.weather[0].description
+                    ? WeatherType(fromRawValue: hourly.weather[0].main).Localization
                     : ""
-                viewmodels.append(WeatherCellViewModel(imageName: "moon", description: descripiton, hour: hourString))
+                let imageName = hourly.weather.indices.count > 0
+                    ? WeatherType(fromRawValue: hourly.weather[0].main).imageName
+                    : ""
+                viewmodels.append(WeatherCellViewModel(imageName: imageName, description: descripiton, hour: hourString))
             }
 
         }
