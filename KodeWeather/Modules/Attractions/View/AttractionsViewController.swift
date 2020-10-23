@@ -66,13 +66,15 @@ extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttractionsCollectionViewCell.reuseIdentifier, for: indexPath) as! AttractionsCollectionViewCell
-        cell.configure(image: UIImage(named: "Build"), title: "TEST", description: "test")
+        cell.configure(image: UIImage(named: "Build"),
+                       title: "Музей естественных наук",
+                       description: "Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu.")
         return cell
     }
 }
 
 extension AttractionsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 220)
+        return CGSize(width: view.frame.width, height: 260)
     }
 }

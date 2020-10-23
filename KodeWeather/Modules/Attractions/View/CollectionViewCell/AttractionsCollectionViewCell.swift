@@ -28,8 +28,8 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
 
     private let attractionDescription: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .left
+//        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: CellOptions.attractionDescriptionFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
         label.numberOfLines = 0
@@ -79,16 +79,16 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            attractionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            attractionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutOptions.textPadding),
             attractionTitle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            attractionTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            attractionTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutOptions.textPadding)
         ])
 
         NSLayoutConstraint.activate([
-            attractionDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            attractionDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutOptions.textPadding),
             attractionDescription.topAnchor.constraint(equalTo: attractionTitle.bottomAnchor, constant: LayoutOptions.descriptionTopPadding),
-            attractionDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            attractionDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            attractionDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutOptions.textPadding),
+            attractionDescription.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: LayoutOptions.textPadding)
         ])
     }
 
@@ -110,5 +110,6 @@ extension AttractionsCollectionViewCell {
 
     private enum LayoutOptions {
         static let descriptionTopPadding: CGFloat = 16
+        static let textPadding: CGFloat = 8
     }
 }
