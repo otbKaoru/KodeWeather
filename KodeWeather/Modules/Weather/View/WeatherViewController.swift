@@ -20,7 +20,7 @@ final class WeatherViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: SubviewsOptions.locationLabelFontSize)
+        label.font = UIFont.systemFont(ofSize: ViewOptions.locationLabelFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
         return label
     }()
@@ -29,7 +29,7 @@ final class WeatherViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = StyleGuide.Colors.blue
         button.setTitle(Localization.Weather.attractionsButtonTitle, for: .normal)
-        button.layer.cornerRadius = SubviewsOptions.sightButtinCornetRadius
+        button.layer.cornerRadius = ViewOptions.sightButtinCornetRadius
         return button
     }()
 
@@ -136,7 +136,7 @@ extension  WeatherViewController: WeatherViewInput {
 
     func configureMap(location: Location) {
         let cooridnate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)
-        let coordinateRegion = MKCoordinateRegion(center: cooridnate, span: MKCoordinateSpan(latitudeDelta: SubviewsOptions.mapDelta, longitudeDelta: SubviewsOptions.mapDelta))
+        let coordinateRegion = MKCoordinateRegion(center: cooridnate, span: MKCoordinateSpan(latitudeDelta: ViewOptions.mapDelta, longitudeDelta: ViewOptions.mapDelta))
         mapView.setRegion(coordinateRegion, animated: false)
         let annotation = MKPointAnnotation()
         annotation.coordinate = cooridnate
@@ -202,7 +202,7 @@ extension WeatherViewController: MKMapViewDelegate {
 // MARK: - Constants
 
 extension WeatherViewController {
-    private enum SubviewsOptions {
+    private enum ViewOptions {
         static let locationLabelFontSize: CGFloat = 32
         static let sightButtinCornetRadius: CGFloat = 12
         static let mapDelta: Double = 5
