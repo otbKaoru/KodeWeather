@@ -14,9 +14,9 @@ final class AttractionsViewController: UIViewController {
 
     var output: AttractionsViewOutput?
 
-    let attractionsCollectionView : UICollectionView = {
+    let attractionsCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
-        viewLayout.scrollDirection = .horizontal
+        viewLayout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         return collectionView
     }()
@@ -34,6 +34,9 @@ final class AttractionsViewController: UIViewController {
 
     private func setupViews() {
         view.addSubview(attractionsCollectionView)
+        attractionsCollectionView.delegate = self
+        attractionsCollectionView.dataSource = self
+        attractionsCollectionView.register(AttractionsCollectionViewCell.self, forCellWithReuseIdentifier: AttractionsCollectionViewCell.reuseIdentifier)
     }
 
 
@@ -58,12 +61,18 @@ extension AttractionsViewController: AttractionsViewInput {
 
 extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        10
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttractionsCollectionViewCell.reuseIdentifier, for: indexPath) as! AttractionsCollectionViewCell
+        cell.configure(image: UIImage(named: "sobor"), title: "TEST", description: "test")
+        return cell
     }
+}
 
-
+extension AttractionsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 220)
+    }
 }

@@ -11,6 +11,8 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
 
     private let attractionImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = CellOptions.contentViewLayerCornerRadius
+        imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleToFill
         return imageView
     }()
@@ -30,6 +32,7 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: CellOptions.attractionDescriptionFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
+        label.numberOfLines = 0
         return label
     }()
 
@@ -45,6 +48,7 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
 
     private func setupViews() {
         contentView.layer.cornerRadius = CellOptions.contentViewLayerCornerRadius
+        contentView.backgroundColor = .white
         contentView.addSubview(attractionImageView)
         contentView.addSubview(attractionTitle)
         contentView.addSubview(attractionDescription)
@@ -74,7 +78,12 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
             attractionDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             attractionDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+    }
 
+    func configure(image: UIImage?, title: String, description: String) {
+        attractionImageView.image = image
+        attractionTitle.text = title
+        attractionDescription.text = description
     }
 }
 
