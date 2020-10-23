@@ -8,7 +8,6 @@ import Foundation
 
 protocol WeatherServiceProtocol {
     func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void)
-    func getDataDays(data: WeatherResponse) -> [Date]
 }
 
 final class WeatherService {
@@ -38,17 +37,6 @@ extension WeatherService: WeatherServiceProtocol {
                       "units":RequestOptions.units,
                       "appid":RequestOptions.appid]
         fetchData(API:  ApiURL.openWeather, parametres: parametres, completion: completion)
-    }
-
-    func getDataDays(data: WeatherResponse) -> [Date] {
-        var daysArray: [Date] = []
-        for hourly in data.hourlyForecast {
-            let date = Date(timeIntervalSince1970: hourly.dateTime)
-            if date.day() != daysArray.last?.day() {
-                daysArray.append(date)
-            }
-        }
-        return daysArray
     }
 }
 

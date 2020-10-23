@@ -22,7 +22,7 @@ final class WeatherPresenter {
         guard let data = data else {
             return
         }
-        let days = weatherService.getDataDays(data: data)
+        let days = getDataDays(data: data)
         if days.indices.count >= 2 {
             view?.setForecastViewDate(date: days[0], forecast: .today)
             view?.setForecastViewDate(date: days[1], forecast: .tomorrow)
@@ -54,6 +54,17 @@ final class WeatherPresenter {
 
         }
         return viewmodels
+    }
+
+    private func getDataDays(data: WeatherResponse) -> [Date] {
+        var daysArray: [Date] = []
+        for hourly in data.hourlyForecast {
+            let date = Date(timeIntervalSince1970: hourly.dateTime)
+            if date.day() != daysArray.last?.day() {
+                daysArray.append(date)
+            }
+        }
+        return daysArray
     }
 }
 
