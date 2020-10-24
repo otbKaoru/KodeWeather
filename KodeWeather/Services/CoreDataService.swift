@@ -12,7 +12,7 @@ class CoreDataService: NSObject {
     static let instance = CoreDataService()
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CoreData")
+        let container = NSPersistentContainer(name: "Attraction")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -20,6 +20,10 @@ class CoreDataService: NSObject {
         })
         return container
     }()
+
+    func getContext() -> NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
 
     func saveContext() {
         let context = persistentContainer.viewContext
