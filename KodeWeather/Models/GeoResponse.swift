@@ -11,7 +11,7 @@ struct GeoResponse: Decodable {
     var locations: [Location] {
         return response.objectCollection.featureMember
             .filter { Keys.kindKeys.contains($0.geoObject.metaDataProperty.geocoderMetaData.kind) }
-            .map { Location(name: $0.geoObject.name, lan: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0, lon: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0) }
+            .map { Location(name: $0.geoObject.name, lan: Double($0.geoObject.point.pos.split(separator: " ")[1]) ?? 0, lon: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0) }
     }
 }
 

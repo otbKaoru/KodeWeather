@@ -36,7 +36,8 @@ class AppCoordinator: AppCoordinatorProtocol {
         navigationController.setViewControllers([startViewController],animated: false)
         navigationController.navigationBar.barTintColor = StyleGuide.Colors.darkGray
         navigationController.navigationBar.prefersLargeTitles = true
-        window.rootViewController = navigationController
+        tabBarController.setViewControllers([navigationController], animated: false)
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
     }
 }
