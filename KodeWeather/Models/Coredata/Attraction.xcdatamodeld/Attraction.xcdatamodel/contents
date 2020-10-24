@@ -3,7 +3,7 @@
     <entity name="Attraction" representedClassName=".Attraction" syncable="YES">
         <attribute name="desc" attributeType="String"/>
         <attribute name="descfull" optional="YES" attributeType="String"/>
-        <attribute name="images" attributeType="Transformable"/>
+        <attribute name="images" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
     </entity>
     <elements>
