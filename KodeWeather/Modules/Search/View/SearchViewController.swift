@@ -77,7 +77,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
-        cell.configure(with: "Калининград")
+        cell.configure(with: output?.cellViewModel(for: indexPath)?.name ?? "")
         return cell
     }
 }
