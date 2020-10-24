@@ -15,6 +15,7 @@
 		7824A71B2544DF0500220A19 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824A71A2544DF0500220A19 /* SearchRouter.swift */; };
 		7824A71E2544DF1300220A19 /* SearchRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824A71D2544DF1300220A19 /* SearchRouterProtocol.swift */; };
 		7824A7222544E0D500220A19 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824A7212544E0D500220A19 /* AppCoordinator.swift */; };
+		7824A7292544EC6F00220A19 /* WeatherModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824A7282544EC6F00220A19 /* WeatherModuleInput.swift */; };
 		782CFC06254111A200A87DAC /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */; };
 		782CFC1E25413BB600A87DAC /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */; };
 		78B0F6DB2543A45800CD7C72 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */; };
@@ -71,6 +72,7 @@
 		7824A71A2544DF0500220A19 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		7824A71D2544DF1300220A19 /* SearchRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouterProtocol.swift; sourceTree = "<group>"; };
 		7824A7212544E0D500220A19 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		7824A7282544EC6F00220A19 /* WeatherModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModuleInput.swift; sourceTree = "<group>"; };
 		782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
 		78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				78CB5E222540BE2300808522 /* WeatherPresenter.swift */,
+				7824A7282544EC6F00220A19 /* WeatherModuleInput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				78CB5DDC253FBC1900808522 /* SearchPresenter.swift in Sources */,
 				78B1CA8025420FDF007B3985 /* WeatherCellViewModel.swift in Sources */,
 				78CB5E262540BE2C00808522 /* WeatherConfigurator.swift in Sources */,
+				7824A7292544EC6F00220A19 /* WeatherModuleInput.swift in Sources */,
 				78B1CAB5254266DC007B3985 /* AttractionsCollectionViewCell.swift in Sources */,
 				78CB5DE5253FBC5700808522 /* SearchViewOutput.swift in Sources */,
 				78B1CAC3254333A8007B3985 /* AttractionDetailViewOutput.swift in Sources */,

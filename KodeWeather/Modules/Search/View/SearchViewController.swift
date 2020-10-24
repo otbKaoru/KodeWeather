@@ -86,6 +86,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: output?.cellViewModel(for: indexPath)?.name ?? "")
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output?.selectRowAtIndexPath(at: indexPath)
+    }
 }
 
 // MARK: - UISearchResultsUpdating

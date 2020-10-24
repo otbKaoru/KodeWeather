@@ -12,6 +12,7 @@ final class SearchPresenter {
     // MARK: - Properties
 
     weak var view: SearchViewInput?
+    var router: SearchRouterProtocol?
 
     private let GeoSerivce = GeoService()
     private var searchLocations: [Location] = []
@@ -32,6 +33,13 @@ extension SearchPresenter: SearchViewOutput {
 
     func numberOfRows() -> Int {
         return searchLocations.count
+    }
+
+    func selectRowAtIndexPath(at indexPath: IndexPath) {
+        guard searchLocations.indices.count > indexPath.row else {
+            return
+        }
+        router?.openWeatherModule(for: searchLocations[indexPath.row])
     }
 
     func fetchPreviewLocations(for query: String) {

@@ -9,13 +9,14 @@ import UIKit
 
 final class WeatherConfigurator {
 
-    func configure() -> WeatherViewController {
+    func configure(with input: Location = Location(name: "", lan: 0, lon: 0)) -> WeatherViewController {
 
         let viewController = WeatherViewController()
 
         let presenter = WeatherPresenter()
 
         presenter.view = viewController
+        presenter.location = input
         viewController.output = presenter
 
         return viewController
