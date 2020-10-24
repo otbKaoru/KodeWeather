@@ -6,5 +6,5 @@
 //
 
 protocol SearchViewOutput: class {
-
+    func viewLoaded()
 }

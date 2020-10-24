@@ -21,18 +21,6 @@ class CoreDataService: NSObject {
         return container
     }()
 
-    func fetchLocationAttractions(locationName: String) -> [Attraction] {
-        let fetchRequest = NSFetchRequest<Attraction>(entityName: "Attraction")
-        fetchRequest.predicate = NSPredicate(format: "geo.name == %@", locationName)
-        do {
-            let fetchedObjects = try CoreDataService.instance.getContext().fetch(fetchRequest)
-            return fetchedObjects
-        } catch {
-            print("Error")
-        }
-        return []
-    }
-
     func fetchDataWithPredicate<T: NSFetchRequestResult>(predicateFormat: String, predicateValue: String) -> [T] {
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
         fetchRequest.predicate = NSPredicate(format: predicateFormat, predicateValue)
