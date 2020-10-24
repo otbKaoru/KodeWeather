@@ -12,6 +12,7 @@ enum Localization {
         static let searchBarCancelButtonText = "Отменить"
     }
     enum Weather {
+        static let title = "Погода в городе"
         static let attractionsButtonTitle = "Достопримечетальности"
         static let todayForecast = "Сегодня"
         static let tomorrowForecast = "Завтра"

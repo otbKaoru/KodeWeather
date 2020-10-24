@@ -42,6 +42,8 @@ final class WeatherViewController: UIViewController {
         super.viewDidLoad()
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
+        navigationItem.title = Localization.Weather.title
+        navigationController?.navigationBar.prefersLargeTitles = false
         setupViews()
         setupMapView()
         setupLayouts()
