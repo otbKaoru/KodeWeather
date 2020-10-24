@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import Foundation
 
 enum NetworkError: Error {
     case networkError
@@ -19,12 +20,25 @@ enum NetworkError: Error {
 }
 
 protocol NetworkServiceProtocol {
-    func getJSONData(URL: URL, parameters: [String: Any], completion: @escaping (Result<Data, NetworkError>) -> Void)
+    func fetchDecodableData<T: Decodable>(API: String, parametres: [String: Any], completion: @escaping (Result<T?, NetworkError>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
 
-    func getJSONData(URL: URL, parameters: [String: Any], completion: @escaping (Result<Data, NetworkError>) -> Void) {
+    func fetchDecodableData<T: Decodable>(API: String, parametres: [String: Any] = [:], completion: @escaping (Result<T?, NetworkError>) -> Void) {
+        guard let url = URL(string: API) else { return }
+        getJSONData(URL: url, parameters: parametres) { result  in
+            switch result {
+            case .success(let data):
+                let summary = try? JSONDecoder().decode(T.self, from: data)
+                completion(.success(summary))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    private func getJSONData(URL: URL, parameters: [String: Any], completion: @escaping (Result<Data, NetworkError>) -> Void) {
         AF.request(URL, parameters: parameters).responseJSON { responseJSON in
             switch responseJSON.result {
                 case .success:
@@ -37,6 +51,7 @@ class NetworkService: NetworkServiceProtocol {
                     completion(.failure(NetworkError.networkError))
             }
         }
+
 
     }
 }
