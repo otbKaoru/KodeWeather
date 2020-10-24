@@ -13,13 +13,13 @@ protocol GeoServiceProtocol {
 final class GeoService: GeoServiceProtocol {
     private let networkService: NetworkServiceProtocol = NetworkService()
 
-    func fetchGeoData(location: String, completion: @escaping (Result<GeoResponse?, NetworkError>) -> Void) {
+    func fetchGeoData(query: String, resultsCount: Int, completion: @escaping (Result<GeoResponse?, NetworkError>) -> Void) {
         let parametres: [String: Any]
         parametres = ["format":RequestOptions.format,
                       "apikey":RequestOptions.apiKey,
                       "kind":RequestOptions.kind,
-                      "geocode":"Калиниград",
-                      "results":10]
+                      "geocode":query,
+                      "results":resultsCount]
         networkService.fetchDecodableData(API:  ApiURL.yandexGeocode, parametres: parametres, completion: completion)
     }
 }

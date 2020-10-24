@@ -36,4 +36,13 @@ struct FutureMember: Decodable  {
 
 struct GeoObject: Decodable  {
     let name: String
+    let point: Point
+
+    enum CodingKeys: String, CodingKey {
+        case name, point = "Point"
+    }
+}
+
+struct Point: Decodable {
+    let pos: String
 }

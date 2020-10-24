@@ -17,7 +17,7 @@ final class SearchPresenter {
 // MARK: - SearchViewOutput
 extension SearchPresenter: SearchViewOutput {
     func viewLoaded() {
-        GeoSerivce.fetchGeoData(location: "") { (result) in
+        GeoSerivce.fetchGeoData(query: "Калининград", resultsCount: 10) { (result) in
             switch result {
             case .success(let data):
                 print(data)
