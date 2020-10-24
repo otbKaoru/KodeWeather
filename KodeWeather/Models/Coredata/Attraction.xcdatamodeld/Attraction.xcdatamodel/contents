@@ -5,8 +5,15 @@
         <attribute name="descfull" optional="YES" attributeType="String"/>
         <attribute name="images" attributeType="Transformable" valueTransformerName="NSKeyedUnarchiveFromDataTransformerName"/>
         <attribute name="name" attributeType="String"/>
+        <relationship name="geo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Geo"/>
+    </entity>
+    <entity name="Geo" representedClassName="Geo" syncable="YES">
+        <attribute name="lan" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Attraction" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="Attraction" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="Geo" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>

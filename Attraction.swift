@@ -19,6 +19,7 @@ class Attraction: NSManagedObject {
     @NSManaged public var descfull: String?
     @NSManaged public var images: [String]?
     @NSManaged public var name: String?
+    @NSManaged public var geo: Geo?
 
 //    // MARK: - Decodable
 //    required convenience init(from decoder: Decoder) throws {

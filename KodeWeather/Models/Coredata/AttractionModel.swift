@@ -10,6 +10,7 @@ import Foundation
 struct AttractionModel: Decodable {
     let desc: String?
     let descfull: String?
-    let images: String?
+    let images: [String]?
     let name: String?
+    let geo: Location
 }

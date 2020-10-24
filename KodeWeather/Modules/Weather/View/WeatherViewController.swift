@@ -135,7 +135,7 @@ extension  WeatherViewController: WeatherViewInput {
     }
 
     func configureMap(location: Location) {
-        let cooridnate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)
+        let cooridnate = CLLocationCoordinate2D(latitude: location.lan, longitude: location.lon)
         let coordinateRegion = MKCoordinateRegion(center: cooridnate, span: MKCoordinateSpan(latitudeDelta: ViewOptions.mapDelta, longitudeDelta: ViewOptions.mapDelta))
         mapView.setRegion(coordinateRegion, animated: false)
         let annotation = MKPointAnnotation()

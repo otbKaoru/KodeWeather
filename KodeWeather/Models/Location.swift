@@ -5,8 +5,8 @@
 //  Created by Igor Podolskiy on 22.10.2020.
 //
 
-struct Location {
+struct Location: Decodable {
     let name: String
-    let lat: Double
+    let lan: Double
     let lon: Double
 }

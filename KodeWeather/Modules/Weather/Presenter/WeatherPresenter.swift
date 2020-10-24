@@ -13,7 +13,7 @@ final class WeatherPresenter {
 
     weak var view: WeatherViewInput?
     private let weatherService: WeatherServiceProtocol = WeatherService()
-    private let location = Location(name: "Калиниград", lat: 54.70649, lon: 20.51095)
+    private let location = Location(name: "Калиниград", lan: 54.70649, lon: 20.51095)
 
     private var todayWeatherViewModels: [WeatherCellViewModel] = []
     private var tomorrowWeatherViewModels: [WeatherCellViewModel] = []

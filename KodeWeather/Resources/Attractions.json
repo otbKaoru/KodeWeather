@@ -1,6 +1,14 @@
 {
   "desc": "я возле него живу",
   "descfull": "найс место",
-  "images": "http://www.ya.ru",
+  "geo": {
+    "lan": 54.70616,
+    "lon": 20.51178,
+    "name": "Калининград"
+  },
+  "images": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/1328_%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80.JPG/300px-1328_%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Wappenfenster_im_K%C3%B6nigsberger_Dom.jpg/220px-Wappenfenster_im_K%C3%B6nigsberger_Dom.jpg"
+  ],
   "name": "Кафедральный собор"
 }
