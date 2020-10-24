@@ -6,5 +6,5 @@
 //
 
 protocol SearchViewInput: class {
-
+    func reloadTableView()
 }

@@ -30,12 +30,17 @@ extension SearchPresenter: SearchViewOutput {
         return searchLocations[indexPath.row]
     }
 
+    func numberOfRows() -> Int {
+        return searchLocations.count
+    }
+
     func fetchPreviewLocations(for query: String) {
-        GeoSerivce.fetchGeoData(query: query, resultsCount: 5) { [weak self] (result) in
+        GeoSerivce.fetchGeoData(query: query, resultsCount: 20) { [weak self] (result) in
             switch result {
             case .success(let data):
                 if let data = data {
                     self?.searchLocations = data.locations
+                    self?.view?.reloadTableView()
                 }
             case .failure(let error):
                 print(error)
@@ -44,11 +49,12 @@ extension SearchPresenter: SearchViewOutput {
     }
 
     func fetchAllLocations(for query: String) {
-        GeoSerivce.fetchGeoData(query: query, resultsCount: 20) { [weak self] (result) in
+        GeoSerivce.fetchGeoData(query: query, resultsCount: 50) { [weak self] (result) in
             switch result {
             case .success(let data):
                 if let data = data {
                     self?.searchLocations = data.locations
+                    self?.view?.reloadTableView()
                 }
             case .failure(let error):
                 print(error)

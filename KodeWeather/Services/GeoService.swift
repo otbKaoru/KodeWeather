@@ -17,7 +17,6 @@ final class GeoService: GeoServiceProtocol {
         let parametres: [String: Any]
         parametres = ["format":RequestOptions.format,
                       "apikey":RequestOptions.apiKey,
-                      "kind":RequestOptions.kind,
                       "geocode":query,
                       "results":resultsCount]
         networkService.fetchDecodableData(API:  ApiURL.yandexGeocode, parametres: parametres, completion: completion)
@@ -32,6 +31,5 @@ extension GeoService {
     private enum RequestOptions {
         static let format = "json"
         static let apiKey = "5f888f23-5862-49fe-8c33-52c15c89a84a"
-        static let kind = "locality"
     }
 }

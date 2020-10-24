@@ -15,6 +15,7 @@ final class SearchViewController: UIViewController {
 
     private let searchController = UISearchController(searchResultsController: nil)
     private let tableView: UITableView = UITableView()
+    private var timer: Timer?
 
     // MARK: - UIViewController
 
@@ -32,6 +33,7 @@ final class SearchViewController: UIViewController {
         searchController.searchBar.barTintColor = StyleGuide.Colors.darkGray
         searchController.searchBar.placeholder = Localization.Search.searchBarPlaceholder
         searchController.searchBar.tintColor = StyleGuide.Colors.white
+        searchController.searchResultsUpdater = self
         if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textfield.textColor = StyleGuide.Colors.defaultTextColor
         }
@@ -65,19 +67,36 @@ final class SearchViewController: UIViewController {
 // MARK: - SearchViewInput
 
 extension SearchViewController: SearchViewInput {
-
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - Tableview Delegate & Datasource
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        output?.numberOfRows() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         cell.configure(with: output?.cellViewModel(for: indexPath)?.name ?? "")
         return cell
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self ] (_) in
+                self?.output?.fetchPreviewLocations(for: searchText)
+            })
+        }
     }
 }

@@ -9,7 +9,9 @@ struct GeoResponse: Decodable {
     let response: GeoObjectCollection
 
     var locations: [Location] {
-        return response.objectCollection.featureMember.map { Location(name: $0.geoObject.name, lan: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0, lon: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0) }
+        return response.objectCollection.featureMember
+            .filter { Keys.kindKeys.contains($0.geoObject.metaDataProperty.geocoderMetaData.kind) }
+            .map { Location(name: $0.geoObject.name, lan: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0, lon: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0) }
     }
 }
 
@@ -37,12 +39,32 @@ struct FutureMember: Decodable  {
 struct GeoObject: Decodable  {
     let name: String
     let point: Point
+    let metaDataProperty: MetaDataProperty
 
     enum CodingKeys: String, CodingKey {
-        case name, point = "Point"
+        case name, metaDataProperty, point = "Point"
     }
 }
 
 struct Point: Decodable {
     let pos: String
+}
+
+struct MetaDataProperty: Decodable {
+    let geocoderMetaData: GeocoderMetaData
+
+    enum CodingKeys: String, CodingKey {
+        case geocoderMetaData = "GeocoderMetaData"
+    }
+}
+
+struct GeocoderMetaData: Decodable {
+    let kind: String
+}
+
+extension GeoResponse {
+    private enum Keys {
+        static let kindKeys = ["locality","province"]
+    }
+
 }
