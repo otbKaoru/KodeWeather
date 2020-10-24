@@ -10,14 +10,12 @@
 		3A958D2DC6E54813815772AF /* libPods-KodeWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C58676A333472D3EA7623450 /* libPods-KodeWeather.a */; };
 		7824A6D52543DAA500220A19 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824A6D32543DAA500220A19 /* Geo.swift */; };
 		7824A6E52543EC2600220A19 /* UIImageView + URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824A6E42543EC2600220A19 /* UIImageView + URL.swift */; };
-		7824A6F02543FCBD00220A19 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 7824A6EF2543FCBD00220A19 /* test.json */; };
 		782CFC06254111A200A87DAC /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */; };
 		782CFC1E25413BB600A87DAC /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */; };
 		78B0F6DB2543A45800CD7C72 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */; };
 		78B0F71B2543AD9700CD7C72 /* Attraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F7192543AD9700CD7C72 /* Attraction.xcdatamodeld */; };
 		78B0F72E2543B1C200CD7C72 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F72C2543B1C200CD7C72 /* Attraction.swift */; };
 		78B0F7332543B43500CD7C72 /* Attractions.json in Resources */ = {isa = PBXBuildFile; fileRef = 78B0F7322543B43500CD7C72 /* Attractions.json */; };
-		78B0F73D2543BABB00CD7C72 /* AttractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F73C2543BABB00CD7C72 /* AttractionModel.swift */; };
 		78B0F7472543C19C00CD7C72 /* AttractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F7462543C19C00CD7C72 /* AttractionService.swift */; };
 		78B1CA782541F377007B3985 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA772541F377007B3985 /* WeatherResponse.swift */; };
 		78B1CA7C2541FA57007B3985 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA7B2541FA57007B3985 /* Location.swift */; };
@@ -64,14 +62,12 @@
 		009E3FA69BF149AAC1580CB3 /* Pods-KodeWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.release.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.release.xcconfig"; sourceTree = "<group>"; };
 		7824A6D32543DAA500220A19 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = SOURCE_ROOT; };
 		7824A6E42543EC2600220A19 /* UIImageView + URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + URL.swift"; sourceTree = "<group>"; };
-		7824A6EF2543FCBD00220A19 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
 		78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		78B0F71A2543AD9700CD7C72 /* Attraction.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Attraction.xcdatamodel; sourceTree = "<group>"; };
 		78B0F72C2543B1C200CD7C72 /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = SOURCE_ROOT; };
 		78B0F7322543B43500CD7C72 /* Attractions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Attractions.json; sourceTree = "<group>"; };
-		78B0F73C2543BABB00CD7C72 /* AttractionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionModel.swift; sourceTree = "<group>"; };
 		78B0F7462543C19C00CD7C72 /* AttractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionService.swift; sourceTree = "<group>"; };
 		78B1CA772541F377007B3985 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		78B1CA7B2541FA57007B3985 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -152,7 +148,6 @@
 				7824A6D32543DAA500220A19 /* Geo.swift */,
 				78B0F72C2543B1C200CD7C72 /* Attraction.swift */,
 				78B0F7192543AD9700CD7C72 /* Attraction.xcdatamodeld */,
-				78B0F73C2543BABB00CD7C72 /* AttractionModel.swift */,
 			);
 			path = Coredata;
 			sourceTree = "<group>";
@@ -330,7 +325,6 @@
 				78CB5DC5253FB53C00808522 /* Plists */,
 				78CB5DC4253FB53400808522 /* Images */,
 				78B0F7322543B43500CD7C72 /* Attractions.json */,
-				7824A6EF2543FCBD00220A19 /* test.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -514,7 +508,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78CB5DB4253FB34A00808522 /* LaunchScreen.storyboard in Resources */,
-				7824A6F02543FCBD00220A19 /* test.json in Resources */,
 				78CB5DB1253FB34A00808522 /* Assets.xcassets in Resources */,
 				78B0F7332543B43500CD7C72 /* Attractions.json in Resources */,
 			);
@@ -561,7 +554,6 @@
 				78CB5E292540BFFB00808522 /* WeatherService.swift in Sources */,
 				78B1CA9025424D43007B3985 /* WeatherType.swift in Sources */,
 				7824A6E52543EC2600220A19 /* UIImageView + URL.swift in Sources */,
-				78B0F73D2543BABB00CD7C72 /* AttractionModel.swift in Sources */,
 				78CB5DD8253FBC0800808522 /* SearchConfigurator.swift in Sources */,
 				78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */,
 				78B1CAC9254333BD007B3985 /* AttractionDetailConfigurator.swift in Sources */,

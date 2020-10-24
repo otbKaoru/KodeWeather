@@ -13,12 +13,14 @@ protocol AttractionServiceProtocol {
 
 final class AttractionService: AttractionServiceProtocol {
 
-    private func loadAttractionJson() -> AttractionModel? {
+    func loadAttractionJson() -> Attraction? {
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(AttractionModel.self, from: data)
+                guard let contextKey = CodingUserInfoKey.context else { return nil }
+                decoder.userInfo[contextKey] = CoreDataService.instance.getContext()
+                let jsonData = try decoder.decode(Attraction.self, from: data)
                 return jsonData
             } catch {
                 print("error:\(error)")
@@ -35,21 +37,6 @@ final class AttractionService: AttractionServiceProtocol {
         let fetchedValues = CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
         return fetchedValues.count
     }
-
-    func testJson() -> Geo? {
-        if let url = Bundle.main.url(forResource: "test", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(Geo.self, from: data)
-                return jsonData
-            } catch {
-                print("error:\(error)")
-            }
-        }
-        return nil
-    }
-
 }
 
 //MARK: - Constants

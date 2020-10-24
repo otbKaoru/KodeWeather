@@ -9,10 +9,6 @@
 import Foundation
 import CoreData
 
-enum DecodeError: Error {
- case decodeError
-}
-
 @objc(Geo)
 public class Geo: NSManagedObject, Decodable, Identifiable {
     enum CodingKeys: CodingKey {
@@ -24,10 +20,9 @@ public class Geo: NSManagedObject, Decodable, Identifiable {
     @NSManaged public var name: String?
 
     required convenience public init(from decoder: Decoder) throws {
-
-        // first we need to get the context again
-        guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { throw DecodeError.decodeError }
-        guard let entity = NSEntityDescription.entity(forEntityName: "Geo", in: context) else { throw DecodeError.decodeError }
+        guard let contextKey = CodingUserInfoKey.context,
+              let context = decoder.userInfo[contextKey] as? NSManagedObjectContext else { throw DecodeError.contextError }
+        guard let entity = NSEntityDescription.entity(forEntityName: "Geo", in: context) else { throw DecodeError.databaseError }
         self.init(entity: entity, insertInto: context)
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -42,8 +37,4 @@ extension Geo {
         return NSFetchRequest<Geo>(entityName: "Geo")
     }
 
-}
-
-extension CodingUserInfoKey {
-    static let context = CodingUserInfoKey(rawValue: "context")
 }
