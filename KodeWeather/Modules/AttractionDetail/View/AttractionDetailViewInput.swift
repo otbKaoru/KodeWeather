@@ -8,4 +8,6 @@
 import Foundation
 
 protocol AttractionDetailViewInput: class {
+    func configure(images: [String], title: String, description: String)
+    func configureMap(lan: Double, lon: Double)
 }

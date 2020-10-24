@@ -11,9 +11,7 @@ import CoreData
 
 @objc(Geo)
 public class Geo: NSManagedObject {
-
 }
-
 
 extension Geo {
 
@@ -24,7 +22,6 @@ extension Geo {
     @NSManaged public var lan: Double
     @NSManaged public var lon: Double
     @NSManaged public var name: String?
-
 }
 
 extension Geo : Identifiable {

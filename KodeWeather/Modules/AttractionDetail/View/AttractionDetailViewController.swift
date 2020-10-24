@@ -133,17 +133,25 @@ final class AttractionDetailViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor),
             mapView.heightAnchor.constraint(equalToConstant: 200),
         ])
-
-
-        attractionImageView.image = UIImage(named: "Build")
-        attractionTitle.text = "Музей естественных наук"
-        attractionDescription.text = "Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu.Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem euTempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem euTempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu"
     }
 }
 
 //MARK: - AttractionDetailViewInput
 extension AttractionDetailViewController: AttractionDetailViewInput {
+    func configure(images: [String], title: String, description: String) {
+        attractionImageView.setImage(with: URL(string: images[0]))
+        attractionTitle.text = title
+        attractionDescription.text = description
+    }
 
+    func configureMap(lan: Double, lon: Double) {
+        let cooridnate = CLLocationCoordinate2D(latitude: lan, longitude: lon)
+        let coordinateRegion = MKCoordinateRegion(center: cooridnate, span: MKCoordinateSpan(latitudeDelta: ViewOptions.mapDelta, longitudeDelta: ViewOptions.mapDelta))
+        mapView.setRegion(coordinateRegion, animated: false)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = cooridnate
+        mapView.addAnnotation(annotation)
+    }
 }
 
 // MARK: - MKMapViewDelegate
@@ -167,6 +175,7 @@ extension AttractionDetailViewController {
         static let attractionTitleFontSize: CGFloat = 32
         static let attractionDescriptionFontSize: CGFloat = 16
         static let mapTitleFontsize: CGFloat = 24
+        static let mapDelta: Double = 0.03
     }
 }
 

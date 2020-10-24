@@ -10,5 +10,5 @@ protocol WeatherViewInput: class {
     func reloadCollectionViewData()
     func setLocationName(name: String)
     func setForecastViewDate(date: Date, forecast: ForecastType)
-    func configureMap(location: Location) 
+    func configureMap(lan: Double, lon: Double) 
 }

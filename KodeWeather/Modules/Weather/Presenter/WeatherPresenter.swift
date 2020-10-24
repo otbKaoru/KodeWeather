@@ -72,7 +72,7 @@ final class WeatherPresenter {
 extension WeatherPresenter: WeatherViewOutput {
     func viewLoaded() {
         view?.setLocationName(name: location.name)
-        view?.configureMap(location: location)
+        view?.configureMap(lan: location.lan, lon: location.lon)
         weatherService.fetchWeatherData(location: location ) { [weak self] (result) in
             switch result {
             case .success(let data):

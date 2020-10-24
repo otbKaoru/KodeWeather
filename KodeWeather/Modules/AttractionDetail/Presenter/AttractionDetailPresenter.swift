@@ -15,10 +15,18 @@ final class AttractionDetailPresenter {
     weak var view: AttractionDetailViewInput?
 
     private let attractionService: AttractionService = AttractionService()
+    private var attraction: Attraction?
 }
 
 extension AttractionDetailPresenter: AttractionDetailViewOutput {
     func viewLoaded() {
-        print(attractionService.getAttractionsCount(locationName: "Калининград"))
+        attraction = attractionService.fetchLocationAttractions(locationName: "Калининград")[0]
+        if let attraction = attraction {
+           print(attraction)
+
+            view?.configure(images: attraction.images ?? [], title: attraction.name ?? "", description: attraction.desc ?? "")
+            view?.configureMap(lan: attraction.geo!.lan, lon: attraction.geo!.lon)
+        }
+
     }
 }
