@@ -17,7 +17,7 @@ class Attraction: NSManagedObject {
 
     @NSManaged public var desc: String?
     @NSManaged public var descfull: String?
-    @NSManaged public var images: String?
+    @NSManaged public var images: [String]?
     @NSManaged public var name: String?
 
 //    // MARK: - Decodable
