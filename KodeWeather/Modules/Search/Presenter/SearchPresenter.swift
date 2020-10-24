@@ -20,7 +20,7 @@ extension SearchPresenter: SearchViewOutput {
         GeoSerivce.fetchGeoData(query: "Калининград", resultsCount: 10) { (result) in
             switch result {
             case .success(let data):
-                print(data)
+                print(data?.locations)
             case .failure(let error):
                 print(error)
             }

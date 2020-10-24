@@ -8,8 +8,8 @@
 struct GeoResponse: Decodable {
     let response: GeoObjectCollection
 
-    var geoName: String? {
-        return response.objectCollection.featureMember.first?.geoObject.name
+    var locations: [Location] {
+        return response.objectCollection.featureMember.map { Location(name: $0.geoObject.name, lan: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0, lon: Double($0.geoObject.point.pos.split(separator: " ")[0]) ?? 0) }
     }
 }
 
