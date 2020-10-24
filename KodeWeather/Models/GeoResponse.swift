@@ -7,10 +7,19 @@
 
 struct GeoResponse: Decodable {
     let response: GeoObjectCollection
+
+    var geoName: String? {
+        return response.objectCollection.featureMember.first?.geoObject.name
+    }
 }
 
 struct GeoObjectCollection: Decodable {
-    let GeoObjectCollection: GeoCollection
+    
+    let objectCollection: GeoCollection
+
+    enum CodingKeys: String, CodingKey {
+       case objectCollection = "GeoObjectCollection"
+    }
 }
 
 struct GeoCollection: Decodable  {
@@ -18,7 +27,11 @@ struct GeoCollection: Decodable  {
 }
 
 struct FutureMember: Decodable  {
-    let GeoObject: GeoObject
+    let geoObject: GeoObject
+
+    enum CodingKeys: String, CodingKey {
+       case geoObject = "GeoObject"
+    }
 }
 
 struct GeoObject: Decodable  {
