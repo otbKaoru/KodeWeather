@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Attraction" representedClassName=".Attraction" syncable="YES">
+        <attribute name="desc" attributeType="String"/>
+        <attribute name="descfull" optional="YES" attributeType="String"/>
+        <attribute name="images" attributeType="Transformable"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Attraction" positionX="-54" positionY="-9" width="128" height="103"/>
+    </elements>
 </model>
