@@ -132,6 +132,13 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		78B0F6DD2543A55200CD7C72 /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coredata;
+			sourceTree = "<group>";
+		};
 		78B1CA7E25420EEF007B3985 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +277,7 @@
 		78CB5DBF253FB50100808522 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				78B0F6DD2543A55200CD7C72 /* Coredata */,
 				78B1CA772541F377007B3985 /* WeatherResponse.swift */,
 				78B1CA7B2541FA57007B3985 /* Location.swift */,
 				78B0F6CB2543912A00CD7C72 /* Attraction.swift */,
