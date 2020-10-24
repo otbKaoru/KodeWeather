@@ -15,17 +15,23 @@ final class GeoService: GeoServiceProtocol {
 
     func fetchGeoData(location: String, completion: @escaping (Result<GeoResponse?, NetworkError>) -> Void) {
         let parametres: [String: Any]
-        parametres = ["format":"json",
-                      "apikey":"5f888f23-5862-49fe-8c33-52c15c89a84a",
-                      "kind":"locality",
+        parametres = ["format":RequestOptions.format,
+                      "apikey":RequestOptions.apiKey,
+                      "kind":RequestOptions.kind,
                       "geocode":"Калиниград",
-                      "results":2]
+                      "results":10]
         networkService.fetchDecodableData(API:  ApiURL.yandexGeocode, parametres: parametres, completion: completion)
     }
 }
 
 extension GeoService {
-    enum ApiURL {
+    private enum ApiURL {
         static let yandexGeocode = "https://geocode-maps.yandex.ru/1.x/?"
+    }
+
+    private enum RequestOptions {
+        static let format = "json"
+        static let apiKey = "5f888f23-5862-49fe-8c33-52c15c89a84a"
+        static let kind = "locality"
     }
 }
