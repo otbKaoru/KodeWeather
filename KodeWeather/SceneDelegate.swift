@@ -14,13 +14,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let configurator = SearchConfigurator()
-        let viewController = configurator.configure()
-        UITextField.appearance().keyboardAppearance = .dark
-        window?.rootViewController = viewController // associate VC as root VC
-        window?.makeKeyAndVisible() // Shows the window and makes it the key window.
-        window?.windowScene = windowScene
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.windowScene = windowScene
+        let appCoordinator: AppCoordinatorProtocol = AppCoordinator(window: window)
+        appCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

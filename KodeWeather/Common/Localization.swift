@@ -7,6 +7,7 @@
 
 enum Localization {
     enum Search {
+        static let title = "Погода"
         static let searchBarPlaceholder = "Поиск"
         static let searchBarCancelButtonText = "Отменить"
     }
