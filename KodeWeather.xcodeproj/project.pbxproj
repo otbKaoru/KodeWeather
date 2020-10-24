@@ -11,6 +11,7 @@
 		782CFC06254111A200A87DAC /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */; };
 		782CFC1E25413BB600A87DAC /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */; };
 		78B0F6DB2543A45800CD7C72 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */; };
+		78B0F71B2543AD9700CD7C72 /* Attraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78B0F7192543AD9700CD7C72 /* Attraction.xcdatamodeld */; };
 		78B1CA782541F377007B3985 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA772541F377007B3985 /* WeatherResponse.swift */; };
 		78B1CA7C2541FA57007B3985 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA7B2541FA57007B3985 /* Location.swift */; };
 		78B1CA8025420FDF007B3985 /* WeatherCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B1CA7F25420FDF007B3985 /* WeatherCellViewModel.swift */; };
@@ -57,6 +58,7 @@
 		782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		782CFC1D25413BB600A87DAC /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
 		78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		78B0F71A2543AD9700CD7C72 /* Attraction.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Attraction.xcdatamodel; sourceTree = "<group>"; };
 		78B1CA772541F377007B3985 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		78B1CA7B2541FA57007B3985 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		78B1CA7F25420FDF007B3985 /* WeatherCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCellViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 				782CFC05254111A200A87DAC /* WeatherCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		78B0F7182543AD8900CD7C72 /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				78B0F7192543AD9700CD7C72 /* Attraction.xcdatamodeld */,
+			);
+			path = Coredata;
 			sourceTree = "<group>";
 		};
 		78B1CA7E25420EEF007B3985 /* ViewModel */ = {
@@ -268,6 +278,7 @@
 		78CB5DBF253FB50100808522 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				78B0F7182543AD8900CD7C72 /* Coredata */,
 				78B1CA772541F377007B3985 /* WeatherResponse.swift */,
 				78B1CA7B2541FA57007B3985 /* Location.swift */,
 			);
@@ -518,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B0F71B2543AD9700CD7C72 /* Attraction.xcdatamodeld in Sources */,
 				78B1CAAB254261C5007B3985 /* AttractionsConfigurator.swift in Sources */,
 				78B1CAC02543339D007B3985 /* AttractionDetailViewInput.swift in Sources */,
 				782CFC1E25413BB600A87DAC /* WeatherForecastView.swift in Sources */,
@@ -753,6 +765,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		78B0F7192543AD9700CD7C72 /* Attraction.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				78B0F71A2543AD9700CD7C72 /* Attraction.xcdatamodel */,
+			);
+			currentVersion = 78B0F71A2543AD9700CD7C72 /* Attraction.xcdatamodel */;
+			path = Attraction.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 78CB5D9C253FB34900808522 /* Project object */;
 }
