@@ -19,29 +19,6 @@ final class AttractionDetailPresenter {
 
 extension AttractionDetailPresenter: AttractionDetailViewOutput {
     func viewLoaded() {
-        let json = attractionService.loadJson(filename: "Attractions")
-
-        print(json)
-
-       // CoreDataService.instance.clearData()
-
-        let context = CoreDataService.instance.getContext()
-
-//        let attr = Attraction(context: context)
-//        attr.desc = json?.desc
-//        attr.descfull = json?.descfull
-//        attr.images = ["1123","1231"]
-//        attr.name = json?.name
-
-        CoreDataService.instance.saveContext()
-
-        let fetchRequest = NSFetchRequest<Attraction>(entityName: "Attraction")
-
-        do {
-            let fetchResults = try context.fetch(fetchRequest)
-            for object in fetchResults { print("TEST")}
-        } catch {
-            print(error)
-        }
+        print(attractionService.getAttractionsCount(locationName: "Калининград"))
     }
 }

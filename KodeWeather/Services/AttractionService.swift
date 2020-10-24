@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import CoreData
 
-final class AttractionService {
+protocol AttractionServiceProtocol {
+}
 
-    func loadJson(filename fileName: String) -> AttractionModel? {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+final class AttractionService: AttractionServiceProtocol {
+
+    private func loadAttractionJson() -> AttractionModel? {
+        if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
@@ -22,7 +26,24 @@ final class AttractionService {
         }
         return nil
     }
+
+    func fetchLocationAttractions(locationName: String) -> [Attraction] {
+        return CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
+    }
+
+    func getAttractionsCount(locationName: String) -> Int {
+        let fetchedValues = CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
+        return fetchedValues.count
+    }
+
 }
 
+//MARK: - Constants
+
+extension AttractionService {
+    private enum Options {
+        static let jsonName = "Attractions"
+    }
+}
 
 
