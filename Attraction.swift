@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Attraction: NSManagedObject {
+class Attraction: NSManagedObject, Identifiable {
 
 //    enum CodingKeys: String, CodingKey {
 //        case name, images, desc, descfull
@@ -49,6 +49,3 @@ extension Attraction {
 
 }
 
-extension Attraction : Identifiable {
-
-}

@@ -36,6 +36,20 @@ final class AttractionService: AttractionServiceProtocol {
         return fetchedValues.count
     }
 
+    func testJson() -> Geo? {
+        if let url = Bundle.main.url(forResource: "test", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(Geo.self, from: data)
+                return jsonData
+            } catch {
+                print("error:\(error)")
+            }
+        }
+        return nil
+    }
+
 }
 
 //MARK: - Constants

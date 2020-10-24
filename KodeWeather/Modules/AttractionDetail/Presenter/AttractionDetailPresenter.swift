@@ -20,6 +20,7 @@ final class AttractionDetailPresenter {
 
 extension AttractionDetailPresenter: AttractionDetailViewOutput {
     func viewLoaded() {
+        let test = attractionService.testJson()
         attraction = attractionService.fetchLocationAttractions(locationName: "Калининград")[0]
         if let attraction = attraction {
            print(attraction)
