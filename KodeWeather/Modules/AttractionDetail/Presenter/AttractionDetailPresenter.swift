@@ -21,23 +21,25 @@ extension AttractionDetailPresenter: AttractionDetailViewOutput {
     func viewLoaded() {
         let json = attractionService.loadJson(filename: "Attractions")
 
-        let context = CoreDataService.instance.getContext()
+        CoreDataService.instance.clearData()
 
-        let attr = Attraction(context: context)
-        attr.desc = json?.desc
-        attr.descfull = json?.descfull
-        attr.images = json?.images
-        attr.name = json?.name
+//        let context = CoreDataService.instance.getContext()
+//
+//        let attr = Attraction(context: context)
+//        attr.desc = json?.desc
+//        attr.descfull = json?.descfull
+//        attr.images = json?.images
+//        attr.name = json?.name
 
-        CoreDataService.instance.saveContext()
+//        CoreDataService.instance.saveContext()
 
-        let fetchRequest = NSFetchRequest<Attraction>(entityName: "Attraction")
-
-        do {
-            let fetchResults = try context.fetch(fetchRequest)
-            for object in fetchResults { print("TEST")}
-        } catch {
-            print(error)
-        }
+//        let fetchRequest = NSFetchRequest<Attraction>(entityName: "Attraction")
+//
+//        do {
+//            let fetchResults = try context.fetch(fetchRequest)
+//            for object in fetchResults { print("TEST")}
+//        } catch {
+//            print(error)
+//        }
     }
 }
