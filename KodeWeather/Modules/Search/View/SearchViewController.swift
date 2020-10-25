@@ -29,7 +29,10 @@ final class SearchViewController: UIViewController {
     }
 
     private func setupSearchController() {
-        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.barTintColor = StyleGuide.Colors.darkGray
         searchController.searchBar.placeholder = Localization.Search.searchBarPlaceholder
         searchController.searchBar.tintColor = StyleGuide.Colors.white
@@ -45,7 +48,7 @@ final class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.tableHeaderView = searchController.searchBar
+       // tableView.tableHeaderView = searchController.searchBar
         let backgroundView = UIView()
         backgroundView.backgroundColor = StyleGuide.Colors.darkGray
         tableView.backgroundView = backgroundView
