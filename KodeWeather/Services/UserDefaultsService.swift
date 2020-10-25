@@ -19,8 +19,24 @@ final class UserDefaultsService {
     }
 
     func saveSearchLocation(location: Location) {
-        guard let locationData = try? JSONEncoder().encode(location) else { return }
-        defaults.set(locationData, forKey: UserDefaultsKeys.searchLocations)
+        var savedLocations = getSearchLocations()
+        if getSearchLocations().count < Options.maxSearchCount {
+            savedLocations.append(location)
+            guard let locationsData = try? JSONEncoder().encode(savedLocations) else { return }
+            defaults.set(locationsData, forKey: UserDefaultsKeys.searchLocations)
+        } else {
+            savedLocations.removeFirst()
+            savedLocations.insert(location, at: 0)
+            guard let locationsData = try? JSONEncoder().encode(savedLocations) else { return }
+            defaults.set(locationsData, forKey: UserDefaultsKeys.searchLocations)
+        }
+
+    }
+}
+
+extension UserDefaultsService {
+    private enum Options {
+        static let maxSearchCount = 5
     }
 }
 
