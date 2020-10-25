@@ -30,6 +30,7 @@ final class WeatherViewController: UIViewController {
         button.backgroundColor = StyleGuide.Colors.blue
         button.setTitle(Localization.Weather.attractionsButtonTitle, for: .normal)
         button.layer.cornerRadius = ViewOptions.sightButtinCornetRadius
+        button.isHidden = true
         return button
     }()
 
@@ -43,7 +44,6 @@ final class WeatherViewController: UIViewController {
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
         navigationItem.title = Localization.Weather.title
-        navigationController?.navigationBar.prefersLargeTitles = false
         setupViews()
         setupMapView()
         setupLayouts()
@@ -125,6 +125,10 @@ extension  WeatherViewController: WeatherViewInput {
 
     func setLocationName(name: String) {
         locationNameLabel.text = name
+    }
+
+    func setAttractionButtonVisible() {
+        attractionsButton.isHidden = false
     }
 
     func setForecastViewDate(date: Date, forecast: ForecastType) {

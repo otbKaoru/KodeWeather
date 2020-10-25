@@ -91,6 +91,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        searchController.searchBar.endEditing(true)
         output?.selectRowAtIndexPath(at: indexPath)
     }
 }

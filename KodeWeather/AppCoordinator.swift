@@ -27,7 +27,12 @@ class AppCoordinator: AppCoordinatorProtocol {
         self.window = window
     }
 
+    private func setupGlobal() {
+        UITextField.appearance().keyboardAppearance = .dark
+    }
+
     func start() {
+        setupGlobal()
         let startViewController = searchConfigurator.configure()
         startViewController.navigationItem.title = Localization.Search.title
         let textAttributes = [NSAttributedString.Key.foregroundColor: StyleGuide.Colors.defaultTextColor]
