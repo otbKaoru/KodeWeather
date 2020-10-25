@@ -34,14 +34,16 @@ final class AttractionDetailViewController: UIViewController {
         return label
     }()
 
-    private let attractionDescription: AttractionDescriptionLabel = {
-        let label = AttractionDescriptionLabel()
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
-        label.textColor = StyleGuide.Colors.defaultTextColor
-        label.numberOfLines = 0
-        return label
-    }()
+//    private let attractionDescription: AttractionDescriptionLabel = {
+//        let label = AttractionDescriptionLabel()
+//        label.textAlignment = .left
+//        label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
+//        label.textColor = StyleGuide.Colors.defaultTextColor
+//        label.numberOfLines = 0
+//        return label
+//    }()
+
+    private let attractionDescription = AttractionDescriptionView()
 
     private let mapTitle: UILabel = {
         let label = UILabel()
@@ -144,10 +146,10 @@ final class AttractionDetailViewController: UIViewController {
 
 //MARK: - AttractionDetailViewInput
 extension AttractionDetailViewController: AttractionDetailViewInput {
-    func configure(images: [String], title: String, description: String) {
+    func configure(images: [String], title: String, description: String, fullDescription: String) {
         attractionImageView.setImage(with: URL(string: images[0]))
         attractionTitle.text = title
-        attractionDescription.text = description
+        attractionDescription.configure(desc: description, fullDesc: fullDescription)
     }
 
     func configureMap(lan: Double, lon: Double) {
@@ -189,8 +191,7 @@ extension AttractionDetailViewController: MKMapViewDelegate {
 
 extension AttractionDetailViewController {
     @objc func mapTapped() {
-        //output?.mapTapped()
-        attractionDescription.showMoreText()
+        output?.mapTapped()
     }
 }
 

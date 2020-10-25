@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class AttractionDescriptionView: UIView {
+
     private let attractionDescriptionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -22,6 +24,8 @@ class AttractionDescriptionView: UIView {
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
         label.textColor = ViewOptions.readMoreTextColor
+        label.text = Localization.AttractionDetail.readMoreTitle
+        //label.addTarget(self, action: #selector(readMoreLabelTap))
         return label
     }()
 
@@ -41,6 +45,11 @@ class AttractionDescriptionView: UIView {
     private func setupViews() {
         addSubview(attractionDescriptionLabel)
         addSubview(readMoreLabel)
+
+        let labelGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreLabelTap))
+        readMoreLabel.isHidden = true
+        readMoreLabel.isUserInteractionEnabled = true
+        readMoreLabel.addGestureRecognizer(labelGesture)
     }
 
     private func setupLayouts() {
@@ -61,12 +70,31 @@ class AttractionDescriptionView: UIView {
         ])
     }
 
+    private func hideReadMoreLabel() {
+        readMoreLabel.text = ""
+        readMoreLabel.isHidden = true
+    }
+
     func configure(desc: String, fullDesc: String) {
+        readMoreLabel.isHidden = false
         self.desc = desc
         self.fullDesc = fullDesc
+        if desc.count >= fullDesc.count {
+            hideReadMoreLabel()
+        }
         attractionDescriptionLabel.text = desc
     }
 }
+
+//MARK: - UIActions
+
+extension AttractionDescriptionView {
+    @objc func readMoreLabelTap() {
+        attractionDescriptionLabel.text = fullDesc
+        hideReadMoreLabel()
+    }
+}
+
 
 //MARK: - Constants
 extension AttractionDescriptionView {

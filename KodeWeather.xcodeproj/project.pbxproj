@@ -49,7 +49,6 @@
 		78C33FBB2546238500E424AE /* AttcartionDetailFullMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FBA2546238500E424AE /* AttcartionDetailFullMapViewController.swift */; };
 		78C33FC12546255800E424AE /* AttractionDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FC02546255800E424AE /* AttractionDetailRouter.swift */; };
 		78C33FC52546256500E424AE /* AttractionDetailRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FC42546256500E424AE /* AttractionDetailRouterInput.swift */; };
-		78C33FCC2546338900E424AE /* AttractionDescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FCB2546338900E424AE /* AttractionDescriptionLabel.swift */; };
 		78C33FCF2546385700E424AE /* AttractionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FCE2546385700E424AE /* AttractionDescriptionView.swift */; };
 		78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DA7253FB34900808522 /* AppDelegate.swift */; };
 		78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DA9253FB34900808522 /* SceneDelegate.swift */; };
@@ -117,7 +116,6 @@
 		78C33FBA2546238500E424AE /* AttcartionDetailFullMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttcartionDetailFullMapViewController.swift; sourceTree = "<group>"; };
 		78C33FC02546255800E424AE /* AttractionDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailRouter.swift; sourceTree = "<group>"; };
 		78C33FC42546256500E424AE /* AttractionDetailRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailRouterInput.swift; sourceTree = "<group>"; };
-		78C33FCB2546338900E424AE /* AttractionDescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDescriptionLabel.swift; sourceTree = "<group>"; };
 		78C33FCE2546385700E424AE /* AttractionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDescriptionView.swift; sourceTree = "<group>"; };
 		78CB5DA4253FB34900808522 /* KodeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CB5DA7253FB34900808522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 				78B1CABF2543339D007B3985 /* AttractionDetailViewInput.swift */,
 				78B1CAC2254333A8007B3985 /* AttractionDetailViewOutput.swift */,
 				78C33FBA2546238500E424AE /* AttcartionDetailFullMapViewController.swift */,
-				78C33FCB2546338900E424AE /* AttractionDescriptionLabel.swift */,
 				78C33FCE2546385700E424AE /* AttractionDescriptionView.swift */,
 			);
 			path = View;
@@ -654,7 +651,6 @@
 				78CB5E232540BE2300808522 /* WeatherPresenter.swift in Sources */,
 				78B1CAC9254333BD007B3985 /* AttractionDetailConfigurator.swift in Sources */,
 				7824A71E2544DF1300220A19 /* SearchRouterInput.swift in Sources */,
-				78C33FCC2546338900E424AE /* AttractionDescriptionLabel.swift in Sources */,
 				78B1CAC6254333B2007B3985 /* AttractionDetailPresenter.swift in Sources */,
 				78B1CA842542202B007B3985 /* ForecastType.swift in Sources */,
 				78B0F72E2543B1C200CD7C72 /* Attraction.swift in Sources */,
