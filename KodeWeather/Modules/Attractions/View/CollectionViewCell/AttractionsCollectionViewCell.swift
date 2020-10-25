@@ -86,8 +86,8 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             attractionDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutOptions.textPadding),
             attractionDescription.topAnchor.constraint(equalTo: attractionTitle.bottomAnchor, constant: LayoutOptions.descriptionTopPadding),
-            attractionDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutOptions.textPadding),
-            attractionDescription.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: LayoutOptions.textPadding)
+            attractionDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutOptions.textPadding),
+            attractionDescription.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -LayoutOptions.textPadding)
         ])
     }
 
