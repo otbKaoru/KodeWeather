@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 protocol AttractionServiceProtocol {
+    func isLocationHaveAttractions(locationName: String) -> Bool
 }
 
 final class AttractionService: AttractionServiceProtocol {
@@ -33,9 +34,9 @@ final class AttractionService: AttractionServiceProtocol {
         return CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
     }
 
-    func getAttractionsCount(locationName: String) -> Int {
+    func isLocationHaveAttractions(locationName: String) -> Bool {
         let fetchedValues = CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
-        return fetchedValues.count
+        return fetchedValues.count > 0
     }
 }
 

@@ -13,6 +13,8 @@ final class WeatherPresenter {
 
     weak var view: WeatherViewInput?
     private let weatherService: WeatherServiceProtocol = WeatherService()
+    private let attractionService: AttractionServiceProtocol = AttractionService()
+
     var location: Location?
 
     private var todayWeatherViewModels: [WeatherCellViewModel] = []
@@ -81,6 +83,9 @@ extension WeatherPresenter: WeatherViewOutput {
             case .failure(let error):
                 print(error)
             }
+        }
+        if (attractionService.isLocationHaveAttractions(locationName: location.name)) {
+            view?.setAttractionButtonVisible()
         }
     }
 
