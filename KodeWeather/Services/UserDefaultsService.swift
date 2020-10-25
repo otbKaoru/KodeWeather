@@ -25,7 +25,7 @@ final class UserDefaultsService {
             guard let locationsData = try? JSONEncoder().encode(savedLocations) else { return }
             defaults.set(locationsData, forKey: UserDefaultsKeys.searchLocations)
         } else {
-            savedLocations.removeFirst()
+            savedLocations.removeLast()
             savedLocations.insert(location, at: 0)
             guard let locationsData = try? JSONEncoder().encode(savedLocations) else { return }
             defaults.set(locationsData, forKey: UserDefaultsKeys.searchLocations)
@@ -36,7 +36,7 @@ final class UserDefaultsService {
 
 extension UserDefaultsService {
     private enum Options {
-        static let maxSearchCount = 5
+        static let maxSearchCount = 4
     }
 }
 
