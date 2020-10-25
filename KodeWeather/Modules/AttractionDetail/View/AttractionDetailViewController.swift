@@ -34,12 +34,12 @@ final class AttractionDetailViewController: UIViewController {
         return label
     }()
 
-    private let attractionDescription: UILabel = {
-        let label = UILabel()
+    private let attractionDescription: AttractionDescriptionLabel = {
+        let label = AttractionDescriptionLabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
-        label.numberOfLines = 3
+        label.numberOfLines = 0
         return label
     }()
 
@@ -189,7 +189,8 @@ extension AttractionDetailViewController: MKMapViewDelegate {
 
 extension AttractionDetailViewController {
     @objc func mapTapped() {
-        output?.mapTapped()
+        //output?.mapTapped()
+        attractionDescription.showMoreText()
     }
 }
 
