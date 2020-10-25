@@ -42,7 +42,7 @@ class CoreDataService: NSObject {
                 _ = objects.map{$0.map{context.delete($0)}}
                 saveContext()
             } catch let error {
-                print("ERROR DELETING : \(error)")
+                print("ERROR DELETING: \(error)")
             }
         }
         do {
@@ -53,7 +53,7 @@ class CoreDataService: NSObject {
                 _ = objects.map{$0.map{context.delete($0)}}
                 saveContext()
             } catch let error {
-                print("ERROR DELETING : \(error)")
+                print("ERROR DELETING: \(error)")
             }
         }
     }
@@ -67,9 +67,8 @@ class CoreDataService: NSObject {
         if context.hasChanges {
             do {
                 try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            } catch let error {
+                print("ERRO SAVE CONTEXT: \(error)")
             }
         }
     }

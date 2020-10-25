@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 protocol AttractionServiceProtocol {
     func isLocationHaveAttractions(locationName: String) -> Bool
