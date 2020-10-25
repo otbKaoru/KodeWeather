@@ -11,4 +11,5 @@ protocol WeatherViewOutput {
     func viewLoaded()
     func cellViewModel(for indexPath: IndexPath, forecast: ForecastType) -> WeatherCellViewModel?
     func numberOfRows(forecast: ForecastType) -> Int
+    func attractionsButtonTapped()
 }

@@ -8,9 +8,13 @@
 import Foundation
 
 class WeatherRouter {
+    weak var viewController: WeatherViewController?
+    var attractionsConfigurator = AttractionsConfigurator()
 
 }
 
 extension WeatherRouter: WeatherRouterInput {
-    
+    func showAttractionsModule(for location: Location) {
+        viewController?.navigationController?.pushViewController(attractionsConfigurator.configure(), animated: true)
+    }
 }

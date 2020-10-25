@@ -12,6 +12,8 @@ final class WeatherPresenter {
     // MARK: - Properties
 
     weak var view: WeatherViewInput?
+    var router: WeatherRouter?
+
     private let weatherService: WeatherServiceProtocol = WeatherService()
     private let attractionService: AttractionServiceProtocol = AttractionService()
 
@@ -107,5 +109,10 @@ extension WeatherPresenter: WeatherViewOutput {
             return tomorrowWeatherViewModels.count
         }
         return 0
+    }
+
+    func attractionsButtonTapped() {
+        guard let location = location else { return }
+        router?.showAttractionsModule(for: location)
     }
 }

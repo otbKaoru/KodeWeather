@@ -13,7 +13,7 @@ class SearchRouter {
 }
 
 extension SearchRouter: SearchRouterInput {
-    func openWeatherModule(for location: Location) {
+    func showWeatherModule(for location: Location) {
         viewController?.navigationController?.pushViewController(weatherConfigurator.configure(with: location), animated: true)
     }
 }

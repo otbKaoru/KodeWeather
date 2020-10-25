@@ -6,5 +6,5 @@
 //
 
 protocol WeatherRouterInput {
-    
+    func showAttractionsModule(for location: Location)
 }

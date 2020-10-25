@@ -31,6 +31,7 @@ final class WeatherViewController: UIViewController {
         button.setTitle(Localization.Weather.attractionsButtonTitle, for: .normal)
         button.layer.cornerRadius = ViewOptions.sightButtinCornetRadius
         button.isHidden = true
+        button.addTarget(self, action: #selector(attractionsButtonAction), for: .touchUpInside)
         return button
     }()
 
@@ -204,6 +205,14 @@ extension WeatherViewController: MKMapViewDelegate {
     }
 }
 
+// MARK: - UI Actions
+extension WeatherViewController  {
+    @objc func attractionsButtonAction() {
+        output?.attractionsButtonTapped()
+    }
+}
+
+
 // MARK: - Constants
 
 extension WeatherViewController {
@@ -219,3 +228,4 @@ extension WeatherViewController {
         static let sightButtonHeight: CGFloat = 56
     }
 }
+

@@ -9,7 +9,7 @@ import Foundation
 
 final class AttractionDetailConfigurator {
 
-    func configure() -> AttractionDetailViewController {
+    func configure(with location: Location?) -> AttractionDetailViewController {
 
         let viewController = AttractionDetailViewController()
 

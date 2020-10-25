@@ -39,7 +39,7 @@ extension SearchPresenter: SearchViewOutput {
         guard searchLocations.indices.count > indexPath.row else {
             return
         }
-        router?.openWeatherModule(for: searchLocations[indexPath.row])
+        router?.showWeatherModule(for: searchLocations[indexPath.row])
     }
 
     func fetchPreviewLocations(for query: String) {

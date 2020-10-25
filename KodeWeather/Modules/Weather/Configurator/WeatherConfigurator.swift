@@ -14,9 +14,14 @@ final class WeatherConfigurator {
         let viewController = WeatherViewController()
 
         let presenter = WeatherPresenter()
+        let router = WeatherRouter()
+
+        router.viewController = viewController
 
         presenter.view = viewController
+        presenter.router = router
         presenter.location = input
+        
         viewController.output = presenter
 
         return viewController
