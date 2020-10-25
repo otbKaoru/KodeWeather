@@ -10,6 +10,7 @@ import CoreData
 
 protocol AttractionServiceProtocol {
     func isLocationHaveAttractions(locationName: String) -> Bool
+    func fetchLocationAttractions(locationName: String) -> [Attraction]
 }
 
 final class AttractionService: AttractionServiceProtocol {

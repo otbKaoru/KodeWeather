@@ -96,6 +96,12 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         attractionTitle.text = title
         attractionDescription.text = description
     }
+
+    func configure(with viewModel: AttractionCellViewModel) {
+        attractionImageView.setImage(with: URL(string: viewModel.imageName))
+        attractionTitle.text = viewModel.title
+        attractionDescription.text = viewModel.description
+    }
 }
 
 // MARK: - Constants

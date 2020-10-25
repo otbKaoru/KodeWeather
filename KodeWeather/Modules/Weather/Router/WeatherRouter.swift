@@ -15,6 +15,6 @@ class WeatherRouter {
 
 extension WeatherRouter: WeatherRouterInput {
     func showAttractionsModule(for location: Location) {
-        viewController?.navigationController?.pushViewController(attractionsConfigurator.configure(), animated: true)
+        viewController?.navigationController?.pushViewController(attractionsConfigurator.configure(with: location), animated: true)
     }
 }

@@ -28,6 +28,7 @@ final class AttractionsViewController: UIViewController {
         super.viewDidLoad()
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
+        navigationItem.title = Localization.Attractions.title
         setupViews()
         setupLayouts()
     }
@@ -66,14 +67,14 @@ extension AttractionsViewController: AttractionsViewInput {
 
 extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        output?.numberOfRows() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttractionsCollectionViewCell.reuseIdentifier, for: indexPath) as! AttractionsCollectionViewCell
-        cell.configure(image: UIImage(named: "Build"),
-                       title: "Музей естественных наук",
-                       description: "Tempus at pharetra ipsum vel eleifend non vestibulum ac, tristique. Malesuada ac viverra blandit at vitae tellus sit tempus sem eu.")
+        if let viewModel = output?.cellViewModel(for: indexPath) {
+            cell.configure(with: viewModel)
+        }
         return cell
     }
 }

@@ -17,4 +17,7 @@ enum Localization {
         static let todayForecast = "Сегодня"
         static let tomorrowForecast = "Завтра"
     }
+    enum Attractions {
+        static let title = "Достопримечательности"
+    }
 }
