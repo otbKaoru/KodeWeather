@@ -75,6 +75,8 @@ final class AttractionDetailViewController: UIViewController {
         view.addSubview(mapView)
 
         mapView.delegate = self
+        mapView.isZoomEnabled = false
+        mapView.isScrollEnabled = false
         let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(mapTapped))
         mapView.addGestureRecognizer(gestureRecognizer)
     }
