@@ -60,7 +60,11 @@ final class AttractionsViewController: UIViewController {
 
 //MARK: - AttractionsViewInput
 extension AttractionsViewController: AttractionsViewInput {
-
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.attractionsCollectionView.reloadData()
+        }
+    }
 }
 
 //MARK: - UICollectionViewDelegate & UICollectionViewDataSource

@@ -14,8 +14,12 @@ final class AttractionsConfigurator {
         let viewController = AttractionsViewController()
 
         let presenter = AttractionsPresenter()
+        let router = AttractionsRouter()
+
+        presenter.view = viewController
         
         presenter.locationName = input?.name
+        presenter.router = router
 
         presenter.view = viewController
         viewController.output = presenter

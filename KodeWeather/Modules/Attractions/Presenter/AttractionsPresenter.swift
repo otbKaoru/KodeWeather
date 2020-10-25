@@ -12,6 +12,8 @@ final class AttractionsPresenter {
     // MARK: - Properties
 
     weak var view: AttractionsViewInput?
+    var router: AttractionsRouterInput?
+
     var locationName: String?
 
     private var attractionService: AttractionServiceProtocol = AttractionService()
@@ -22,6 +24,7 @@ extension AttractionsPresenter: AttractionsViewOutput {
     func viewLoaded() {
         guard let locationName = locationName else { return }
         attractions = attractionService.fetchLocationAttractions(locationName: locationName)
+        view?.reloadCollectionView()
     }
 
     func cellViewModel(for indexPath: IndexPath) -> AttractionCellViewModel? {

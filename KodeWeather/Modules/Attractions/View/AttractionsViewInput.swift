@@ -8,4 +8,5 @@
 import Foundation
 
 protocol AttractionsViewInput: class {
+    func reloadCollectionView()
 }

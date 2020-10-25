@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class AttractionsRouter {
+    weak var viewController: AttractionsViewController?
+}
+
+extension AttractionsRouter: AttractionsRouterInput {
+    
+}
