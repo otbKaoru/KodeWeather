@@ -12,7 +12,7 @@ final class SearchPresenter {
     // MARK: - Properties
 
     weak var view: SearchViewInput?
-    var router: SearchRouterProtocol?
+    var router: SearchRouterInput?
 
     private let GeoSerivce = GeoService()
     private var searchLocations: [Location] = []

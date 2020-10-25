@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SearchRouterProtocol: class {
+protocol SearchRouterInput: class {
     func openWeatherModule(for location: Location)
 }
