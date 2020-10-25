@@ -21,7 +21,7 @@ final class AttractionDetailViewController: UIViewController {
 
     private let attractionImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -70,6 +70,7 @@ final class AttractionDetailViewController: UIViewController {
         scrollContentView.addSubview(attractionDescription)
         scrollContentView.addSubview(mapView)
         scrollContentView.addSubview(mapTitle)
+        //scrollView.delegate = self
 
         view.addSubview(mapView)
         mapView.isUserInteractionEnabled = false
@@ -133,6 +134,7 @@ final class AttractionDetailViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor),
             mapView.heightAnchor.constraint(equalToConstant: 200),
         ])
+
     }
 }
 
@@ -172,6 +174,12 @@ extension AttractionDetailViewController: MKMapViewDelegate {
         return annotationView
     }
 }
+//
+//extension AttractionDetailViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        attractionImageView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+//    }
+//}
 
 //MARK: - Constants
 extension AttractionDetailViewController {
