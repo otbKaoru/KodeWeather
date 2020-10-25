@@ -14,7 +14,11 @@ final class AttractionDetailConfigurator {
         let viewController = AttractionDetailViewController()
 
         let presenter = AttractionDetailPresenter()
+        let router = AttractionDetailRouter()
 
+        router.viewController = viewController
+
+        presenter.router = router
         presenter.view = viewController
         presenter.attraction = input
         viewController.output = presenter

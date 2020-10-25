@@ -13,6 +13,7 @@ final class AttractionDetailPresenter {
     // MARK: - Properties
 
     weak var view: AttractionDetailViewInput?
+    var router: AttractionDetailRouter?
 
     private let attractionService: AttractionService = AttractionService()
     var attraction: Attraction?
