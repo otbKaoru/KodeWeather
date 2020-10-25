@@ -10,5 +10,6 @@ import Foundation
 protocol AttractionsViewOutput {
     func viewLoaded()
     func cellViewModel(for indexPath: IndexPath) -> AttractionCellViewModel?
-    func numberOfRows() -> Int 
+    func numberOfRows() -> Int
+    func selectItemAtIndexPath(at indexPath: IndexPath)
 }

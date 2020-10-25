@@ -9,13 +9,14 @@ import Foundation
 
 final class AttractionDetailConfigurator {
 
-    func configure(with location: Location?) -> AttractionDetailViewController {
+    func configure(with input: Attraction?) -> AttractionDetailViewController {
 
         let viewController = AttractionDetailViewController()
 
         let presenter = AttractionDetailPresenter()
 
         presenter.view = viewController
+        presenter.attraction = input
         viewController.output = presenter
 
         return viewController

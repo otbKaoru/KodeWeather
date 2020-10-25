@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AttractionsRouterInput {
-    
+    func showAttractionDetailModule(for attraction: Attraction)
 }

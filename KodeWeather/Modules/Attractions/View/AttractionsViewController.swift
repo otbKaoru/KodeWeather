@@ -81,6 +81,10 @@ extension AttractionsViewController: UICollectionViewDelegate, UICollectionViewD
         }
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        output?.selectItemAtIndexPath(at: indexPath)
+    }
 }
 
 extension AttractionsViewController: UICollectionViewDelegateFlowLayout {

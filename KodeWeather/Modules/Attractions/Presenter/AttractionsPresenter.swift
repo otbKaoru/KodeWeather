@@ -37,4 +37,11 @@ extension AttractionsPresenter: AttractionsViewOutput {
     func numberOfRows() -> Int {
         return attractions.count
     }
+
+    func selectItemAtIndexPath(at indexPath: IndexPath) {
+        guard attractions.indices.count > indexPath.row else {
+            return
+        }
+        router?.showAttractionDetailModule(for: attractions[indexPath.row])
+    }
 }

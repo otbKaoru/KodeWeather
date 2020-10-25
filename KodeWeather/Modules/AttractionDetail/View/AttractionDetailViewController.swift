@@ -152,6 +152,10 @@ extension AttractionDetailViewController: AttractionDetailViewInput {
         annotation.coordinate = cooridnate
         mapView.addAnnotation(annotation)
     }
+
+    func configureTitle(title: String?) {
+        navigationItem.title = title
+    }
 }
 
 // MARK: - MKMapViewDelegate
