@@ -69,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		009E3FA69BF149AAC1580CB3 /* Pods-KodeWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KodeWeather.release.xcconfig"; path = "Target Support Files/Pods-KodeWeather/Pods-KodeWeather.release.xcconfig"; sourceTree = "<group>"; };
-		7824A6D32543DAA500220A19 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = SOURCE_ROOT; };
+		7824A6D32543DAA500220A19 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Geo.swift; path = KodeWeather/Models/Coredata/Geo.swift; sourceTree = SOURCE_ROOT; };
 		7824A6E42543EC2600220A19 /* UIImageView + URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + URL.swift"; sourceTree = "<group>"; };
 		7824A7062544B4CA00220A19 /* GeoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoService.swift; sourceTree = "<group>"; };
 		7824A7092544B58700220A19 /* GeoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoResponse.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		784203F1254514C500E917FB /* AttractionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionCellViewModel.swift; sourceTree = "<group>"; };
 		78B0F6DA2543A45800CD7C72 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		78B0F71A2543AD9700CD7C72 /* Attraction.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Attraction.xcdatamodel; sourceTree = "<group>"; };
-		78B0F72C2543B1C200CD7C72 /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = SOURCE_ROOT; };
+		78B0F72C2543B1C200CD7C72 /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Attraction.swift; path = KodeWeather/Models/Coredata/Attraction.swift; sourceTree = SOURCE_ROOT; };
 		78B0F7322543B43500CD7C72 /* Attractions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Attractions.json; sourceTree = "<group>"; };
 		78B0F7462543C19C00CD7C72 /* AttractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionService.swift; sourceTree = "<group>"; };
 		78B1CA772541F377007B3985 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
