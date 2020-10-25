@@ -24,7 +24,7 @@ enum DecodeError: Error {
 class Attraction: NSManagedObject, Decodable, Identifiable {
 
     enum CodingKeys: String, CodingKey {
-        case name, images, desc, descfull
+        case name, images, desc, descfull, geo
     }
 
     @NSManaged public var desc: String?
@@ -46,6 +46,7 @@ class Attraction: NSManagedObject, Decodable, Identifiable {
         self.descfull = try container.decodeIfPresent(String.self, forKey: .descfull)
         self.desc = try container.decodeIfPresent(String.self, forKey: .desc)
         self.images = try container.decodeIfPresent([String].self, forKey: .images)
+        self.geo = try container.decodeIfPresent(Geo.self, forKey: .geo)
     }
 
 }
