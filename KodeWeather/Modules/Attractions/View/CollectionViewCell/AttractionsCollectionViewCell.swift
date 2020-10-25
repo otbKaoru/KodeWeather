@@ -13,7 +13,7 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = CellOptions.contentViewLayerCornerRadius
         imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 

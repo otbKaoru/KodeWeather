@@ -98,8 +98,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = SearchTableSectionHeaderView()
         view.configure(with: "Последние запросы")
-        
-
         return view
     }
 }
