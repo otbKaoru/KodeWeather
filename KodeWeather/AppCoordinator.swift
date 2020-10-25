@@ -47,7 +47,7 @@ class AppCoordinator: AppCoordinatorProtocol {
         tabBarController.tabBar.barTintColor = StyleGuide.Colors.darkGray
         tabBarController.tabBar.isTranslucent = false
         tabBarController.setViewControllers([navigationController], animated: false)
-        window.rootViewController = navigationController
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
     }
 }

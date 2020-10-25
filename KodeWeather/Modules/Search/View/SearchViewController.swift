@@ -94,6 +94,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         searchController.searchBar.endEditing(true)
         output?.selectRowAtIndexPath(at: indexPath)
     }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = SearchTableSectionHeaderView()
+        view.configure(with: "Последние запросы")
+        
+
+        return view
+    }
 }
 
 // MARK: - UISearchResultsUpdating
