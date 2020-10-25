@@ -13,9 +13,7 @@ protocol AppCoordinatorProtocol {
 
 class AppCoordinator: AppCoordinatorProtocol {
 
-    private enum TabBarOptions {
-        static let tintColor = UIColor(hex: "#FF647C")
-    }
+    let attractionService = AttractionService()
 
     private let window: UIWindow
     private var tabBarController = UITabBarController()
@@ -33,6 +31,8 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
 
     func start() {
+        CoreDataService.instance.clearData()
+        attractionService.loadAttractionJson()
         setupGlobal()
         let startViewController = searchConfigurator.configure()
         startViewController.navigationItem.title = Localization.Search.title

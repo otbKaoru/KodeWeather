@@ -15,20 +15,25 @@ protocol AttractionServiceProtocol {
 
 final class AttractionService: AttractionServiceProtocol {
 
-    func loadAttractionJson() -> Attraction? {
+    func loadAttractionJson() {
+        CoreDataService.instance.clearData()
+
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
-                guard let contextKey = CodingUserInfoKey.context else { return nil }
+                guard let contextKey = CodingUserInfoKey.context else { return }
                 decoder.userInfo[contextKey] = CoreDataService.instance.getContext()
-                let jsonData = try decoder.decode(Attraction.self, from: data)
-                return jsonData
+                let jsonData = try decoder.decode([Attraction].self, from: data)
+                for attraction in jsonData {
+                    CoreDataService.instance.saveContext()
+                }
             } catch {
                 print("error:\(error)")
             }
         }
-        return nil
+
+        return
     }
 
     func fetchLocationAttractions(locationName: String) -> [Attraction] {

@@ -45,6 +45,17 @@ class CoreDataService: NSObject {
                 print("ERROR DELETING : \(error)")
             }
         }
+        do {
+            let context = persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: Geo.self))
+            do {
+                let objects  = try context.fetch(fetchRequest) as? [NSManagedObject]
+                _ = objects.map{$0.map{context.delete($0)}}
+                saveContext()
+            } catch let error {
+                print("ERROR DELETING : \(error)")
+            }
+        }
     }
 
     func getContext() -> NSManagedObjectContext {
