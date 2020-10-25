@@ -32,7 +32,7 @@ class AppCoordinator: AppCoordinatorProtocol {
 
     func start() {
         CoreDataService.instance.clearData()
-        attractionService.loadAttractionJson()
+        attractionService.loadAttractionsFromJson()
         setupGlobal()
         let startViewController = searchConfigurator.configure()
         startViewController.navigationItem.title = Localization.Search.title

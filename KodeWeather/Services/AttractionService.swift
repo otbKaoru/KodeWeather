@@ -15,7 +15,7 @@ protocol AttractionServiceProtocol {
 
 final class AttractionService: AttractionServiceProtocol {
 
-    func loadAttractionJson() {
+    func loadAttractionsFromJson() {
         CoreDataService.instance.clearData()
 
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
@@ -24,10 +24,8 @@ final class AttractionService: AttractionServiceProtocol {
                 let decoder = JSONDecoder()
                 guard let contextKey = CodingUserInfoKey.context else { return }
                 decoder.userInfo[contextKey] = CoreDataService.instance.getContext()
-                let jsonData = try decoder.decode([Attraction].self, from: data)
-                for attraction in jsonData {
-                    CoreDataService.instance.saveContext()
-                }
+                let _ = try decoder.decode([Attraction].self, from: data)
+                CoreDataService.instance.saveContext()
             } catch {
                 print("error:\(error)")
             }
