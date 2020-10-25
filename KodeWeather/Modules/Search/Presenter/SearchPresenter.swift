@@ -15,13 +15,15 @@ final class SearchPresenter {
     var router: SearchRouterInput?
 
     private let GeoSerivce = GeoService()
+    private let searchService = UserDefaultsService()
+
     private var searchLocations: [Location] = []
 }
 
 // MARK: - SearchViewOutput
 extension SearchPresenter: SearchViewOutput {
     func viewLoaded() {
-
+        searchLocations = searchService.getSearchLocations()
     }
 
     func cellViewModel(for indexPath: IndexPath) -> Location? {
@@ -39,6 +41,7 @@ extension SearchPresenter: SearchViewOutput {
         guard searchLocations.indices.count > indexPath.row else {
             return
         }
+        searchService.saveSearchLocation(location: searchLocations[indexPath.row])
         router?.showWeatherModule(for: searchLocations[indexPath.row])
     }
 
