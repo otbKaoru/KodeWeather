@@ -58,14 +58,14 @@ class AttractionDescriptionView: UIView {
 
         NSLayoutConstraint.activate([
             attractionDescriptionLabel.topAnchor.constraint(equalTo: topAnchor),
-            attractionDescriptionLabel.leftAnchor.constraint(equalTo: leftAnchor),
-            attractionDescriptionLabel.rightAnchor.constraint(equalTo: rightAnchor)
+            attractionDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutOptions.textHorizontalPadding),
+            attractionDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -LayoutOptions.textHorizontalPadding)
         ])
 
         NSLayoutConstraint.activate([
             readMoreLabel.topAnchor.constraint(equalTo: attractionDescriptionLabel.bottomAnchor),
-            readMoreLabel.leftAnchor.constraint(equalTo: leftAnchor),
-            readMoreLabel.rightAnchor.constraint(equalTo: rightAnchor),
+            readMoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutOptions.textHorizontalPadding),
+            readMoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -LayoutOptions.textHorizontalPadding),
             readMoreLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -101,6 +101,10 @@ extension AttractionDescriptionView {
     private enum ViewOptions {
         static let attractionDescriptionFontSize: CGFloat = 16
         static let readMoreTextColor = UIColor(hex: "#37A1F5")
+    }
+
+    private enum LayoutOptions {
+        static let textHorizontalPadding: CGFloat = 24
     }
 }
 
