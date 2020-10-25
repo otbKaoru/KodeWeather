@@ -25,6 +25,7 @@ class AppCoordinator: AppCoordinatorProtocol {
 
     init(window: UIWindow) {
         self.window = window
+        window.backgroundColor = StyleGuide.Colors.darkGray
     }
 
     private func setupGlobal() {
@@ -40,9 +41,13 @@ class AppCoordinator: AppCoordinatorProtocol {
         navigationController.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController.setViewControllers([startViewController],animated: false)
         navigationController.navigationBar.barTintColor = StyleGuide.Colors.darkGray
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barStyle = .black
         navigationController.navigationBar.prefersLargeTitles = true
+        tabBarController.tabBar.barTintColor = StyleGuide.Colors.darkGray
+        tabBarController.tabBar.isTranslucent = false
         tabBarController.setViewControllers([navigationController], animated: false)
-        window.rootViewController = tabBarController
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 }

@@ -48,7 +48,6 @@ final class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-       // tableView.tableHeaderView = searchController.searchBar
         let backgroundView = UIView()
         backgroundView.backgroundColor = StyleGuide.Colors.darkGray
         tableView.backgroundView = backgroundView
