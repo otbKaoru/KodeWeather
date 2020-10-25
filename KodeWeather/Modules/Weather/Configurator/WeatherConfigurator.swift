@@ -9,7 +9,7 @@ import UIKit
 
 final class WeatherConfigurator {
 
-    func configure(with input: Location = Location(name: "", lan: 0, lon: 0)) -> WeatherViewController {
+    func configure(with input: Location?) -> WeatherViewController {
 
         let viewController = WeatherViewController()
 

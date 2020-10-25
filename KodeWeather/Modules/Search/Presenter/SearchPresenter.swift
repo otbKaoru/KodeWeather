@@ -43,7 +43,7 @@ extension SearchPresenter: SearchViewOutput {
     }
 
     func fetchPreviewLocations(for query: String) {
-        GeoSerivce.fetchGeoData(query: query, resultsCount: 20) { [weak self] (result) in
+        GeoSerivce.fetchGeoData(query: query, resultsCount: 100) { [weak self] (result) in
             switch result {
             case .success(let data):
                 if let data = data {

@@ -13,7 +13,7 @@ final class WeatherPresenter {
 
     weak var view: WeatherViewInput?
     private let weatherService: WeatherServiceProtocol = WeatherService()
-    var location: Location = Location(name: "", lan: 0, lon: 0)
+    var location: Location?
 
     private var todayWeatherViewModels: [WeatherCellViewModel] = []
     private var tomorrowWeatherViewModels: [WeatherCellViewModel] = []
@@ -68,17 +68,10 @@ final class WeatherPresenter {
     }
 }
 
-//// MAKR - WeatherModuleInput
-//
-//extension WeatherPresenter: WeatherModuleInput {
-////    func setLocation(location: Location) {
-////        self.location = location
-////    }
-//}
-
 // MARK: - SearchViewOutput
 extension WeatherPresenter: WeatherViewOutput {
     func viewLoaded() {
+        guard let location = location else { return }
         view?.setLocationName(name: location.name)
         view?.configureMap(lan: location.lan, lon: location.lon)
         weatherService.fetchWeatherData(location: location ) { [weak self] (result) in
