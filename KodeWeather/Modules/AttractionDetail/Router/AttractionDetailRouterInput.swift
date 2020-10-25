@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AttractionDetailRouterInput {
-    func showFullMap(for location: Location)
+    func showFullMap(lan: Double, lon: Double)
 }

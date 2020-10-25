@@ -14,9 +14,9 @@ final class AttcartionDetailFullMapViewController: UIViewController {
 
     private let mapView = MKMapView()
 
-    convenience init(with location: Location) {
+    convenience init(lan: Double, lon: Double) {
         self.init()
-        configureMap(lan: location.lan, lon: location.lon)
+        configureMap(lan: lan, lon: lon)
     }
 
     override func viewDidLoad() {

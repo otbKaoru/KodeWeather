@@ -73,8 +73,10 @@ final class AttractionDetailViewController: UIViewController {
         //scrollView.delegate = self
 
         view.addSubview(mapView)
-        mapView.isUserInteractionEnabled = false
+
         mapView.delegate = self
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(mapTapped))
+        mapView.addGestureRecognizer(gestureRecognizer)
     }
 
 
@@ -180,6 +182,14 @@ extension AttractionDetailViewController: MKMapViewDelegate {
 //        attractionImageView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
 //    }
 //}
+
+//MARK:- UI Actions
+
+extension AttractionDetailViewController {
+    @objc func mapTapped() {
+        output?.mapTapped()
+    }
+}
 
 //MARK: - Constants
 extension AttractionDetailViewController {

@@ -12,8 +12,8 @@ class AttractionDetailRouter {
 }
 
 extension AttractionDetailRouter: AttractionDetailRouterInput {
-    func showFullMap(for location: Location) {
-        viewController?.navigationController?.pushViewController(AttcartionDetailFullMapViewController(with: location), animated: true)
+    func showFullMap(lan: Double, lon: Double) {
+        viewController?.navigationController?.pushViewController(AttcartionDetailFullMapViewController(lan: lan, lon: lon), animated: true)
     }
 
 }

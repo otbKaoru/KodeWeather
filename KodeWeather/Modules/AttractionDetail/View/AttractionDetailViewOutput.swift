@@ -9,4 +9,5 @@ import Foundation
 
 protocol AttractionDetailViewOutput {
     func viewLoaded()
+    func mapTapped()
 }
