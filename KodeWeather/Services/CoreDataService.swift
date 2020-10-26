@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataService: NSObject {
+
     static let shared = CoreDataService()
 
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -25,7 +26,7 @@ class CoreDataService: NSObject {
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
         fetchRequest.predicate = NSPredicate(format: predicateFormat, predicateValue)
         do {
-            let fetchedObjects = try CoreDataService.shared.getContext().fetch(fetchRequest)
+            let fetchedObjects = try persistentContainer.viewContext.fetch(fetchRequest)
             return fetchedObjects
         } catch {
             print("Error")

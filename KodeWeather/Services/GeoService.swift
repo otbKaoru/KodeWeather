@@ -30,7 +30,7 @@ final class GeoService: GeoServiceProtocol {
                 if let data = data {
                     completion(.success(data.locations))
                 } else {
-                    completion(.failure(NetworkError.networkError))
+                    completion(.success([]))
                 }
             case .failure(let error):
                 completion(.failure(error))
