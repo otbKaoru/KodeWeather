@@ -16,7 +16,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     let attractionService = AttractionService()
 
     private let window: UIWindow
-    private var tabBarController = UITabBarController()
+    private var tabBarController = CustomTabBarController()
     private let searchConfigurator = SearchConfigurator()
 
     private lazy var navigationController = UINavigationController()
@@ -60,3 +60,4 @@ class AppCoordinator: AppCoordinatorProtocol {
         window.makeKeyAndVisible()
     }
 }
+
