@@ -21,7 +21,7 @@ final class AttractionDetailViewController: UIViewController {
 
     private let attractionImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
 
@@ -34,17 +34,6 @@ final class AttractionDetailViewController: UIViewController {
         return label
     }()
 
-//    private let attractionDescription: AttractionDescriptionLabel = {
-//        let label = AttractionDescriptionLabel()
-//        label.textAlignment = .left
-//        label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
-//        label.textColor = StyleGuide.Colors.defaultTextColor
-//        label.numberOfLines = 0
-//        return label
-//    }()
-
-    private let attractionDescription = AttractionDescriptionView()
-
     private let mapTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -53,6 +42,8 @@ final class AttractionDetailViewController: UIViewController {
         label.textColor = StyleGuide.Colors.defaultTextColor
         return label
     }()
+
+    private let attractionDescription = AttractionDescriptionView()
 
     // MARK: - UIViewController
 
@@ -72,7 +63,7 @@ final class AttractionDetailViewController: UIViewController {
         scrollContentView.addSubview(attractionDescription)
         scrollContentView.addSubview(mapView)
         scrollContentView.addSubview(mapTitle)
-        //scrollView.delegate = self
+        scrollView.delegate = self
 
         view.addSubview(mapView)
 
@@ -180,12 +171,13 @@ extension AttractionDetailViewController: MKMapViewDelegate {
         return annotationView
     }
 }
-//
-//extension AttractionDetailViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        attractionImageView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-//    }
-//}
+
+extension AttractionDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        attractionImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+    }
+}
 
 //MARK:- UI Actions
 
