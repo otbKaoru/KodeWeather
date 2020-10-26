@@ -85,7 +85,7 @@ final class WeatherViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mapView.heightAnchor.constraint(equalToConstant: 140),
+            mapView.heightAnchor.constraint(equalToConstant: view.frame.height/5),
             mapView.leftAnchor.constraint(equalTo: view.leftAnchor),
             mapView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
@@ -98,14 +98,14 @@ final class WeatherViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             todayWeatherView.topAnchor.constraint(equalTo: locationNameLabel.bottomAnchor, constant: LayoutOptions.weatherViewToTitleMargin),
-            todayWeatherView.heightAnchor.constraint(equalToConstant: 160),
+            todayWeatherView.heightAnchor.constraint(equalToConstant: view.frame.height/5),
             todayWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
             todayWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
 
         NSLayoutConstraint.activate([
             tomorrowWeatherView.topAnchor.constraint(equalTo: todayWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
-            tomorrowWeatherView.heightAnchor.constraint(equalToConstant: 160),
+            tomorrowWeatherView.heightAnchor.constraint(equalToConstant: view.frame.height/5),
             tomorrowWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tomorrowWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
@@ -113,7 +113,7 @@ final class WeatherViewController: UIViewController {
         NSLayoutConstraint.activate([
             attractionsButton.topAnchor.constraint(greaterThanOrEqualTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
             attractionsButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
-            attractionsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            attractionsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: LayoutOptions.sightButtonBottonPadding),
             attractionsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
             attractionsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -LayoutOptions.sightButtonHorizontalPadding)
         ])
@@ -192,7 +192,7 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 120)
+        return CGSize(width: 80, height: view.frame.height/6)
     }
 }
 
@@ -236,6 +236,7 @@ extension WeatherViewController {
         static let locationNameTopPadding: CGFloat = 16
         static let collectionViewInset: CGFloat = 18
         static let weatherViewToTitleMargin: CGFloat = 8
+        static let sightButtonBottonPadding: CGFloat = -16
     }
 }
 
