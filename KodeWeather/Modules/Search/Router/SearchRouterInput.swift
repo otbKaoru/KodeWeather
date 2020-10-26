@@ -9,4 +9,5 @@ import Foundation
 
 protocol SearchRouterInput: class {
     func showWeatherModule(for location: Location)
+    func showError()
 }

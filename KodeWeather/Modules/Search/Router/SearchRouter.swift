@@ -14,7 +14,12 @@ class SearchRouter {
 
 extension SearchRouter: SearchRouterInput {
     func showWeatherModule(for location: Location) {
-        //viewController?.navigationController?.pushViewController(weatherConfigurator.configure(with: location), animated: true)
-        viewController?.navigationController?.present(ErrorViewController(), animated: true, completion: nil)
+        viewController?.navigationController?.pushViewController(weatherConfigurator.configure(with: location), animated: true)
+    }
+
+    func showError() {
+        viewController?.navigationItem.searchController?.searchBar.endEditing(true)
+        viewController?.navigationController?.pushViewController(ErrorViewController(), animated: true)
+
     }
 }

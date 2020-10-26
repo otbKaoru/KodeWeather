@@ -18,6 +18,10 @@ final class SearchPresenter {
     private let searchService = UserDefaultsService()
 
     private var searchLocations: [Location] = []
+
+    private func showError() {
+        router?.showError()
+    }
 }
 
 // MARK: - SearchViewOutput
@@ -51,8 +55,8 @@ extension SearchPresenter: SearchViewOutput {
             case .success(let data):
                 self?.searchLocations = data
                 self?.view?.reloadTableView()
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self?.showError()
             }
         }
     }
@@ -63,8 +67,8 @@ extension SearchPresenter: SearchViewOutput {
             case .success(let data):
                 self?.searchLocations = data
                 self?.view?.reloadTableView()
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self?.showError()
             }
         }
     }
