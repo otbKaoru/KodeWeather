@@ -56,6 +56,7 @@ final class AttractionDetailViewController: UIViewController {
         super.viewDidLoad()
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupViews()
         setupLayouts()
     }

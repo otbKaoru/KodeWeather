@@ -29,6 +29,7 @@ final class AttractionsViewController: UIViewController {
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
         navigationItem.title = Localization.Attractions.title
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupViews()
         setupLayouts()
     }

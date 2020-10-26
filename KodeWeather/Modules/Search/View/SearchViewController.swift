@@ -23,6 +23,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupSearchController()
         setupTableView()
         setupLayouts()

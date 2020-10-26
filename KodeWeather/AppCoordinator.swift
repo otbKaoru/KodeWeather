@@ -43,6 +43,7 @@ class AppCoordinator: AppCoordinatorProtocol {
         navigationController.navigationBar.barTintColor = StyleGuide.Colors.darkGray
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.tintColor = StyleGuide.Colors.defaultTextColor
         //navigationController.navigationBar.prefersLargeTitles = true
         tabBarController.tabBar.barTintColor = StyleGuide.Colors.darkGray
         tabBarController.tabBar.isTranslucent = false

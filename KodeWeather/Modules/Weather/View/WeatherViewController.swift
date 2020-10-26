@@ -45,6 +45,7 @@ final class WeatherViewController: UIViewController {
         output?.viewLoaded()
         view.backgroundColor = StyleGuide.Colors.darkGray
         navigationItem.title = Localization.Weather.title
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupViews()
         setupMapView()
         setupLayouts()

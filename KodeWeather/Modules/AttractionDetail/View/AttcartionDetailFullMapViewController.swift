@@ -22,6 +22,7 @@ final class AttcartionDetailFullMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = StyleGuide.Colors.darkGray
+        navigationItem.title = Localization.AttractionDetail.mapTitle
         setupViews()
         setupLayouts()
     }
