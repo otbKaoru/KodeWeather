@@ -8,25 +8,32 @@
 import Foundation
 
 protocol GeoServiceProtocol {
-    func fetchGeoDataq(query: String, resultsCount: Int, completion: @escaping (SearchResponse))
+    func fetchGeoData(query: String, completion: @escaping (SearchResponse))
 }
 
-typealias SearchResponse = (Result<[Location]?, NetworkError>) -> Void
+typealias SearchResponse = (Result<[Location], NetworkError>) -> Void
 
 final class GeoService: GeoServiceProtocol {
-    func fetchGeoDataq(query: String, resultsCount: Int, completion: @escaping (SearchResponse)) {
-
-    }
-
     private let networkService: NetworkServiceProtocol = NetworkService()
-
-    func fetchGeoData(query: String, resultsCount: Int, completion: @escaping (Result<GeoResponse?, NetworkError>) -> Void) {
+    
+    func fetchGeoData(query: String, completion: @escaping (SearchResponse)) {
         let parametres: [String: Any]
         parametres = ["format":RequestOptions.format,
                       "apikey":RequestOptions.apiKey,
                       "geocode":query,
-                      "results":resultsCount]
-        networkService.fetchDecodableData(API:  ApiURL.yandexGeocode, parametres: parametres, completion: completion)
+                      "results":RequestOptions.resultCount]
+        networkService.fetchDecodableData(API: ApiURL.yandexGeocode, parametres: parametres) { (result: Result<GeoResponse?, NetworkError>) in
+            switch result {
+            case .success(let data):
+                if let data = data {
+                    completion(.success(data.locations))
+                } else {
+                    completion(.failure(NetworkError.networkError))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
 
@@ -38,5 +45,6 @@ extension GeoService {
     private enum RequestOptions {
         static let format = "json"
         static let apiKey = "5f888f23-5862-49fe-8c33-52c15c89a84a"
+        static let resultCount = 50
     }
 }

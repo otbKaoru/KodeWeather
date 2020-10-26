@@ -230,6 +230,7 @@
 		78B1CA9725425F2F007B3985 /* Attractions */ = {
 			isa = PBXGroup;
 			children = (
+				784203F0254514AB00E917FB /* ViewModel */,
 				784203DF25450DAE00E917FB /* Router */,
 				78B1CA9B25426181007B3985 /* Configurator */,
 				78B1CA9A2542617C007B3985 /* Presenter */,
@@ -360,7 +361,6 @@
 		78CB5DBE253FB4FB00808522 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				784203F0254514AB00E917FB /* ViewModel */,
 				78B1CAB7254332E7007B3985 /* AttractionDetail */,
 				78B1CA9725425F2F007B3985 /* Attractions */,
 				78CB5E112540BDAE00808522 /* Weather */,

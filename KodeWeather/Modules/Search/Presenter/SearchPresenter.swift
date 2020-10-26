@@ -14,7 +14,7 @@ final class SearchPresenter {
     weak var view: SearchViewInput?
     var router: SearchRouterInput?
 
-    private let GeoSerivce = GeoService()
+    private let geoSerivce: GeoServiceProtocol = GeoService()
     private let searchService = UserDefaultsService()
 
     private var searchLocations: [Location] = []
@@ -46,13 +46,11 @@ extension SearchPresenter: SearchViewOutput {
     }
 
     func fetchPreviewLocations(for query: String) {
-        GeoSerivce.fetchGeoData(query: query, resultsCount: 100) { [weak self] (result) in
+        geoSerivce.fetchGeoData(query: query) { [weak self] (result) in
             switch result {
             case .success(let data):
-                if let data = data {
-                    self?.searchLocations = data.locations
-                    self?.view?.reloadTableView()
-                }
+                self?.searchLocations = data
+                self?.view?.reloadTableView()
             case .failure(let error):
                 print(error)
             }
@@ -60,13 +58,11 @@ extension SearchPresenter: SearchViewOutput {
     }
 
     func fetchAllLocations(for query: String) {
-        GeoSerivce.fetchGeoData(query: query, resultsCount: 50) { [weak self] (result) in
+        geoSerivce.fetchGeoData(query: query) { [weak self] (result) in
             switch result {
             case .success(let data):
-                if let data = data {
-                    self?.searchLocations = data.locations
-                    self?.view?.reloadTableView()
-                }
+                self?.searchLocations = data
+                self?.view?.reloadTableView()
             case .failure(let error):
                 print(error)
             }
