@@ -111,7 +111,7 @@ final class AttractionDetailViewController: UIViewController {
             attractionImageView.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor),
         ])
 
-        imageHeightAnchor = attractionImageView.heightAnchor.constraint(equalToConstant: 200)
+        imageHeightAnchor = attractionImageView.heightAnchor.constraint(equalToConstant: ViewOptions.imageMinSize)
         imageHeightAnchor.isActive = true
 
 
@@ -195,13 +195,13 @@ extension AttractionDetailViewController {
         switch gesture.state {
         case .changed:
             let translation = gesture.translation(in: scrollContentView)
-            if  imageHeightAnchor.constant < 400 && translation.y > 0 {
+            if  imageHeightAnchor.constant < ViewOptions.imageMaxSize && translation.y > 0 {
                 imageHeightAnchor.constant += 10
-            } else if imageHeightAnchor.constant > 200 && translation.y < 0{
+            } else if imageHeightAnchor.constant > ViewOptions.imageMinSize && translation.y < 0{
                 imageHeightAnchor.constant -= 10
             }
-        @unknown default:
-            print("unknown default")
+        default:
+            return
         }
     }
 }
@@ -222,6 +222,8 @@ extension AttractionDetailViewController {
         static let attractionDescriptionFontSize: CGFloat = 16
         static let mapTitleFontsize: CGFloat = 24
         static let mapDelta: Double = 0.03
+        static let imageMaxSize: CGFloat = 500
+        static let imageMinSize: CGFloat = 200
     }
 }
 
