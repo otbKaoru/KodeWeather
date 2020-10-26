@@ -58,7 +58,7 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
 
         NSLayoutConstraint.activate([
             weatherImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            weatherImageView.topAnchor.constraint(lessThanOrEqualTo: contentView.topAnchor, constant: LayoutOptions.weatherImageTopPadding),
+            weatherImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutOptions.weatherImageTopPadding),
             weatherImageView.heightAnchor.constraint(lessThanOrEqualToConstant: LayoutOptions.weatherImageHeight)
         ])
 
