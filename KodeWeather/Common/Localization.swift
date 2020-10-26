@@ -24,4 +24,8 @@ enum Localization {
         static let readMoreTitle = "Читать дальше"
         static let mapTitle = "На карте"
     }
+    enum Common {
+        static let confirmButtonTitle = "Хорошо"
+        static let errorDescription = "При выполнении запроса произошла ошибка, проверьте подключение к интернету и повторите запрос"
+    }
 }
