@@ -50,6 +50,7 @@
 		78C33FC12546255800E424AE /* AttractionDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FC02546255800E424AE /* AttractionDetailRouter.swift */; };
 		78C33FC52546256500E424AE /* AttractionDetailRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FC42546256500E424AE /* AttractionDetailRouterInput.swift */; };
 		78C33FCF2546385700E424AE /* AttractionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FCE2546385700E424AE /* AttractionDescriptionView.swift */; };
+		78C33FDD25467E6200E424AE /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C33FDC25467E6200E424AE /* SearchCellViewModel.swift */; };
 		78CB5DA8253FB34900808522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DA7253FB34900808522 /* AppDelegate.swift */; };
 		78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB5DA9253FB34900808522 /* SceneDelegate.swift */; };
 		78CB5DB1253FB34A00808522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CB5DB0253FB34A00808522 /* Assets.xcassets */; };
@@ -117,6 +118,7 @@
 		78C33FC02546255800E424AE /* AttractionDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailRouter.swift; sourceTree = "<group>"; };
 		78C33FC42546256500E424AE /* AttractionDetailRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailRouterInput.swift; sourceTree = "<group>"; };
 		78C33FCE2546385700E424AE /* AttractionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDescriptionView.swift; sourceTree = "<group>"; };
+		78C33FDC25467E6200E424AE /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		78CB5DA4253FB34900808522 /* KodeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KodeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CB5DA7253FB34900808522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78CB5DA9253FB34900808522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +321,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		78C33FDB25467E4A00E424AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				78C33FDC25467E6200E424AE /* SearchCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		78CB5D9B253FB34900808522 = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +440,7 @@
 		78CB5DD3253FBB3200808522 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				78C33FDB25467E4A00E424AE /* ViewModel */,
 				7824A7192544DECA00220A19 /* Router */,
 				78CB5DD6253FBB7F00808522 /* Configurator */,
 				78CB5DD5253FBB6B00808522 /* Presenter */,
@@ -687,6 +698,7 @@
 				78B1CAA4254261A9007B3985 /* AttractionsViewOutput.swift in Sources */,
 				784203E525450DD200E917FB /* AttractionsRouterInput.swift in Sources */,
 				78B1CA8725422ED7007B3985 /* Date+Day.swift in Sources */,
+				78C33FDD25467E6200E424AE /* SearchCellViewModel.swift in Sources */,
 				78CB5DAA253FB34900808522 /* SceneDelegate.swift in Sources */,
 				78CB5DE8253FC6EA00808522 /* UIColor+Hex.swift in Sources */,
 				7824A7222544E0D500220A19 /* AppCoordinator.swift in Sources */,

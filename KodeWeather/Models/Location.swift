@@ -7,6 +7,7 @@
 
 struct Location: Codable {
     let name: String
+    let fullname: String
     let lan: Double
     let lon: Double
 }
