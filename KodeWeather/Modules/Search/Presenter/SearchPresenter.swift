@@ -51,14 +51,14 @@ extension SearchPresenter: SearchViewOutput {
         }
 
         geoService.fetchGeoForQuery(query: searchResults[indexPath.row].title) { [weak self] (result) in
-                switch result {
+            switch result {
                 case .success(let data):
                     guard let data = data else { return }
                     self?.router?.showWeatherModule(for: data)
                 case .failure(let error):
                     print(error)
-                }
             }
+        }
     }
 
 
