@@ -64,6 +64,10 @@ final class WeatherViewController: UIViewController {
         weatherView.collectionView.dataSource = self
         weatherView.collectionView.delegate = self
         weatherView.collectionView.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: WeatherCollectionViewCell.reuseIdentifier)
+        weatherView.collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                               left: LayoutOptions.collectionViewInset,
+                                                              bottom: 0,
+                                                              right: LayoutOptions.collectionViewInset)
     }
 
     private func setupMapView() {
@@ -87,13 +91,13 @@ final class WeatherViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            locationNameLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor),
-            locationNameLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
-            locationNameLabel.rightAnchor.constraint(equalTo: view.rightAnchor)
+            locationNameLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: LayoutOptions.locationNameTopPadding),
+            locationNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LayoutOptions.textHorizontalPadding),
+            locationNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: LayoutOptions.textHorizontalPadding)
         ])
 
         NSLayoutConstraint.activate([
-            todayWeatherView.topAnchor.constraint(equalTo: locationNameLabel.bottomAnchor),
+            todayWeatherView.topAnchor.constraint(equalTo: locationNameLabel.bottomAnchor, constant: LayoutOptions.weatherViewToTitleMargin),
             todayWeatherView.heightAnchor.constraint(equalToConstant: 160),
             todayWeatherView.leftAnchor.constraint(equalTo: view.leftAnchor),
             todayWeatherView.rightAnchor.constraint(equalTo: view.rightAnchor)
@@ -107,8 +111,9 @@ final class WeatherViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            attractionsButton.topAnchor.constraint(equalTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
+            attractionsButton.topAnchor.constraint(greaterThanOrEqualTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
             attractionsButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
+            attractionsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             attractionsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
             attractionsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -LayoutOptions.sightButtonHorizontalPadding)
         ])
@@ -227,6 +232,10 @@ extension WeatherViewController {
         static let weatherViewMargin: CGFloat = 16
         static let sightButtonHorizontalPadding: CGFloat = 18
         static let sightButtonHeight: CGFloat = 56
+        static let textHorizontalPadding: CGFloat = 24
+        static let locationNameTopPadding: CGFloat = 16
+        static let collectionViewInset: CGFloat = 18
+        static let weatherViewToTitleMargin: CGFloat = 8
     }
 }
 

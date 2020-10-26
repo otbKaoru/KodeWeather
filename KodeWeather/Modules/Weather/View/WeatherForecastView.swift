@@ -49,8 +49,8 @@ class WeatherForecastView: UIView {
 
         NSLayoutConstraint.activate([
             dateLabel.topAnchor.constraint(equalTo: topAnchor),
-            dateLabel.leftAnchor.constraint(equalTo: leftAnchor),
-            dateLabel.rightAnchor.constraint(equalTo: rightAnchor)
+            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutOptions.textHorizontalPadding),
+            dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: LayoutOptions.textHorizontalPadding)
         ])
 
         NSLayoutConstraint.activate([
@@ -78,6 +78,7 @@ extension WeatherForecastView {
 
     private enum LayoutOptions {
         static let collectionViewTopPadding: CGFloat = 16
+        static let textHorizontalPadding: CGFloat = 24
     }
 
 }
