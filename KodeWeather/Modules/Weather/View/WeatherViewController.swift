@@ -113,7 +113,7 @@ final class WeatherViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             attractionsButton.topAnchor.constraint(greaterThanOrEqualTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
-            attractionsButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
+            attractionsButton.heightAnchor.constraint(equalToConstant: view.frame.height/15),
             attractionsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: LayoutOptions.sightButtonBottonPadding),
             attractionsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
             attractionsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -LayoutOptions.sightButtonHorizontalPadding)
