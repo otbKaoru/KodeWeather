@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
 
 protocol GeoServiceProtocol {
 }
@@ -21,6 +23,25 @@ final class GeoService: GeoServiceProtocol {
                       "results":resultsCount]
         networkService.fetchDecodableData(API:  ApiURL.yandexGeocode, parametres: parametres, completion: completion)
     }
+
+    func fetchGeoForQuery(query: String, completion: @escaping (Result<Location?, NetworkError>) -> Void) {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = query
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            guard error == nil else {
+                completion(.failure(.networkError))
+                return
+            }
+            guard let placeMark = response?.mapItems[0].placemark else {
+                completion(.failure(.networkError))
+                return
+            }
+            let location = Location(name: query, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+            completion(.success(location))
+        }
+    }
+    
 }
 
 extension GeoService {
