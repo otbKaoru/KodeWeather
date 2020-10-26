@@ -59,20 +59,19 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             weatherImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             weatherImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutOptions.weatherImageTopPadding),
-            weatherImageView.heightAnchor.constraint(lessThanOrEqualToConstant: contentView.frame.height/3)
+            weatherImageView.heightAnchor.constraint(equalToConstant: contentView.frame.height/3)
         ])
 
         NSLayoutConstraint.activate([
-            timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutOptions.timeLabelHorizontalPadding),
             timeLabel.topAnchor.constraint(lessThanOrEqualTo: weatherImageView.bottomAnchor, constant: LayoutOptions.timeLabelTopPadding),
-            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            //timeLabel.bottomAnchor.constraint(equalTo: weatherLabel.topAnchor)
+            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutOptions.timeLabelHorizontalPadding),
         ])
 
         NSLayoutConstraint.activate([
-            weatherLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            weatherLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutOptions.weatherLabelHorizontalPadding),
             weatherLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor),
-            weatherLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            weatherLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutOptions.weatherLabelHorizontalPadding),
             weatherLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: LayoutOptions.weatherLabelBottomPadding)
         ])
     }
@@ -107,5 +106,7 @@ extension WeatherCollectionViewCell {
         static let weatherImageHeight: CGFloat = 40
         static let weatherLabelBottomPadding: CGFloat = -4
         static let timeLabelTopPadding: CGFloat = 16
+        static let timeLabelHorizontalPadding: CGFloat = 20
+        static let weatherLabelHorizontalPadding: CGFloat = 10
     }
 }
