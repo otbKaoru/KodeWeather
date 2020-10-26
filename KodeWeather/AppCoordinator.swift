@@ -30,10 +30,7 @@ class AppCoordinator: AppCoordinatorProtocol {
         UITextField.appearance().keyboardAppearance = .dark
     }
 
-    func start() {
-        CoreDataService.instance.clearData()
-        attractionService.loadAttractionsFromJson()
-        setupGlobal()
+    private func setupNavigationController() {
         let startViewController = searchConfigurator.configure()
         startViewController.navigationItem.title = Localization.Search.title
         let textAttributes = [NSAttributedString.Key.foregroundColor: StyleGuide.Colors.defaultTextColor]
@@ -45,9 +42,20 @@ class AppCoordinator: AppCoordinatorProtocol {
         navigationController.navigationBar.barStyle = .black
         navigationController.navigationBar.tintColor = StyleGuide.Colors.defaultTextColor
         //navigationController.navigationBar.prefersLargeTitles = true
+    }
+
+    private func setupTabBarConroller() {
         tabBarController.tabBar.barTintColor = StyleGuide.Colors.darkGray
         tabBarController.tabBar.isTranslucent = false
         tabBarController.setViewControllers([navigationController], animated: false)
+    }
+
+    func start() {
+        CoreDataService.instance.clearData()
+        attractionService.loadAttractionsFromJson()
+        setupGlobal()
+        setupNavigationController()
+        setupTabBarConroller()
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
     }
