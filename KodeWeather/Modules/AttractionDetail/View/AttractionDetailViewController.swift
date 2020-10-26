@@ -78,6 +78,7 @@ final class AttractionDetailViewController: UIViewController {
         let scrollViewPanGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         scrollViewPanGesture.delegate = self
         scrollView.addGestureRecognizer(scrollViewPanGesture)
+        scrollView.bounces = false
     }
 
 
@@ -194,7 +195,7 @@ extension AttractionDetailViewController {
     @objc private func handlePan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .changed:
-            let translation = gesture.translation(in: scrollContentView)
+            let translation = gesture.translation(in: view)
             if  imageHeightAnchor.constant < ViewOptions.imageMaxSize && translation.y > 0 {
                 imageHeightAnchor.constant += 10
             } else if imageHeightAnchor.constant > ViewOptions.imageMinSize && translation.y < 0{
@@ -222,7 +223,7 @@ extension AttractionDetailViewController {
         static let attractionDescriptionFontSize: CGFloat = 16
         static let mapTitleFontsize: CGFloat = 24
         static let mapDelta: Double = 0.03
-        static let imageMaxSize: CGFloat = 500
+        static let imageMaxSize: CGFloat = 400
         static let imageMinSize: CGFloat = 200
     }
 }
