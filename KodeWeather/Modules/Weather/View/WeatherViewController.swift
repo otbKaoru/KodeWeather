@@ -193,7 +193,7 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: view.frame.height/6)
+        return CGSize(width: LayoutOptions.cellWidth, height: view.frame.height/6)
     }
 }
 
@@ -238,6 +238,7 @@ extension WeatherViewController {
         static let collectionViewInset: CGFloat = 18
         static let weatherViewToTitleMargin: CGFloat = 8
         static let sightButtonBottonPadding: CGFloat = -16
+        static let cellWidth: CGFloat = 80
     }
 }
 

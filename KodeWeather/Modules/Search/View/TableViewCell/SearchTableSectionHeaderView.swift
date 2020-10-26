@@ -12,13 +12,14 @@ class SearchTableSectionHeaderView: UIView {
     private let statusLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: ViewOptions.statusLabelFontSize)
         label.textColor = StyleGuide.Colors.middleGrayTextColor
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = StyleGuide.Colors.darkGray
         setupViews()
         setupLayouts()
     }
@@ -36,8 +37,8 @@ class SearchTableSectionHeaderView: UIView {
 
         NSLayoutConstraint.activate([
             statusLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 23)
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -LayoutOptions.statusLabelHorizontalPadding),
+            statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutOptions.statusLabelHorizontalPadding)
         ])
     }
 
@@ -49,9 +50,11 @@ class SearchTableSectionHeaderView: UIView {
 
 extension SearchTableSectionHeaderView {
     private enum ViewOptions {
-        static let statusLabelFontSize = 18
+        static let statusLabelFontSize: CGFloat = 18
     }
 
-
+    private enum LayoutOptions {
+        static let statusLabelHorizontalPadding: CGFloat = 23
+    }
 }
 
