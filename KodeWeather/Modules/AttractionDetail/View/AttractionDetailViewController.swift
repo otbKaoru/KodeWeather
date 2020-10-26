@@ -19,6 +19,9 @@ final class AttractionDetailViewController: UIViewController {
 
     private let mapView = MKMapView()
 
+    private var imageHeightAnchor:NSLayoutConstraint = NSLayoutConstraint()
+
+
     private let attractionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -63,7 +66,6 @@ final class AttractionDetailViewController: UIViewController {
         scrollContentView.addSubview(attractionDescription)
         scrollContentView.addSubview(mapView)
         scrollContentView.addSubview(mapTitle)
-        scrollView.delegate = self
 
         view.addSubview(mapView)
 
@@ -72,6 +74,10 @@ final class AttractionDetailViewController: UIViewController {
         mapView.isScrollEnabled = false
         let gestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(mapTapped))
         mapView.addGestureRecognizer(gestureRecognizer)
+
+        let scrollViewPanGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        scrollViewPanGesture.delegate = self
+        scrollView.addGestureRecognizer(scrollViewPanGesture)
     }
 
 
@@ -83,6 +89,7 @@ final class AttractionDetailViewController: UIViewController {
         attractionDescription.translatesAutoresizingMaskIntoConstraints = false
         mapTitle.translatesAutoresizingMaskIntoConstraints = false
         mapView.translatesAutoresizingMaskIntoConstraints = false
+
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor),
@@ -103,6 +110,10 @@ final class AttractionDetailViewController: UIViewController {
             attractionImageView.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor),
             attractionImageView.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor),
         ])
+
+        imageHeightAnchor = attractionImageView.heightAnchor.constraint(equalToConstant: 200)
+        imageHeightAnchor.isActive = true
+
 
         NSLayoutConstraint.activate([
             attractionTitle.topAnchor.constraint(equalTo: attractionImageView.bottomAnchor),
@@ -172,18 +183,35 @@ extension AttractionDetailViewController: MKMapViewDelegate {
     }
 }
 
-extension AttractionDetailViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        attractionImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-    }
-}
 
 //MARK:- UI Actions
 
 extension AttractionDetailViewController {
     @objc func mapTapped() {
         output?.mapTapped()
+    }
+
+    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .changed:
+            let translation = gesture.translation(in: scrollContentView)
+            if  imageHeightAnchor.constant < 400 && translation.y > 0 {
+                imageHeightAnchor.constant += 10
+            } else if imageHeightAnchor.constant > 200 && translation.y < 0{
+                imageHeightAnchor.constant -= 10
+            }
+        @unknown default:
+            print("unknown default")
+        }
+    }
+}
+
+
+//MARK:- UIGestureRecognizerDelegate
+
+extension  AttractionDetailViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 
@@ -196,4 +224,5 @@ extension AttractionDetailViewController {
         static let mapDelta: Double = 0.03
     }
 }
+
 
