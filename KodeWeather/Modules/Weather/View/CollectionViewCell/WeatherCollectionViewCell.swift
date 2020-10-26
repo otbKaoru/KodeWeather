@@ -106,7 +106,7 @@ extension WeatherCollectionViewCell {
         static let weatherImageHeight: CGFloat = 40
         static let weatherLabelBottomPadding: CGFloat = -4
         static let timeLabelTopPadding: CGFloat = 16
-        static let timeLabelHorizontalPadding: CGFloat = 20
-        static let weatherLabelHorizontalPadding: CGFloat = 10
+        static let timeLabelHorizontalPadding: CGFloat = 10
+        static let weatherLabelHorizontalPadding: CGFloat = 5
     }
 }
