@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import MapKit
 
 protocol GeoServiceProtocol {
     func fetchGeoData(query: String, completion: @escaping (SearchResponse))
+    func fetchGeoForLocationName(locationName: String, completion: @escaping (Result<Location, NetworkError>) -> Void)
 }
 
 typealias SearchResponse = (Result<[Location], NetworkError>) -> Void
@@ -35,6 +37,25 @@ final class GeoService: GeoServiceProtocol {
             }
         }
     }
+
+    func fetchGeoForLocationName(locationName: String, completion: @escaping (Result<Location, NetworkError>) -> Void) {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = locationName
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            guard error == nil else {
+                completion(.failure(.networkError))
+                return
+            }
+            guard let placeMark = response?.mapItems[0].placemark else {
+                completion(.failure(.networkError))
+                return
+            }
+            let location = Location(name: locationName, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+            completion(.success(location))
+        }
+    }
+
 }
 
 extension GeoService {
