@@ -24,7 +24,8 @@ final class AttractionDetailViewController: UIViewController {
 
     private let attractionImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
 
@@ -144,7 +145,6 @@ final class AttractionDetailViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor),
             mapView.heightAnchor.constraint(equalToConstant: 200),
         ])
-
     }
 }
 
@@ -198,9 +198,9 @@ extension AttractionDetailViewController {
         case .changed:
             let velocity = gesture.velocity(in: view)
             if  imageHeightAnchor.constant < ViewOptions.imageMaxSize && velocity.y > 0{
-                imageHeightAnchor.constant += 10
+                imageHeightAnchor.constant += ViewOptions.heightChangeIteration
             } else if imageHeightAnchor.constant > ViewOptions.imageMinSize && velocity.y < 0{
-                imageHeightAnchor.constant -= 10
+                imageHeightAnchor.constant -= ViewOptions.heightChangeIteration
             }
         default:
             return
@@ -226,6 +226,7 @@ extension AttractionDetailViewController {
         static let mapDelta: Double = 0.03
         static let imageMaxSize: CGFloat = 400
         static let imageMinSize: CGFloat = 200
+        static let heightChangeIteration: CGFloat = 20
     }
 }
 
