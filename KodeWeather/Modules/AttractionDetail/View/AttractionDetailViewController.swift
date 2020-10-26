@@ -32,9 +32,9 @@ final class AttractionDetailViewController: UIViewController {
     private let attractionTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: ViewOptions.attractionTitleFontSize)
         label.textColor = StyleGuide.Colors.defaultTextColor
+        label.numberOfLines = 0
         return label
     }()
 
@@ -44,6 +44,7 @@ final class AttractionDetailViewController: UIViewController {
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.systemFont(ofSize: ViewOptions.mapTitleFontsize)
         label.textColor = StyleGuide.Colors.defaultTextColor
+        label.text = Localization.AttractionDetail.mapTitle
         return label
     }()
 
@@ -119,31 +120,31 @@ final class AttractionDetailViewController: UIViewController {
 
 
         NSLayoutConstraint.activate([
-            attractionTitle.topAnchor.constraint(equalTo: attractionImageView.bottomAnchor),
-            attractionTitle.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor),
-            attractionTitle.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor),
+            attractionTitle.topAnchor.constraint(equalTo: attractionImageView.bottomAnchor, constant: LayoutOptions.titlePadding),
+            attractionTitle.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: LayoutOptions.titlePadding),
+            attractionTitle.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor, constant: -LayoutOptions.titlePadding),
         ])
 
         NSLayoutConstraint.activate([
-            attractionDescription.topAnchor.constraint(equalTo: attractionTitle.bottomAnchor),
+            attractionDescription.topAnchor.constraint(equalTo: attractionTitle.bottomAnchor, constant: LayoutOptions.descriptionTopPadding),
             attractionDescription.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor),
             attractionDescription.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor),
         ])
 
 
         NSLayoutConstraint.activate([
-            mapTitle.topAnchor.constraint(equalTo: attractionDescription.bottomAnchor),
-            mapTitle.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor),
-            mapTitle.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor),
+            mapTitle.topAnchor.constraint(equalTo: attractionDescription.bottomAnchor, constant: LayoutOptions.mapTitleTopPadding),
+            mapTitle.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor, constant: LayoutOptions.textHorizontalPadding),
+            mapTitle.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor, constant: LayoutOptions.textHorizontalPadding),
         ])
 
 
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: mapTitle.bottomAnchor),
+            mapView.topAnchor.constraint(equalTo: mapTitle.bottomAnchor, constant: LayoutOptions.mapViewTopPadding),
             mapView.leftAnchor.constraint(equalTo: scrollContentView.leftAnchor),
             mapView.rightAnchor.constraint(equalTo: scrollContentView.rightAnchor),
             mapView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor),
-            mapView.heightAnchor.constraint(equalToConstant: 200),
+            mapView.heightAnchor.constraint(equalToConstant: LayoutOptions.mapHeight),
         ])
     }
 }
@@ -227,6 +228,15 @@ extension AttractionDetailViewController {
         static let imageMaxSize: CGFloat = 400
         static let imageMinSize: CGFloat = 200
         static let heightChangeIteration: CGFloat = 20
+    }
+
+    private enum LayoutOptions {
+        static let mapHeight: CGFloat = 214
+        static let titlePadding: CGFloat = 24
+        static let textHorizontalPadding: CGFloat = 24
+        static let descriptionTopPadding: CGFloat = 14
+        static let mapTitleTopPadding: CGFloat = 32
+        static let mapViewTopPadding: CGFloat = 16
     }
 }
 

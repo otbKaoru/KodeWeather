@@ -22,5 +22,6 @@ enum Localization {
     }
     enum AttractionDetail {
         static let readMoreTitle = "Читать дальше"
+        static let mapTitle = "На карте"
     }
 }
