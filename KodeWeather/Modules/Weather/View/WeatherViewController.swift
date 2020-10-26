@@ -85,7 +85,7 @@ final class WeatherViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mapView.heightAnchor.constraint(equalToConstant: view.frame.height/5),
+            mapView.heightAnchor.constraint(equalToConstant: view.frame.height/6),
             mapView.leftAnchor.constraint(equalTo: view.leftAnchor),
             mapView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
@@ -93,7 +93,8 @@ final class WeatherViewController: UIViewController {
         NSLayoutConstraint.activate([
             locationNameLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: LayoutOptions.locationNameTopPadding),
             locationNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LayoutOptions.textHorizontalPadding),
-            locationNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: LayoutOptions.textHorizontalPadding)
+            locationNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: LayoutOptions.textHorizontalPadding),
+            locationNameLabel.bottomAnchor.constraint(lessThanOrEqualTo: todayWeatherView.topAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -111,7 +112,7 @@ final class WeatherViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            attractionsButton.topAnchor.constraint(greaterThanOrEqualTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.weatherViewMargin),
+            attractionsButton.topAnchor.constraint(greaterThanOrEqualTo: tomorrowWeatherView.bottomAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
             attractionsButton.heightAnchor.constraint(equalToConstant: LayoutOptions.sightButtonHeight),
             attractionsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: LayoutOptions.sightButtonBottonPadding),
             attractionsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutOptions.sightButtonHorizontalPadding),
