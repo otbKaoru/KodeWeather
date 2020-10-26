@@ -8,9 +8,14 @@
 import Foundation
 
 protocol GeoServiceProtocol {
+    func fetchGeoData(query: String, resultsCount: Int, completion: @escaping (Result<[Location]?, NetworkError>) -> Void)
 }
 
 final class GeoService: GeoServiceProtocol {
+    func fetchGeoData(query: String, resultsCount: Int, completion: @escaping (Result<[Location]?, NetworkError>) -> Void) {
+
+    }
+
     private let networkService: NetworkServiceProtocol = NetworkService()
 
     func fetchGeoData(query: String, resultsCount: Int, completion: @escaping (Result<GeoResponse?, NetworkError>) -> Void) {
