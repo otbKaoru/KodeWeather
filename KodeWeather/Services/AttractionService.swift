@@ -15,16 +15,16 @@ protocol AttractionServiceProtocol {
 final class AttractionService: AttractionServiceProtocol {
 
     func loadAttractionsFromJson() {
-        CoreDataService.instance.clearData()
+        CoreDataService.shared.clearData()
 
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 guard let contextKey = CodingUserInfoKey.context else { return }
-                decoder.userInfo[contextKey] = CoreDataService.instance.getContext()
+                decoder.userInfo[contextKey] = CoreDataService.shared.getContext()
                 let _ = try decoder.decode([Attraction].self, from: data)
-                CoreDataService.instance.saveContext()
+                CoreDataService.shared.saveContext()
             } catch {
                 print("error:\(error)")
             }
@@ -34,11 +34,11 @@ final class AttractionService: AttractionServiceProtocol {
     }
 
     func fetchLocationAttractions(locationName: String) -> [Attraction] {
-        return CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
+        return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
     }
 
     func isLocationHaveAttractions(locationName: String) -> Bool {
-        let fetchedValues = CoreDataService.instance.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
+        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
         return fetchedValues.count > 0
     }
 }

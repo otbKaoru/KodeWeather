@@ -51,7 +51,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
 
     func start() {
-        CoreDataService.instance.clearData()
+        CoreDataService.shared.clearData()
         attractionService.loadAttractionsFromJson()
         setupGlobal()
         setupNavigationController()

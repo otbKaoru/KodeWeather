@@ -324,6 +324,22 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		78C33FF62547811600E424AE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				78C33FF72547811D00E424AE /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		78C33FF72547811D00E424AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78C33FF12547559000E424AE /* CustomTabBarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		78CB5D9B253FB34900808522 = {
 			isa = PBXGroup;
 			children = (
@@ -352,7 +368,6 @@
 				78CB5DBF253FB50100808522 /* Models */,
 				78CB5DBE253FB4FB00808522 /* Modules */,
 				78CB5DA7253FB34900808522 /* AppDelegate.swift */,
-				78C33FF12547559000E424AE /* CustomTabBarController.swift */,
 				7824A7212544E0D500220A19 /* AppCoordinator.swift */,
 				78CB5DA9253FB34900808522 /* SceneDelegate.swift */,
 				78C33FE82547458A00E424AE /* AppSettings.swift */,
@@ -364,6 +379,7 @@
 		78CB5DBE253FB4FB00808522 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				78C33FF62547811600E424AE /* Common */,
 				78B1CAB7254332E7007B3985 /* AttractionDetail */,
 				78B1CA9725425F2F007B3985 /* Attractions */,
 				78CB5E112540BDAE00808522 /* Weather */,

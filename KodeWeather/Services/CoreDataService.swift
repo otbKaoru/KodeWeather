@@ -9,9 +9,9 @@ import Foundation
 import CoreData
 
 class CoreDataService: NSObject {
-    static let instance = CoreDataService()
+    static let shared = CoreDataService()
 
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Attraction")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -25,7 +25,7 @@ class CoreDataService: NSObject {
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
         fetchRequest.predicate = NSPredicate(format: predicateFormat, predicateValue)
         do {
-            let fetchedObjects = try CoreDataService.instance.getContext().fetch(fetchRequest)
+            let fetchedObjects = try CoreDataService.shared.getContext().fetch(fetchRequest)
             return fetchedObjects
         } catch {
             print("Error")
