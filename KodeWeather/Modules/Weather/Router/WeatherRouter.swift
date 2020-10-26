@@ -17,4 +17,10 @@ extension WeatherRouter: WeatherRouterInput {
     func showAttractionsModule(for location: Location) {
         viewController?.navigationController?.pushViewController(configurator.configure(with: location), animated: true)
     }
+
+    func showError() {
+        viewController?.navigationItem.searchController?.searchBar.endEditing(true)
+        viewController?.navigationController?.pushViewController(ErrorViewController(), animated: true)
+
+    }
 }

@@ -70,6 +70,10 @@ final class WeatherPresenter {
         }
         return daysArray
     }
+
+    private func showError() {
+        router?.showError()
+    }
 }
 
 // MARK: - SearchViewOutput
@@ -82,8 +86,8 @@ extension WeatherPresenter: WeatherViewOutput {
             switch result {
             case .success(let data):
                 self?.weatherDataDidRecieve(data: data)
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self?.showError()
             }
         }
         if (attractionService.isLocationHaveAttractions(locationName: location.name)) {

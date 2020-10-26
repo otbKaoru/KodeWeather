@@ -20,6 +20,5 @@ extension SearchRouter: SearchRouterInput {
     func showError() {
         viewController?.navigationItem.searchController?.searchBar.endEditing(true)
         viewController?.navigationController?.pushViewController(ErrorViewController(), animated: true)
-
     }
 }
