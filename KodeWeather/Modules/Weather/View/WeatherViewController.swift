@@ -91,9 +91,9 @@ final class WeatherViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            locationNameLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: LayoutOptions.locationNameTopPadding),
+            locationNameLabel.topAnchor.constraint(lessThanOrEqualTo: mapView.bottomAnchor, constant: LayoutOptions.locationNameTopPadding),
             locationNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LayoutOptions.textHorizontalPadding),
-            locationNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: LayoutOptions.textHorizontalPadding),
+            locationNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LayoutOptions.textHorizontalPadding),
             locationNameLabel.bottomAnchor.constraint(lessThanOrEqualTo: todayWeatherView.topAnchor)
         ])
 
