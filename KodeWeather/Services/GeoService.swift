@@ -65,10 +65,7 @@ final class GeoService: NSObject, GeoServiceProtocol {
                 completion(.failure(.networkError))
                 return
             }
-            guard let placeMark = response?.mapItems[0].placemark else {
-                completion(.failure(.networkError))
-                return
-            }
+            guard let placeMark = response?.mapItems[0].placemark else { return }
             let location = Location(name: locationName, fullname: locationName, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
             completion(.success(location))
         }
