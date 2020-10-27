@@ -49,8 +49,21 @@ extension SearchPresenter: SearchViewOutput {
         guard searchLocations.indices.count > indexPath.row else {
             return
         }
-        dataService.saveSearchLocation(location: searchLocations[indexPath.row])
-        router?.showWeatherModule(for: searchLocations[indexPath.row])
+        let location = searchLocations[indexPath.row]
+        if location.lan != nil && location.lon != nil {
+            dataService.saveSearchLocation(location: location )
+            router?.showWeatherModule(for: location)
+        } else {
+            geoSerivce.fetchGeoForLocationName(locationName: location.fullname) { [weak self] (result) in
+                switch result {
+                case .success(let location):
+                    self?.dataService.saveSearchLocation(location: location )
+                    self?.router?.showWeatherModule(for: location)
+                case .failure(_):
+                    self?.showError()
+                }
+            }
+        }
     }
 
     func fetchPreviewLocations(for query: String) {

@@ -28,6 +28,7 @@ class AppCoordinator: AppCoordinatorProtocol {
 
     private func setupGlobal() {
         UITextField.appearance().keyboardAppearance = .dark
+        UserDefaults.standard.set(["RU"], forKey: "AppleLanguages")
     }
 
     private func setupNavigationController() {
