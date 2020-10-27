@@ -57,7 +57,7 @@ extension SearchPresenter: SearchViewOutput {
         geoSerivce.fetchGeoData(query: query) { [weak self] (result) in
             switch result {
             case .success(let data):
-                self?.searchLocations = data
+                self?.searchLocations = data.enumerated().filter({$0.offset < 5}).map { $0.element }
                 if data.count > 0 {
                     self?.view?.configureHeader(text: Localization.Search.headerSearch)
                 } else {
