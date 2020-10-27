@@ -16,6 +16,7 @@ final class SearchViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let tableView: UITableView = UITableView()
     private var timer: Timer?
+    private let sectionHeader = SearchTableSectionHeaderView()
 
     // MARK: - UIViewController
 
@@ -75,6 +76,10 @@ extension SearchViewController: SearchViewInput {
             self.tableView.reloadData()
         }
     }
+
+    func configureHeader(text: String) {
+        sectionHeader.configure(with: text)
+    }
 }
 
 // MARK: - Tableview Delegate & Datasource
@@ -97,9 +102,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = SearchTableSectionHeaderView()
-        view.configure(with: "Последние запросы")
-        return view
+        return sectionHeader
     }
 }
 

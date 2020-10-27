@@ -15,7 +15,7 @@ final class SearchPresenter {
     var router: SearchRouterInput?
 
     private let geoSerivce: GeoServiceProtocol = GeoService()
-    private let searchService = UserDefaultsService()
+    private let dataService = UserDefaultsService()
 
     private var searchLocations: [Location] = []
 
@@ -27,7 +27,11 @@ final class SearchPresenter {
 // MARK: - SearchViewOutput
 extension SearchPresenter: SearchViewOutput {
     func viewLoaded() {
-        searchLocations = searchService.getSearchLocations()
+        let locations = dataService.getSearchLocations()
+        if locations.count > 0 {
+            view?.configureHeader(text: Localization.Search.headerSearchUserDefaults)
+        }
+        searchLocations = dataService.getSearchLocations()
     }
 
     func cellViewModel(for indexPath: IndexPath) -> Location? {
@@ -45,7 +49,7 @@ extension SearchPresenter: SearchViewOutput {
         guard searchLocations.indices.count > indexPath.row else {
             return
         }
-        searchService.saveSearchLocation(location: searchLocations[indexPath.row])
+        dataService.saveSearchLocation(location: searchLocations[indexPath.row])
         router?.showWeatherModule(for: searchLocations[indexPath.row])
     }
 
@@ -54,6 +58,11 @@ extension SearchPresenter: SearchViewOutput {
             switch result {
             case .success(let data):
                 self?.searchLocations = data
+                if data.count > 0 {
+                    self?.view?.configureHeader(text: Localization.Search.headerSearch)
+                } else {
+                    self?.view?.configureHeader(text: Localization.Search.headerSearchNoResults)
+                }
                 self?.view?.reloadTableView()
             case .failure(_):
                 self?.showError()

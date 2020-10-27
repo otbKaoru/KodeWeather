@@ -10,6 +10,9 @@ enum Localization {
         static let title = "Погода"
         static let searchBarPlaceholder = "Поиск"
         static let searchBarCancelButtonText = "Отменить"
+        static let headerSearchUserDefaults = "Последние запросы"
+        static let headerSearch = "Похожие запросы"
+        static let headerSearchNoResults = "Такого города не существует"
     }
     enum Weather {
         static let title = "Погода в городе"

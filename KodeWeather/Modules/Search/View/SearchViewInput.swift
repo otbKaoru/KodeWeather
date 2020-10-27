@@ -7,4 +7,5 @@
 
 protocol SearchViewInput: class {
     func reloadTableView()
+    func configureHeader(text: String)
 }
