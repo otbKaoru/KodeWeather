@@ -9,7 +9,6 @@ import Foundation
 
 protocol SearchViewOutput: class {
     func viewLoaded()
-    func viewWillAppear()
     func cellViewModel(for indexPath: IndexPath) -> Location?
     func fetchPreviewLocations(for query: String)
     func numberOfRows() -> Int

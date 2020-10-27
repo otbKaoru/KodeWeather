@@ -18,17 +18,22 @@ final class AttractionService: AttractionServiceProtocol {
     func loadAttractionsFromJson() {
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
-                let attractionCount = fetchLocationAttractionsCount()
-                guard attractionCount == 0 else {
-                    return
-                }
+                let attractions = fetchLocationAttractions()
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 guard let contextKey = CodingUserInfoKey.context else { return }
                 decoder.userInfo[contextKey] = CoreDataService.shared.getContext()
                 let jsonData = try decoder.decode([Attraction].self, from: data)
-                if attractionCount != jsonData.count {
+                print(attractions.count, jsonData.count)
+                if attractions.count != jsonData.count {
+                    for attraction in attractions {
+                        CoreDataService.shared.getContext().delete(attraction)
+                    }
                     CoreDataService.shared.saveContext()
+                } else {
+                    for attraction in jsonData {
+                        CoreDataService.shared.getContext().delete(attraction)
+                    }
                 }
             } catch {
                 print("error:\(error)")
@@ -42,9 +47,8 @@ final class AttractionService: AttractionServiceProtocol {
         return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
     }
 
-    func fetchLocationAttractionsCount() -> Int {
-        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: nil, predicateValue: "") as [Geo]
-        return fetchedValues.count
+    func fetchLocationAttractions() -> [Attraction] {
+        return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: nil, predicateValue: "") as [Attraction]
     }
 
     func isLocationHaveAttractions(locationName: String) -> Bool {
