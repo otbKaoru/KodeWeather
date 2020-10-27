@@ -20,7 +20,7 @@ final class WeatherViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: ViewOptions.locationLabelFontSize)
+        label.font = UIFont.systemFont(ofSize: ViewOptions.locationLabelFontSize, weight: .heavy)
         label.textColor = StyleGuide.Colors.defaultTextColor
         return label
     }()

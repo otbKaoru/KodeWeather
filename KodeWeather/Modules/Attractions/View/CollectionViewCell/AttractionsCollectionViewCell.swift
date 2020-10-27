@@ -21,7 +21,7 @@ final class AttractionsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: CellOptions.attractionTitleFontSize)
+        label.font = UIFont.systemFont(ofSize: CellOptions.attractionTitleFontSize, weight: .semibold)
         label.textColor = StyleGuide.Colors.defaultTextColor
         return label
     }()

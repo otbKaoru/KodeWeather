@@ -25,7 +25,6 @@ class AttractionDescriptionView: UIView {
         label.font = UIFont.systemFont(ofSize: ViewOptions.attractionDescriptionFontSize)
         label.textColor = ViewOptions.readMoreTextColor
         label.text = Localization.AttractionDetail.readMoreTitle
-        //label.addTarget(self, action: #selector(readMoreLabelTap))
         return label
     }()
 

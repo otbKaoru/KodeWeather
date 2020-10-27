@@ -21,7 +21,7 @@ class SearchTableViewCell: UITableViewCell {
     private func setup() {
         contentView.backgroundColor = StyleGuide.Colors.darkGray
         textLabel?.textColor = StyleGuide.Colors.defaultTextColor
-        textLabel?.font = UIFont.systemFont(ofSize: CellOptions.textLabelFonSize, weight: .init(rawValue: CellOptions.textLabelFontWeight))
+        textLabel?.font = UIFont.systemFont(ofSize: CellOptions.textLabelFonSize, weight: .heavy)
     }
 
     func configure(with text: String, textColor: UIColor) {
@@ -34,6 +34,5 @@ class SearchTableViewCell: UITableViewCell {
 extension SearchTableViewCell {
     private enum CellOptions {
         static let textLabelFonSize: CGFloat = 32
-        static let textLabelFontWeight: CGFloat = 800
     }
 }

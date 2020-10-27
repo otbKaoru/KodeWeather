@@ -19,7 +19,7 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: CellOptions.timeLabelFontSize, weight: .init(CellOptions.timeLabelFontWeight))
+        label.font = UIFont.systemFont(ofSize: CellOptions.timeLabelFontSize, weight: .regular)
         label.textColor = StyleGuide.Colors.defaultTextColor
         return label
     }()
@@ -28,7 +28,7 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: CellOptions.weatherLabelFontSize, weight: .init(CellOptions.weatherLabelFontWeight))
+        label.font = UIFont.systemFont(ofSize: CellOptions.weatherLabelFontSize, weight: .regular)
         label.textColor = StyleGuide.Colors.defaultTextColor
         return label
     }()
@@ -95,9 +95,7 @@ final class WeatherCollectionViewCell: UICollectionViewCell {
 extension WeatherCollectionViewCell {
     private enum CellOptions {
         static let timeLabelFontSize: CGFloat = 16
-        static let timeLabelFontWeight: CGFloat = 400
         static let weatherLabelFontSize: CGFloat = 13
-        static let weatherLabelFontWeight: CGFloat = 500
         static let contentViewLayerCornerRadius: CGFloat = 8
     }
 

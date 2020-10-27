@@ -32,7 +32,7 @@ final class AttractionDetailViewController: UIViewController {
     private let attractionTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: ViewOptions.attractionTitleFontSize)
+        label.font = UIFont.systemFont(ofSize: ViewOptions.attractionTitleFontSize, weight: .heavy)
         label.textColor = StyleGuide.Colors.defaultTextColor
         label.numberOfLines = 0
         return label
@@ -42,7 +42,7 @@ final class AttractionDetailViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: ViewOptions.mapTitleFontsize)
+        label.font = UIFont.systemFont(ofSize: ViewOptions.mapTitleFontsize, weight: .semibold)
         label.textColor = StyleGuide.Colors.defaultTextColor
         label.text = Localization.AttractionDetail.mapTitle
         return label
