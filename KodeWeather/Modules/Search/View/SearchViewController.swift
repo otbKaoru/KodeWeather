@@ -125,6 +125,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchController.searchBar.text {
             output?.fetchAllLocations(for: searchText)
+            searchController.isActive = false
         }
     }
 

@@ -42,7 +42,6 @@ class AppCoordinator: AppCoordinatorProtocol {
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barStyle = .black
         navigationController.navigationBar.tintColor = StyleGuide.Colors.defaultTextColor
-        //navigationController.navigationBar.prefersLargeTitles = true
     }
 
     private func setupTabBarConroller() {
