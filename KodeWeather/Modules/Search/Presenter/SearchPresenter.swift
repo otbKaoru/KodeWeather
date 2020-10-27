@@ -54,7 +54,7 @@ extension SearchPresenter: SearchViewOutput {
             dataService.saveSearchLocation(location: location )
             router?.showWeatherModule(for: location)
         } else {
-            geoSerivce.fetchGeoForLocationName(locationName: location.fullname) { [weak self] (result) in
+            geoSerivce.fetchGeoForLocationName(location: location) { [weak self] (result) in
                 switch result {
                 case .success(let location):
                     self?.dataService.saveSearchLocation(location: location )

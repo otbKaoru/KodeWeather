@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AttractionServiceProtocol {
-    func isLocationHaveAttractions(locationName: String) -> Bool
+    func isLocationHaveAttractions(location: String) -> Bool
     func fetchLocationAttractions(locationName: String) -> [Attraction]
 }
 
@@ -37,8 +37,8 @@ final class AttractionService: AttractionServiceProtocol {
         return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
     }
 
-    func isLocationHaveAttractions(locationName: String) -> Bool {
-        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
+    func isLocationHaveAttractions(location: String) -> Bool {
+        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: location) as [Geo]
         return fetchedValues.count > 0
     }
 }

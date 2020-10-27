@@ -90,7 +90,7 @@ extension WeatherPresenter: WeatherViewOutput {
                 self?.showError()
             }
         }
-        if (attractionService.isLocationHaveAttractions(locationName: location.name)) {
+        if (attractionService.isLocationHaveAttractions(location: location.name)) {
             view?.setAttractionButtonVisible()
         }
     }

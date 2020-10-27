@@ -10,7 +10,7 @@ import MapKit
 
 protocol GeoServiceProtocol {
     func fetchGeoData(query: String, completion: @escaping (SearchResponse))
-    func fetchGeoForLocationName(locationName: String, completion: @escaping (Result<Location, NetworkError>) -> Void)
+    func fetchGeoForLocationName(location: Location, completion: @escaping (Result<Location, NetworkError>) -> Void)
 }
 
 typealias SearchResponse = (Result<[Location], NetworkError>) -> Void
@@ -56,9 +56,9 @@ final class GeoService: NSObject, GeoServiceProtocol {
 
     }
 
-    func fetchGeoForLocationName(locationName: String, completion: @escaping (Result<Location, NetworkError>) -> Void) {
+    func fetchGeoForLocationName(location: Location, completion: @escaping (Result<Location, NetworkError>) -> Void) {
         let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = locationName
+        searchRequest.naturalLanguageQuery = location.fullname
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             guard error == nil else {
@@ -66,7 +66,7 @@ final class GeoService: NSObject, GeoServiceProtocol {
                 return
             }
             guard let placeMark = response?.mapItems[0].placemark else { return }
-            let location = Location(name: locationName, fullname: locationName, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+            let location = Location(name: location.name, fullname: location.fullname, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
             completion(.success(location))
         }
     }
@@ -75,18 +75,18 @@ final class GeoService: NSObject, GeoServiceProtocol {
 //MARK: - MKLocalSearchCompleterDelegate
 extension GeoService: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        let firstTitle = String(completer.results.first?.title.split(separator: ",")[0] ?? "")
         let results = completer.results.filter { result in
             guard result.title.contains(",") else { return false }
             guard result.subtitle.isEmpty else { return false }
+            if result != completer.results.first {
+                guard String(result.title.split(separator: ",")[0]) != firstTitle else { return false }
+            }
             return true
-        }.map({ Location(name: $0.title, fullname: $0.title, lan: nil, lon: nil)})
+        }.map({ Location(name: String($0.title.split(separator: ",")[0]), fullname: $0.title, lan: nil, lon: nil)})
         if let completion = queryCompletion {
             completion(.success(results))
         }
-    }
-
-    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-        print("error search")
     }
 }
 
