@@ -1,0 +1,6 @@
+module Pods_KodeWeather {
+  umbrella header "Pods-KodeWeather-umbrella.h"
+
+  export *
+  module * { export * }
+}
