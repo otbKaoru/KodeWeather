@@ -18,7 +18,7 @@ final class AttractionService: AttractionServiceProtocol {
     func loadAttractionsFromJson() {
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
-                let attractions = fetchLocationAttractions()
+                let attractions = fetchAttractions()
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 guard let contextKey = CodingUserInfoKey.context else { return }
@@ -46,7 +46,7 @@ final class AttractionService: AttractionServiceProtocol {
         return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
     }
 
-    func fetchLocationAttractions() -> [Attraction] {
+    func fetchAttractions() -> [Attraction] {
         return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: nil, predicateValue: "") as [Attraction]
     }
 
