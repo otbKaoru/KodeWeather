@@ -30,6 +30,10 @@ final class SearchViewController: UIViewController {
         setupLayouts()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        output?.viewWillAppear()
+    }
+
     private func setupSearchController() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false

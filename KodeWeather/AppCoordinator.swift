@@ -50,9 +50,12 @@ class AppCoordinator: AppCoordinatorProtocol {
         tabBarController.setViewControllers([navigationController], animated: false)
     }
 
-    func start() {
-        CoreDataService.shared.clearData()
+    private func setupAttractionsData() {
         attractionService.loadAttractionsFromJson()
+    }
+
+    func start() {
+        setupAttractionsData()
         setupGlobal()
         setupNavigationController()
         setupTabBarConroller()

@@ -8,23 +8,28 @@
 import Foundation
 
 protocol AttractionServiceProtocol {
-    func isLocationHaveAttractions(location: String) -> Bool
+    func isLocationHaveAttractions(locationName: String) -> Bool
     func fetchLocationAttractions(locationName: String) -> [Attraction]
+    func clearAttractionsData() 
 }
 
 final class AttractionService: AttractionServiceProtocol {
 
     func loadAttractionsFromJson() {
-        CoreDataService.shared.clearData()
-
         if let url = Bundle.main.url(forResource: Options.jsonName, withExtension: "json") {
             do {
+                let attractionCount = fetchLocationAttractionsCount()
+                guard attractionCount == 0 else {
+                    return
+                }
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 guard let contextKey = CodingUserInfoKey.context else { return }
                 decoder.userInfo[contextKey] = CoreDataService.shared.getContext()
-                let _ = try decoder.decode([Attraction].self, from: data)
-                CoreDataService.shared.saveContext()
+                let jsonData = try decoder.decode([Attraction].self, from: data)
+                if attractionCount != jsonData.count {
+                    CoreDataService.shared.saveContext()
+                }
             } catch {
                 print("error:\(error)")
             }
@@ -37,9 +42,18 @@ final class AttractionService: AttractionServiceProtocol {
         return CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "geo.name == %@", predicateValue: locationName) as [Attraction]
     }
 
-    func isLocationHaveAttractions(location: String) -> Bool {
-        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: location) as [Geo]
+    func fetchLocationAttractionsCount() -> Int {
+        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: nil, predicateValue: "") as [Geo]
+        return fetchedValues.count
+    }
+
+    func isLocationHaveAttractions(locationName: String) -> Bool {
+        let fetchedValues = CoreDataService.shared.fetchDataWithPredicate(predicateFormat: "name == %@", predicateValue: locationName) as [Geo]
         return fetchedValues.count > 0
+    }
+
+    func clearAttractionsData() {
+        CoreDataService.shared.clearData()
     }
 }
 

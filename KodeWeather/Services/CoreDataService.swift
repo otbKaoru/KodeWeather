@@ -22,9 +22,11 @@ class CoreDataService: NSObject {
         return container
     }()
 
-    func fetchDataWithPredicate<T: NSFetchRequestResult>(predicateFormat: String, predicateValue: String) -> [T] {
+    func fetchDataWithPredicate<T: NSFetchRequestResult>(predicateFormat: String?, predicateValue: String) -> [T] {
         let fetchRequest = NSFetchRequest<T>(entityName: String(describing: T.self))
-        fetchRequest.predicate = NSPredicate(format: predicateFormat, predicateValue)
+        if let predicateFormat = predicateFormat {
+            fetchRequest.predicate = NSPredicate(format: predicateFormat, predicateValue)
+        }
         do {
             let fetchedObjects = try persistentContainer.viewContext.fetch(fetchRequest)
             return fetchedObjects

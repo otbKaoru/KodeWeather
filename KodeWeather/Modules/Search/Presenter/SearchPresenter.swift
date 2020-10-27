@@ -26,6 +26,9 @@ final class SearchPresenter {
 
 // MARK: - SearchViewOutput
 extension SearchPresenter: SearchViewOutput {
+    func viewWillAppear() {
+    }
+
     func viewLoaded() {
         let locations = dataService.getSearchLocations()
         if locations.count > 0 {
