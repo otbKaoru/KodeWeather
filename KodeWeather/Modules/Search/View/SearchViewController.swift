@@ -126,6 +126,7 @@ extension SearchViewController: UISearchBarDelegate {
         if let searchText = searchController.searchBar.text {
             output?.fetchAllLocations(for: searchText)
             searchController.isActive = false
+            searchController.searchBar.text = searchText
         }
     }
 
