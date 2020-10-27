@@ -36,7 +36,7 @@ final class UserDefaultsService {
 
 extension UserDefaultsService {
     private enum Options {
-        static let maxSearchCount = 4
+        static let maxSearchCount = 5
     }
 }
 

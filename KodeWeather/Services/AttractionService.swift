@@ -24,7 +24,6 @@ final class AttractionService: AttractionServiceProtocol {
                 guard let contextKey = CodingUserInfoKey.context else { return }
                 decoder.userInfo[contextKey] = CoreDataService.shared.getContext()
                 let jsonData = try decoder.decode([Attraction].self, from: data)
-                print(attractions.count, jsonData.count)
                 if attractions.count != jsonData.count {
                     for attraction in attractions {
                         CoreDataService.shared.getContext().delete(attraction)
