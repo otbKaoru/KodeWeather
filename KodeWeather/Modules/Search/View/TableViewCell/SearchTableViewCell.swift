@@ -24,8 +24,9 @@ class SearchTableViewCell: UITableViewCell {
         textLabel?.font = UIFont.systemFont(ofSize: CellOptions.textLabelFonSize, weight: .init(rawValue: CellOptions.textLabelFontWeight))
     }
 
-    func configure(with text: String) {
+    func configure(with text: String, textColor: UIColor) {
         textLabel?.text = text
+        textLabel?.textColor = textColor
     }
 }
 

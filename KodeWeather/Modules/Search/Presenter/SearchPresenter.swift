@@ -41,6 +41,7 @@ extension SearchPresenter: SearchViewOutput {
         return searchLocations[indexPath.row]
     }
 
+
     func numberOfRows() -> Int {
         return searchLocations.count
     }
