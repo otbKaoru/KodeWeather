@@ -13,6 +13,7 @@ protocol SearchViewOutput: class {
     func fetchPreviewLocations(for query: String)
     func numberOfRows() -> Int
     func cancelSearch()
+    func isColorDefault() -> Bool
     func selectRowAtIndexPath(at indexPath: IndexPath)
     func fetchAllLocations(for query: String)
 }

@@ -19,6 +19,8 @@ final class SearchPresenter {
 
     private var searchLocations: [Location] = []
 
+    private var isShowedLastQueries = false
+
     private func showError() {
         router?.showError()
     }
@@ -29,6 +31,7 @@ extension SearchPresenter: SearchViewOutput {
     func viewLoaded() {
         let locations = dataService.getSearchLocations()
         if locations.count > 0 {
+            isShowedLastQueries = true
             view?.configureHeader(text: Localization.Search.headerSearchUserDefaults)
         }
         searchLocations = dataService.getSearchLocations()
@@ -41,9 +44,12 @@ extension SearchPresenter: SearchViewOutput {
         return searchLocations[indexPath.row]
     }
 
-
     func numberOfRows() -> Int {
         return searchLocations.count
+    }
+
+    func isColorDefault() -> Bool {
+        return !isShowedLastQueries
     }
 
     func selectRowAtIndexPath(at indexPath: IndexPath) {
@@ -71,6 +77,7 @@ extension SearchPresenter: SearchViewOutput {
         geoSerivce.fetchGeoData(query: query) { [weak self] (result) in
             switch result {
             case .success(let data):
+                self?.isShowedLastQueries = false
                 self?.searchLocations = data.enumerated().filter({$0.offset < 5}).map { $0.element }
                 if data.count > 0 {
                     self?.view?.configureHeader(text: Localization.Search.headerSearch)
@@ -90,6 +97,7 @@ extension SearchPresenter: SearchViewOutput {
         geoSerivce.fetchGeoData(query: query) { [weak self] (result) in
             switch result {
             case .success(let data):
+                self?.isShowedLastQueries = false
                 self?.searchLocations = data
                 if data.count > 0 {
                     self?.view?.configureHeader(text: Localization.Search.headerSearch)

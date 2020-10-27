@@ -18,6 +18,8 @@ final class SearchViewController: UIViewController {
     private var timer: Timer?
     private let sectionHeader = SearchTableSectionHeaderView()
 
+    private let isShowLastQueries = false
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -93,7 +95,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         cell.configure(with: output?.cellViewModel(for: indexPath)?.name ?? "",
-                       textColor: searchController.searchBar.text?.count ?? 0 > 0 ? StyleGuide.Colors.defaultTextColor : StyleGuide.Colors.middleGray)
+                       textColor: output?.isColorDefault() ?? true ? StyleGuide.Colors.defaultTextColor : StyleGuide.Colors.middleGrayTextColor)
         return cell
     }
 
