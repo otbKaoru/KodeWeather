@@ -13,4 +13,5 @@ protocol SearchViewOutput: class {
     func fetchPreviewLocations(for query: String)
     func numberOfRows() -> Int
     func selectRowAtIndexPath(at indexPath: IndexPath)
+    func fetchAllLocations(for query: String)
 }

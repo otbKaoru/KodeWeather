@@ -75,10 +75,16 @@ extension SearchPresenter: SearchViewOutput {
             switch result {
             case .success(let data):
                 self?.searchLocations = data
+                if data.count > 0 {
+                    self?.view?.configureHeader(text: Localization.Search.headerSearch)
+                } else {
+                    self?.view?.configureHeader(text: Localization.Search.headerSearchNoResults)
+                }
                 self?.view?.reloadTableView()
             case .failure(_):
                 self?.showError()
             }
         }
+
     }
 }

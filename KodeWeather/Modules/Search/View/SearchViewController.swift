@@ -39,6 +39,7 @@ final class SearchViewController: UIViewController {
         searchController.searchBar.placeholder = Localization.Search.searchBarPlaceholder
         searchController.searchBar.tintColor = StyleGuide.Colors.white
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textfield.textColor = StyleGuide.Colors.defaultTextColor
         }
@@ -115,6 +116,15 @@ extension SearchViewController: UISearchResultsUpdating {
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self ] (_) in
                 self?.output?.fetchPreviewLocations(for: searchText)
             })
+        }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchController.searchBar.text {
+            output?.fetchAllLocations(for: searchText)
         }
     }
 }
