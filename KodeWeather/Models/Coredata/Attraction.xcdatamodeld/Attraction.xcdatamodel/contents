@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Attraction" representedClassName=".Attraction" syncable="YES">
-        <attribute name="desc" attributeType="String" maxValueString="250" defaultValueString=""/>
-        <attribute name="descfull" attributeType="String" maxValueString="10000" defaultValueString=""/>
+        <attribute name="desc" attributeType="String" defaultValueString=""/>
+        <attribute name="descfull" attributeType="String" defaultValueString=""/>
         <attribute name="images" attributeType="Transformable" valueTransformerName="NSKeyedUnarchiveFromDataTransformerName"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="geo" maxCount="1" deletionRule="Cascade" destinationEntity="Geo" inverseName="attraction" inverseEntity="Geo"/>
