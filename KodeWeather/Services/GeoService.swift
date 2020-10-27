@@ -15,27 +15,45 @@ protocol GeoServiceProtocol {
 
 typealias SearchResponse = (Result<[Location], NetworkError>) -> Void
 
-final class GeoService: GeoServiceProtocol {
+final class GeoService: NSObject, GeoServiceProtocol {
     private let networkService: NetworkServiceProtocol = NetworkService()
+    private var searchCompleter: MKLocalSearchCompleter?
+
+    private var queryCompletion: SearchResponse? = nil
+
+    override init() {
+        super.init()
+        if AppSettings.searchBackend == .mkLocalSearch {
+            searchCompleter = MKLocalSearchCompleter()
+            searchCompleter?.delegate = self
+        }
+    }
     
     func fetchGeoData(query: String, completion: @escaping (SearchResponse)) {
-        let parametres: [String: Any]
-        parametres = ["format":RequestOptions.format,
-                      "apikey":RequestOptions.apiKey,
-                      "geocode":query,
-                      "results":RequestOptions.resultCount]
-        networkService.fetchDecodableData(API: ApiURL.yandexGeocode, parametres: parametres) { (result: Result<GeoResponse?, NetworkError>) in
-            switch result {
-            case .success(let data):
-                if let data = data {
-                    completion(.success(data.locations))
-                } else {
-                    completion(.success([]))
+        switch AppSettings.searchBackend {
+        case .yandex:
+            let parametres: [String: Any]
+            parametres = ["format":RequestOptions.format,
+                          "apikey":RequestOptions.apiKey,
+                          "geocode":query,
+                          "results":RequestOptions.resultCount]
+            networkService.fetchDecodableData(API: ApiURL.yandexGeocode, parametres: parametres) { (result: Result<GeoResponse?, NetworkError>) in
+                switch result {
+                case .success(let data):
+                    if let data = data {
+                        completion(.success(data.locations))
+                    } else {
+                        completion(.success([]))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            case .failure(let error):
-                completion(.failure(error))
             }
+        case .mkLocalSearch:
+            self.queryCompletion = completion
+            searchCompleter?.queryFragment = query
         }
+
     }
 
     func fetchGeoForLocationName(locationName: String, completion: @escaping (Result<Location, NetworkError>) -> Void) {
@@ -51,12 +69,30 @@ final class GeoService: GeoServiceProtocol {
                 completion(.failure(.networkError))
                 return
             }
-            let location = Location(name: locationName, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
+            let location = Location(name: locationName, fullname: locationName, lan: placeMark.coordinate.latitude, lon: placeMark.coordinate.longitude)
             completion(.success(location))
         }
     }
-
 }
+
+//MARK: - MKLocalSearchCompleterDelegate
+extension GeoService: MKLocalSearchCompleterDelegate {
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        let results = completer.results.filter { result in
+            guard result.title.contains(",") else { return false }
+            guard result.subtitle.isEmpty else { return false }
+            return true
+        }.map({ Location(name: $0.title, fullname: $0.title, lan: nil, lon: nil)})
+        if let completion = queryCompletion {
+            completion(.success(results))
+        }
+    }
+
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        print("error search")
+    }
+}
+
 
 extension GeoService {
     private enum ApiURL {

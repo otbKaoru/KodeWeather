@@ -6,7 +6,7 @@
 //
 
 enum AppSettings {
-    static let searchBackend: SearchBackend = .yandex
+    static let searchBackend: SearchBackend = .mkLocalSearch
 }
 
 enum SearchBackend {

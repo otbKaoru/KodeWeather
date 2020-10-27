@@ -17,8 +17,8 @@ final class WeatherService {
 extension WeatherService: WeatherServiceProtocol {
     func fetchWeatherData(location: Location, completion: @escaping (Result<WeatherResponse?, NetworkError>) -> Void) {
         let parametres: [String: Any]
-        parametres = ["lat":location.lan,
-                      "lon":location.lon,
+        parametres = ["lat":location.lan ?? 0,
+                      "lon":location.lon ?? 0,
                       "exclude":RequestOptions.exclude,
                       "lang":RequestOptions.lang,
                       "units":RequestOptions.units,
