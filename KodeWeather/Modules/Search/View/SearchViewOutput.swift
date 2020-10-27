@@ -12,6 +12,7 @@ protocol SearchViewOutput: class {
     func cellViewModel(for indexPath: IndexPath) -> Location?
     func fetchPreviewLocations(for query: String)
     func numberOfRows() -> Int
+    func cancelSearch()
     func selectRowAtIndexPath(at indexPath: IndexPath)
     func fetchAllLocations(for query: String)
 }

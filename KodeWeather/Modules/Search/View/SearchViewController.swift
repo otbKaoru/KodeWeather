@@ -61,7 +61,7 @@ final class SearchViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
@@ -111,7 +111,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
+        if let searchText = searchController.searchBar.text, searchText.count > 0 {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self ] (_) in
                 self?.output?.fetchPreviewLocations(for: searchText)
@@ -126,5 +126,9 @@ extension SearchViewController: UISearchBarDelegate {
         if let searchText = searchController.searchBar.text {
             output?.fetchAllLocations(for: searchText)
         }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        output?.cancelSearch()
     }
 }

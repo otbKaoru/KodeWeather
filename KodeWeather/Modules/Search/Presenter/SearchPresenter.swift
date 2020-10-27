@@ -74,7 +74,9 @@ extension SearchPresenter: SearchViewOutput {
                 if data.count > 0 {
                     self?.view?.configureHeader(text: Localization.Search.headerSearch)
                 } else {
-                    self?.view?.configureHeader(text: Localization.Search.headerSearchNoResults)
+                    if query != "" {
+                        self?.view?.configureHeader(text: Localization.Search.headerSearchNoResults)
+                    }
                 }
                 self?.view?.reloadTableView()
             case .failure(_):
@@ -91,13 +93,20 @@ extension SearchPresenter: SearchViewOutput {
                 if data.count > 0 {
                     self?.view?.configureHeader(text: Localization.Search.headerSearch)
                 } else {
-                    self?.view?.configureHeader(text: Localization.Search.headerSearchNoResults)
+                    if query != "" {
+                        self?.view?.configureHeader(text: Localization.Search.headerSearchNoResults)
+                    }
                 }
                 self?.view?.reloadTableView()
             case .failure(_):
                 self?.showError()
             }
         }
+    }
 
+    func cancelSearch() {
+        view?.configureHeader(text: "")
+        searchLocations = []
+        view?.reloadTableView()
     }
 }
