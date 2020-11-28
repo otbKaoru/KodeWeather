@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataService: NSObject {
+final class CoreDataService: NSObject {
 
     static let shared = CoreDataService()
 
