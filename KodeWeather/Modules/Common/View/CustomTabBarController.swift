@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+final class CustomTabBarController: UITabBarController {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
